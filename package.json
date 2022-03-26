@@ -6,6 +6,8 @@
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
-  "dependencies": {},
+  "dependencies": {
+    "ejs": "^3.1.6"
+  },
   "devDependencies": {}
 }
