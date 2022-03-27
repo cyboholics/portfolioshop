@@ -13,7 +13,9 @@ module.exports = async function (context, req) {
     const message ={
         from, to, subject, text
     }
-    mg.messages().send(message);
+    mg.messages().send(message,(error,result)=>{
+        context.log(error || result)
+    });
     context.res.status(302)
     context.res.header('Location', context.req.headers.origin)
     context.done()
