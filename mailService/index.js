@@ -1,7 +1,7 @@
 const mailgun = require("mailgun-js");
 
 const DOMAIN = 'mail.portfolioshop.tech';
-const api_key = 'c8a9c2ca753382abdb7509d411dbeb28-0677517f-88b9ae35'
+const api_key = process.env["MAILGUN_API_KEY"];
 const mg = mailgun({ apiKey: api_key, domain: DOMAIN });
 
 module.exports = async function (context, req) {
@@ -14,4 +14,7 @@ module.exports = async function (context, req) {
         from, to, subject, text
     }
     mg.messages().send(message);
+    context.res.status(302)
+    context.res.header('Location', context.req.headers.origin)
+    context.done()
 }
