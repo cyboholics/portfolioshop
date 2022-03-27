@@ -8,7 +8,10 @@
   },
   "dependencies": {
     "ejs": "^3.1.6",
-    "mailgun-js": "^0.22.0"
+    "mongodb": "^4.4.1",
+    "mongoose": "^6.2.8",
+    "nodemailer": "^6.7.3",
+    "nodemailer-smtp-transport": "^2.7.4"
   },
   "devDependencies": {}
 }
