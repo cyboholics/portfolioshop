@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "@azure/storage-blob": "^12.9.0",
-    "data-uri-to-buffer": "^3.0.1",
     "ejs": "^3.1.6",
     "mongoose": "^6.2.8",
     "mongoose-findorcreate": "^3.0.0",
