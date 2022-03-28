@@ -22,9 +22,12 @@ module.exports = async function (context, req) {
     }catch(err){
         context.res = {
             statusCode:500,
-            body: "Internal Server Error"
+            body: {
+                message: "Internal Server Error",
+                error: err.message
+            }
         };
-        console.log(err)
+        context.log(err)
     }
 
 }
