@@ -1,7 +1,8 @@
 {
   "name": "profileshopmicros",
+  "private": true,
   "version": "1.0.0",
-  "description": "",
+  "description": "This is the microservice backend for portfolioshop",
   "scripts": {
     "start": "func start",
     "test": "echo \"No tests yet...\""
@@ -14,6 +15,11 @@
     "nodemailer": "^6.7.3",
     "nodemailer-smtp-transport": "^2.7.4",
     "uuid": "^8.3.2"
+  },
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sudip-mondal-2002/portfolioshopMicros.git"
   },
   "devDependencies": {}
 }
