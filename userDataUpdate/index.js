@@ -5,7 +5,7 @@ mongoose.connect(mongoLink, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, (err, result) => {
-    console.log(err || result)
+    if(!err) console.log(err)
 })
 
 module.exports = async function (context, req) {
