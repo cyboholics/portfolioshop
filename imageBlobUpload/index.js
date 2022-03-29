@@ -2,7 +2,7 @@ const AZURE_BLOB_CONNECTION_STRING = process.env["AZURE_BLOB_CONNECTION_STRING"]
 const {BlobServiceClient} = require("@azure/storage-blob")
 const {v4} = require('uuid');
 const axios = require("axios")
-
+const HOST = process.env["HOST"]
 
 module.exports = async function (context, req) {
     const uri = req.body["uri"].split(",")[1];

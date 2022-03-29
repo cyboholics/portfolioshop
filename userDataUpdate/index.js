@@ -2,6 +2,7 @@ const userData = require("../models/schema")
 const mongoose = require("mongoose")
 const mongoLink = process.env["MONGO_LINK"]
 const axios = require("axios")
+const HOST = process.env["HOST"]
 
 mongoose.connect(mongoLink, {
     useNewUrlParser: true,
