@@ -4,8 +4,10 @@ const {v4} = require('uuid');
 
 module.exports = async function (context, req) {
     const uri = req.body["uri"].split(",")[1];
-    var buffer = Buffer.from(uri, 'base64');
+    var token = req.query["token"]
     try{ 
+        await axios.get(`${HOST}/api/GoogleAuthValidation?token=${token}`)
+        var buffer = Buffer.from(uri, 'base64');
         const blobServiceClient = await BlobServiceClient.fromConnectionString(AZURE_BLOB_CONNECTION_STRING);
         const container = "portfolioshopimages";
         const containerClient = await blobServiceClient.getContainerClient(container);
@@ -16,7 +18,8 @@ module.exports = async function (context, req) {
             statusCode: 200,
             body: {
                 uri: `${process.env["AZURE_BLOB_URL"]}/${container}/${blobName}`
-            }
+            },
+            contentType: 'application/json'
         }
     }catch (e) {
             context.res = {
