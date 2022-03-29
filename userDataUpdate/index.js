@@ -5,13 +5,14 @@ mongoose.connect(mongoLink, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, (err, result) => {
-    if(!err) console.log(err)
+    if(err) console.log(err)
 })
 
 module.exports = async function (context, req) {
-    const user = req.body.doc.username;
     const data = req.body.doc;
     try {
+        const res=await axios.get(`${HOST}/api/GoogleAuthValidation?token=${token}`);
+        const user = res.data;
         await userData.updateOne({
             username: user,
         }, data)
@@ -22,10 +23,7 @@ module.exports = async function (context, req) {
     }catch(err){
         context.res = {
             statusCode:500,
-            body: {
-                message: "Internal Server Error",
-                error: err.message
-            }
+            body: err.message
         };
         context.log(err)
     }
