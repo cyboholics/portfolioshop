@@ -1,8 +1,6 @@
-const userRequest = require("../models/user_request_schema");
-const mongoose = require("mongoose");
-const mongoLink = process.env["MONGO_LINK"];
-const axios = require("axios");
-const HOST = process.env["HOST"];
+const {userRequestModel} = require("../models/index")
+const axios = require("axios")
+const HOST = process.env["HOST"]
 
 mongoose.connect(
     mongoLink,
@@ -50,10 +48,11 @@ module.exports = async function (context, req) {
         context.res = {
             statusCode: 400,
             body: {
-                message: "Database Error",
-                err: err.message,
-            },
-        };
+                message: "Update rejected",
+                err: err.message
+            }
+        }
+        context.log(err)
     }
     context.done();
 };
