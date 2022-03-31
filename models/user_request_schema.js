@@ -12,9 +12,13 @@ const userReqSchema = mongoose.Schema({
     },
     raisedTimestamp:{
         type: Date,
+        required: true
     },
-    resolvedTimestamp:{
+    responseTimestamp:{
         type: Date,
+    },
+    responseMessage:{
+        type: String,
     }
 })
 
