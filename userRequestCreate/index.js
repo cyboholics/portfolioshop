@@ -1,19 +1,6 @@
-const userRequest = require("../models/user_request_schema");
-const mongoose = require("mongoose");
-const mongoLink = process.env["MONGO_LINK"];
+const {userRequestModel} = require("../models/index");
 const axios = require("axios");
 const HOST = process.env["HOST"];
-
-mongoose.connect(
-  mongoLink,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  (err, result) => {
-    if (err) console.log(err);
-  }
-);
 
 module.exports = async function (context, req) {
   var token = req.query["token"];
@@ -30,20 +17,18 @@ module.exports = async function (context, req) {
     };
     context.done();
   }
-  // if token valid
-  var errorMsg = null;
   const usernm = res.data;
   const raisedTime = Date.now();
   const userReq = req.body.userRequest;
   try {
-    const result = await userRequest.create({
+    const ticket = await userRequestModel.create({
       username: usernm,
       userRequest: userReq,
       raisedTimestamp: raisedTime,
     });
     context.res = {
       body: {
-        message: "Inserted",
+        message: ticket._id,
         err: null,
       },
     };
