@@ -1,4 +1,4 @@
-const {userRequestModel} = require("../models/index")
+const { userRequestModel } = require("../models/index")
 const axios = require("axios")
 const HOST = process.env["HOST"]
 
@@ -39,16 +39,17 @@ module.exports = async function (context, req) {
         );
         context.res = {
             statusCode: 200,
+            contentType: "application/json",
             body: {
-                message: "Updated",
-                err: null,
-            },
-        };
+                message: `Update Successful. Request ID ${id}`,
+                err: null
+            }
+        }
     } catch (err) {
         context.res = {
-            statusCode: 400,
+            status: 500,
+            contentType: "application/json",
             body: {
-                message: "Update rejected",
                 err: err.message
             }
         }

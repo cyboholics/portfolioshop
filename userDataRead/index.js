@@ -1,16 +1,28 @@
-const {userModel} = require("../models/index")
+const { userModel } = require("../models/index")
 const axios = require("axios")
 const HOST = process.env["HOST"]
 
 module.exports = async function (context, req) {
-    var token = req.query["token"]    
+    var token = req.query["token"]
+    var res
     try {
-        const res=await axios.get(`${HOST}/api/GoogleAuthValidation?token=${token}`)
-        const user = res.data
+        res = await axios.get(`${HOST}/api/GoogleAuthValidation?token=${token}`)
+    } catch (err) {
+        context.res = {
+            statusCode: 401,
+            body: err.message
+        }
+        context.done();
+    }
+    const user = res.data
+    try {
         var data = await userModel.findOrCreate({
             username: user
         })
         context.res = {
+            headers: {
+                "Content-Type": 'application/json'
+            },
             body: data
         }
         context.statusCode = 200
@@ -19,7 +31,6 @@ module.exports = async function (context, req) {
         context.res = {
             body: err.message
         }
-        context.log(err)
     }
     context.done()
 }
