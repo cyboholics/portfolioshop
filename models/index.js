@@ -7,7 +7,7 @@ mongoose.connect(mongoLink, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, (err, result) => {
-    console.log(err || result);
+    console.log(err || result)
 })
 
 module.exports = { userModel, userRequestModel }
