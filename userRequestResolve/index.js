@@ -8,10 +8,9 @@ module.exports = async function (context, req) {
     const responseMsg = req.body.responseMessage;
     if(!responseMsg || !id){
         context.res = {
-            statusCode: 402,
+            statusCode: 400,
             body: {
-                message: "Bad Request",
-                err: null,
+                err: "Wrong keys",
             },
         };
         context.done()
