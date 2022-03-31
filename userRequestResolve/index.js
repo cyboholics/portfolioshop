@@ -1,34 +1,22 @@
-const userRequest = require("../models/user_request_schema")
-const mongoose = require("mongoose")
-const mongoLink = process.env["MONGO_LINK"]
+const {userRequestModel} = require("../models/index")
 const axios = require("axios")
 const HOST = process.env["HOST"]
 
-mongoose.connect(mongoLink, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}, (err, result)=>{
-    if(err) console.log(err);
-})
-
 module.exports = async function (context, req) {
     try{
-        
-        const usernm = req.body.username;
         const id = req.body.id;
         const responseTime = Date.now()
         const responseMsg = req.body.responseMessage;
-        const user = userRequest.find({username: usernm})
-        await userRequest.updateOne({
+        await userRequestModel.updateOne({
             _id:id
         },{
             responseTimestamp: responseTime,
             responseMessage: responseMsg
-        });
+        })
         context.res = {
             statusCode: 200,
             body: {
-                message: "Updated",
+                message: "Update Successful",
                 err: null
             }
         };
@@ -36,7 +24,7 @@ module.exports = async function (context, req) {
         context.res = {
             status: 500,
             body: {
-                message: "Internal Server Error",
+                message: "Update rejected",
                 err: err.message
             }
         };

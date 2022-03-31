@@ -1,21 +1,13 @@
-const userData = require("../models/schema")
-const mongoose = require("mongoose")
+const {userModel} = require("../models/index")
 const axios = require("axios")
-const mongoLink = process.env["MONGO_LINK"]
 const HOST = process.env["HOST"]
 
-mongoose.connect(mongoLink, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}, (err) => {
-    if (err) console.log(err)
-})
 module.exports = async function (context, req) {
     var token = req.query["token"]    
     try {
         const res=await axios.get(`${HOST}/api/GoogleAuthValidation?token=${token}`)
         const user = res.data
-        var data = await userData.findOrCreate({
+        var data = await userModel.findOrCreate({
             username: user
         })
         context.res = {
