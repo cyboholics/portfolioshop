@@ -1,6 +1,5 @@
 const { userRequestModel } = require("../models/index")
-const mongoose = require("mongoose")
-const mongoLink = process.env["MONGO_LINK"]
+
 const axios = require("axios")
 const HOST = process.env["HOST"]
 
@@ -17,7 +16,7 @@ module.exports = async function (context, req) {
             res = await axios.get(`${HOST}/api/GoogleAuthValidation?token=${token}`)
         } catch (err) {
             context.res = {
-                statusCode: 402,
+                statusCode: 401,
                 body: {
                     message: "Unauthorized Access",
                     err: err.message,
@@ -29,7 +28,7 @@ module.exports = async function (context, req) {
         filter = { username: username }
     }
     try {
-        const requests = await userRequest.find(filter)
+        const requests = await userRequestModel.find(filter)
         context.res = {
             statusCode: 200,
             body: {
@@ -39,10 +38,7 @@ module.exports = async function (context, req) {
     }catch(err){
         context.res = {
             statusCode: 500,
-            body:{
-                message: "Internal Server Error",
-                err: err.message
-            }
+            body: err.message
         }
     }
     context.done()
