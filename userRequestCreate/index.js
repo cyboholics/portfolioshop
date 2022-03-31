@@ -1,8 +1,8 @@
-const userRequest = require("../models/user_request_schema");
-const mongoose = require("mongoose");
-const mongoLink = process.env["MONGO_LINK"];
-const axios = require("axios");
-const HOST = process.env["HOST"];
+const userRequest = require("../models/user_request_schema")
+const mongoose = require("mongoose")
+const mongoLink = process.env["MONGO_LINK"]
+const axios = require("axios")
+const HOST = process.env["HOST"]
 
 mongoose.connect(
     mongoLink,
@@ -11,15 +11,15 @@ mongoose.connect(
         useUnifiedTopology: true,
     },
     (err, result) => {
-        if (err) console.log(err);
+        if (err) console.log(err)
     }
-);
+)
 
 module.exports = async function (context, req) {
-    var token = req.query["token"];
-    let res;
+    var token = req.query["token"]
+    let res
     try {
-        res = await axios.get(`${HOST}/api/GoogleAuthValidation?token=${token}`);
+        res = await axios.get(`${HOST}/api/GoogleAuthValidation?token=${token}`)
     } catch (err) {
         context.res = {
             statusCode: 402,
@@ -27,26 +27,26 @@ module.exports = async function (context, req) {
                 message: "Unauthorized Access",
                 err: err.message,
             },
-        };
-        context.done();
+        }
+        context.done()
     }
     // if token valid
-    var errorMsg = null;
-    const usernm = res.data;
-    const raisedTime = Date.now();
-    const userReq = req.body.userRequest;
+    var errorMsg = null
+    const usernm = res.data
+    const raisedTime = Date.now()
+    const userReq = req.body.userRequest
     try {
         const result = await userRequest.create({
             username: usernm,
             userRequest: userReq,
             raisedTimestamp: raisedTime,
-        });
+        })
         context.res = {
             body: {
                 message: "Inserted",
                 err: null,
             },
-        };
+        }
     } catch (err) {
         context.res = {
             statusCode: 400,
@@ -54,7 +54,7 @@ module.exports = async function (context, req) {
                 message: "Database Error",
                 err: err.message,
             },
-        };
+        }
     }
-    context.done();
-};
+    context.done()
+}
