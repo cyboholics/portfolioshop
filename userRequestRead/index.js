@@ -1,19 +1,8 @@
-const userRequest = require("../models/user_request_schema")
+const { userRequestModel } = require("../models/index")
 const mongoose = require("mongoose")
 const mongoLink = process.env["MONGO_LINK"]
 const axios = require("axios")
 const HOST = process.env["HOST"]
-
-mongoose.connect(
-    mongoLink,
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    },
-    (err, result) => {
-        if (err) console.log(err)
-    }
-)
 
 module.exports = async function (context, req) {
     const admin = req.query["admin"]

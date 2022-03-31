@@ -2,17 +2,6 @@ const { userRequestModel } = require("../models/index")
 const axios = require("axios")
 const HOST = process.env["HOST"]
 
-mongoose.connect(
-    mongoLink,
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    },
-    (err, result) => {
-        if (err) console.log(err);
-    }
-);
-
 module.exports = async function (context, req) {
     const id = req.body.id;
     const responseTime = Date.now();
@@ -26,9 +15,10 @@ module.exports = async function (context, req) {
             },
         };
         context.done()
+        return
     }
     try {
-        await userRequest.updateOne(
+        await userRequestModel.updateOne(
             {
                 _id: id,
             },
