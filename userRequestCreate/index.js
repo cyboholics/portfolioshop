@@ -1,4 +1,4 @@
-const {userRequestModel} = require("../models/index")
+const { userRequestModel } = require("../models/index")
 const axios = require("axios")
 const HOST = process.env["HOST"]
 
@@ -9,7 +9,7 @@ module.exports = async function (context, req) {
     res = await axios.get(`${HOST}/api/GoogleAuthValidation?token=${token}`)
   } catch (err) {
     context.res = {
-      statusCode: 403,
+      statusCode: 401,
       body: {
         message: "Unauthorized Access",
         err: err.message,
@@ -27,18 +27,19 @@ module.exports = async function (context, req) {
       raisedTimestamp: raisedTime,
     })
     context.res = {
+      statusCode: 200,
       body: {
         message: ticket._id,
         err: null,
       },
+      headers: {
+        "Content-Type": 'application/json'
+      }
     }
   } catch (err) {
     context.res = {
       statusCode: 400,
-      body: {
-        message: "Database Error",
-        err: err.message,
-      },
+      body: err.message,
     }
   }
   context.done()
