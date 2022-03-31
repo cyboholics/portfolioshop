@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 const findOrCreate = require("mongoose-findorcreate")
 const dataModel = mongoose.Schema({
     username: {
@@ -180,7 +180,7 @@ const dataModel = mongoose.Schema({
             }
         }
     },
-});
+})
 
 dataModel.plugin(findOrCreate)
 

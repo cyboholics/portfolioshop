@@ -12,14 +12,14 @@ module.exports = async function (context, req) {
         })
         context.res = {
             body: data
-        };
-        context.statusCode = 200;
+        }
+        context.statusCode = 200
     } catch (err) {
-        context.statusCode = 500;
+        context.statusCode = 500
         context.res = {
             body: err.message
-        };
+        }
         context.log(err)
     }
-    context.done();
+    context.done()
 }
