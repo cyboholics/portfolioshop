@@ -2,22 +2,22 @@ const mongoose = require('mongoose')
 const findOrCreate = require("mongoose-findorcreate")
 
 const userReqSchema = mongoose.Schema({
-    username:{
+    username: {
         type: String,
         required: true
     },
-    userRequest:{
+    userRequest: {
         type: String,
         required: true
     },
-    raisedTimestamp:{
+    raisedTimestamp: {
         type: Date,
         required: true
     },
-    responseTimestamp:{
+    responseTimestamp: {
         type: Date,
     },
-    responseMessage:{
+    responseMessage: {
         type: String,
     }
 })

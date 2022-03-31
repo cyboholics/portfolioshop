@@ -1,45 +1,59 @@
-const userRequest = require("../models/user_request_schema")
-const mongoose = require("mongoose")
-const mongoLink = process.env["MONGO_LINK"]
-const axios = require("axios")
-const HOST = process.env["HOST"]
+const userRequest = require("../models/user_request_schema");
+const mongoose = require("mongoose");
+const mongoLink = process.env["MONGO_LINK"];
+const axios = require("axios");
+const HOST = process.env["HOST"];
 
-mongoose.connect(mongoLink, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}, (err, result)=>{
-    if(err) console.log(err);
-})
+mongoose.connect(
+    mongoLink,
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    },
+    (err, result) => {
+        if (err) console.log(err);
+    }
+);
 
 module.exports = async function (context, req) {
-    try{
-        
-        const usernm = req.body.username;
-        const id = req.body.id;
-        const responseTime = Date.now()
-        const responseMsg = req.body.responseMessage;
-        const user = userRequest.find({username: usernm})
-        await userRequest.updateOne({
-            _id:id
-        },{
-            responseTimestamp: responseTime,
-            responseMessage: responseMsg
-        });
+    const id = req.body.id;
+    const responseTime = Date.now();
+    const responseMsg = req.body.responseMessage;
+    if(!responseMsg || !id){
+        context.res = {
+            statusCode: 402,
+            body: {
+                message: "Bad Request",
+                err: null,
+            },
+        };
+        context.done()
+    }
+    try {
+        await userRequest.updateOne(
+            {
+                _id: id,
+            },
+            {
+                responseTimestamp: responseTime,
+                responseMessage: responseMsg,
+            }
+        );
         context.res = {
             statusCode: 200,
             body: {
                 message: "Updated",
-                err: null
-            }
+                err: null,
+            },
         };
-    }catch(err){
+    } catch (err) {
         context.res = {
-            status: 500,
+            statusCode: 400,
             body: {
-                message: "Internal Server Error",
-                err: err.message
-            }
+                message: "Database Error",
+                err: err.message,
+            },
         };
-        context.log(err)
     }
-}
+    context.done();
+};
