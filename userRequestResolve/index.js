@@ -2,33 +2,22 @@ const { userRequestModel } = require("../models/index")
 const axios = require("axios")
 const HOST = process.env["HOST"]
 
-mongoose.connect(
-    mongoLink,
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    },
-    (err, result) => {
-        if (err) console.log(err);
-    }
-);
-
 module.exports = async function (context, req) {
     const id = req.body.id;
     const responseTime = Date.now();
     const responseMsg = req.body.responseMessage;
     if(!responseMsg || !id){
         context.res = {
-            statusCode: 402,
+            statusCode: 400,
             body: {
-                message: "Bad Request",
-                err: null,
+                err: "Wrong keys",
             },
         };
         context.done()
+        return
     }
     try {
-        await userRequest.updateOne(
+        await userRequestModel.updateOne(
             {
                 _id: id,
             },
