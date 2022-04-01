@@ -30,7 +30,6 @@ module.exports = async function (context, req) {
         await transporter.sendMail(mailOptions)
         context.res.status(302)
     } catch (err) {
-        context.log(err.message)
         context.res.status(500)
     }
     context.res.header("Location", context.req.headers.origin)

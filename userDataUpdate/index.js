@@ -37,7 +37,6 @@ module.exports = async function (context, req) {
             statusCode: 500,
             body: err.message
         }
-        context.log(err)
     }
     context.done()
 }
