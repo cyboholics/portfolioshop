@@ -7,11 +7,12 @@ module.exports = async function (context, req) {
     const token = req.query["token"]
     let filter;
     if (admin == "true") {
+        let res
         try {
-            res = await axios.get(`${HOST}/api/adminAuthValidation?token=${token}`)
+            res = await axios.get(`${HOST}/api/authValidationAdmin?token=${token}`)
         } catch (err) {
             context.res = {
-                statusCode: 401,
+                statusCode: err.response.status,
                 body: err.message
             }
             context.done()
@@ -31,6 +32,7 @@ module.exports = async function (context, req) {
         const username = res.data
         filter = { username: username }
     }
+
     try {
         const requests = await userRequestModel.find(filter)
         context.res = {
