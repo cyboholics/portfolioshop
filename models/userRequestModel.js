@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const findOrCreate = require("mongoose-findorcreate")
 
 const userReqSchema = mongoose.Schema({
     username: {
@@ -21,7 +20,5 @@ const userReqSchema = mongoose.Schema({
         type: String,
     }
 })
-
-userReqSchema.plugin(findOrCreate)
 
 module.exports = mongoose.model('UserRequest', userReqSchema)

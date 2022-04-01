@@ -1,27 +1,30 @@
 const { userRequestModel } = require("../models/index")
-const mongoose = require("mongoose")
-const mongoLink = process.env["MONGO_LINK"]
 const axios = require("axios")
 const HOST = process.env["HOST"]
 
 module.exports = async function (context, req) {
     const admin = req.query["admin"]
+    const token = req.query["token"]
     let filter;
-    if (admin) {
-        context.log(admin)
-        filter = {}
-    } else {
-        const token = req.query["token"]
-        let res
+    if (admin == "true") {
         try {
-            res = await axios.get(`${HOST}/api/GoogleAuthValidation?token=${token}`)
+            res = await axios.get(`${HOST}/api/adminAuthValidation?token=${token}`)
         } catch (err) {
             context.res = {
-                statusCode: 402,
-                body: {
-                    message: "Unauthorized Access",
-                    err: err.message,
-                },
+                statusCode: 401,
+                body: err.message
+            }
+            context.done()
+        }
+        filter = {}
+    } else {
+        let res
+        try {
+            res = await axios.get(`${HOST}/api/googleAuthValidation?token=${token}`)
+        } catch (err) {
+            context.res = {
+                statusCode: 401,
+                body: err.message
             }
             context.done()
         }
@@ -29,20 +32,17 @@ module.exports = async function (context, req) {
         filter = { username: username }
     }
     try {
-        const requests = await userRequest.find(filter)
+        const requests = await userRequestModel.find(filter)
         context.res = {
             statusCode: 200,
             body: {
                 requests: requests
             }
         }
-    }catch(err){
+    } catch (err) {
         context.res = {
             statusCode: 500,
-            body:{
-                message: "Internal Server Error",
-                err: err.message
-            }
+            body: err.message
         }
     }
     context.done()
