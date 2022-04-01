@@ -18,6 +18,9 @@ const userReqSchema = mongoose.Schema({
     },
     responseMessage: {
         type: String,
+    },
+    responseBy:{
+        type: String
     }
 })
 

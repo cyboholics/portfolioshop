@@ -3,19 +3,29 @@ const axios = require("axios")
 const HOST = process.env["HOST"]
 
 module.exports = async function (context, req) {
-    const id = req.body.id;
+    const token = req.query["token"]
+    const id = req.body["id"];
     const responseTime = Date.now();
-    const responseMsg = req.body.responseMessage;
-    if(!responseMsg || !id){
+    const responseMsg = req.body["responseMessage"];
+    if (!responseMsg || !id || !token) {
         context.res = {
             statusCode: 400,
-            body: {
-                err: "Wrong keys",
-            },
+            body: "Bad Request"
         };
         context.done()
         return
     }
+    let res
+    try {
+        res = await axios.get(`${HOST}/api/authValidationAdmin?token=${token}`)
+    } catch (err) {
+        context.res = {
+            statusCode: err.toJSON().status,
+            body: err.message
+        }
+        context.done()
+    }
+
     try {
         await userRequestModel.updateOne(
             {
@@ -24,25 +34,18 @@ module.exports = async function (context, req) {
             {
                 responseTimestamp: responseTime,
                 responseMessage: responseMsg,
+                responseBy: res.body
             }
         );
         context.res = {
             statusCode: 200,
-            contentType: "application/json",
-            body: {
-                message: `Update Successful. Request ID ${id}`,
-                err: null
-            }
+            body: `Update Successful. Request ID ${id}`,
         }
     } catch (err) {
         context.res = {
             status: 500,
-            contentType: "application/json",
-            body: {
-                err: err.message
-            }
+            body: err.message
         }
-        context.log(err)
     }
     context.done();
 };
