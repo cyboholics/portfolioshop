@@ -3,21 +3,30 @@ const axios = require("axios")
 const HOST = process.env["HOST"]
 
 module.exports = async function (context, req) {
-    const token = req.query["token"]
-    const id = req.body["id"];
-    const responseTime = Date.now();
-    const responseMsg = req.body["responseMessage"];
-    if (!responseMsg || !id || !token) {
+    const admin_token = req.query["admin_token"]
+    const user_token = req.query["token"]
+    const id = req.body["id"]
+    const responseMsg = req.body["responseMessage"]
+    let currStatus = req.body["status"]
+    if (!currStatus) currStatus = "Open"
+    let responseBy
+    if (!responseMsg || !id || (!user_token && !admin_token)) {
         context.res = {
             statusCode: 400,
             body: "Bad Request"
-        };
+        }
         context.done()
-        return
     }
     let res
     try {
-        res = await axios.get(`${HOST}/api/authValidationAdmin?token=${token}`)
+        if (admin_token) {
+            res = await axios.get(`${HOST}/api/authValidationAdmin?token=${admin_token}`)
+            responseBy = `Admin <` + `${res.data}>`
+        }
+        if (user_token) {
+            res = await axios.get(`${HOST}/api/googleAuthValidation?token=${admin_token}`)
+            responseBy = res.data
+        }
     } catch (err) {
         context.res = {
             statusCode: err.toJSON().status,
@@ -32,11 +41,16 @@ module.exports = async function (context, req) {
                 _id: id,
             },
             {
-                responseTimestamp: responseTime,
-                responseMessage: responseMsg,
-                responseBy: res.body
+                status: currStatus,
+                $push: {
+                    thread: {
+                        message: responseMsg,
+                        by: responseBy,
+                        timestamp: Date.now()
+                    }
+                }
             }
-        );
+        )
         context.res = {
             statusCode: 200,
             body: `Update Successful. Request ID ${id}`,
@@ -47,5 +61,5 @@ module.exports = async function (context, req) {
             body: err.message
         }
     }
-    context.done();
-};
+    context.done()
+}
