@@ -8,6 +8,7 @@ module.exports = async function (context, req) {
     const id = req.body["id"]
     const responseMsg = req.body["responseMessage"]
     let currStatus = req.body["status"]
+    let usernm
     if (!currStatus) currStatus = "Open"
     let responseBy
     if (!responseMsg || !id || (!user_token && !admin_token)) {
@@ -22,44 +23,78 @@ module.exports = async function (context, req) {
         if (admin_token) {
             res = await axios.get(`${HOST}/api/authValidationAdmin?token=${admin_token}`)
             responseBy = `Admin <` + `${res.data}>`
+            try {
+                await userRequestModel.updateOne(
+                    {
+                        _id: id,
+                    },
+                    {
+                        status: currStatus,
+                        $push: {
+                            thread: {
+                                message: responseMsg,
+                                by: responseBy,
+                                timestamp: Date.now()
+                            }
+                        }
+                    }
+                )
+                context.res = {
+                    statusCode: 200,
+                    body: `Update Successful. Request ID ${id}`,
+                }
+                context.done()
+            } catch (err) {
+                context.res = {
+                    status: 500,
+                    body: err.message
+                }
+                context.done()
+            }
         }
+
         if (user_token) {
-            res = await axios.get(`${HOST}/api/googleAuthValidation?token=${admin_token}`)
+            res = await axios.get(`${HOST}/api/googleAuthValidation?token=${user_token}`)
             responseBy = res.data
+            usernm = res.data
+            try {
+                await userRequestModel.updateOne(
+                    {
+                        _id: id,
+                        username: usernm
+                    },
+                    {
+                        status: currStatus,
+                        $push: {
+                            thread: {
+                                message: responseMsg,
+                                by: responseBy,
+                                timestamp: Date.now()
+                            }
+                        }
+                    }
+                )
+                context.res = {
+                    statusCode: 200,
+                    body: `Update Successful. Request ID ${id}`,
+                }
+                context.done()
+            } catch (err) {
+                context.res = {
+                    status: 500,
+                    body: err.message
+                }
+                context.done()
+            }
         }
     } catch (err) {
+        let errCode
+        if(admin_token) errCode = err.toJSON().status
+        if(user_token) errCode = 401
         context.res = {
-            statusCode: err.toJSON().status,
+            statusCode: errCode,
             body: err.message
         }
         context.done()
     }
-
-    try {
-        await userRequestModel.updateOne(
-            {
-                _id: id,
-            },
-            {
-                status: currStatus,
-                $push: {
-                    thread: {
-                        message: responseMsg,
-                        by: responseBy,
-                        timestamp: Date.now()
-                    }
-                }
-            }
-        )
-        context.res = {
-            statusCode: 200,
-            body: `Update Successful. Request ID ${id}`,
-        }
-    } catch (err) {
-        context.res = {
-            status: 500,
-            body: err.message
-        }
-    }
-    context.done()
 }

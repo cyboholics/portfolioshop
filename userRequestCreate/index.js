@@ -7,14 +7,11 @@ module.exports = async function (context, req) {
     let res
 
     try {
-        res = await axios.get(`${HOST}/api/GoogleAuthValidation?token=${token}`)
+        res = await axios.get(`${HOST}/api/googleAuthValidation?token=${token}`)
     } catch (err) {
         context.res = {
             statusCode: 401,
-            body: {
-                message: "Unauthorized Access",
-                err: err.message,
-            },
+            body: `Unauthorized Access : ${err.message}`,
         }
         context.done()
     }
@@ -40,7 +37,7 @@ module.exports = async function (context, req) {
         })
         context.res = {
             statusCode: 200,
-            body: ticket._id,
+            body: `Created Ticket with Ticket Id : ${ticket._id}`,
             headers: {
                 "Content-Type": 'application/json'
             }
