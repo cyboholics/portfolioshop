@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 
-const userReqSchema = mongoose.Schema({
-    _id: false,
+const newsletterModel = mongoose.Schema({
     email:{
         type: String,
         unique: true,
@@ -9,4 +8,4 @@ const userReqSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('NewsletterEmail', userReqSchema)
+module.exports = mongoose.model('NewsletterEmail', newsletterModel)
