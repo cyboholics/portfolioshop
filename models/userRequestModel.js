@@ -5,23 +5,22 @@ const userReqSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    userRequest: {
-        type: String,
-        required: true
-    },
-    raisedTimestamp: {
-        type: Date,
-        required: true
-    },
-    responseTimestamp: {
-        type: Date,
-    },
-    responseMessage: {
+    status: {
         type: String,
     },
-    responseBy:{
-        type: String
-    }
+    thread:[{
+        message:{
+            type: String,
+            required: true
+        },
+        by:{
+            type: String,
+        },
+        timestamp: {
+            type: Date,
+            required: true
+        }
+    }]
 })
 
 module.exports = mongoose.model('UserRequest', userReqSchema)
