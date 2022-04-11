@@ -1,0 +1,24 @@
+{
+  "name": "portfolioshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start-api": "cd api && npm start",
+    "start-app": "cd app && npm start",
+    "start-dev": "concurrently \"npm:start-api\" \"npm:start-app\" ",
+    "start-swa": "swa start http://localhost:3000 --api-location http://localhost:7071",
+    "start": " npm run start-dev && npm run swa-up"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Portfolio-Shop/portfolioshop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Portfolio-Shop/portfolioshop/issues"
+  },
+  "homepage": "https://github.com/Portfolio-Shop/portfolioshop#readme"
+}
