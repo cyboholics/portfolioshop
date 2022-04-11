@@ -1,8 +1,15 @@
+import axios from 'axios';
 import React from 'react';
 import { GoogleLogin } from 'react-google-login'
 function App() {
   const [token,setToken] = React.useState("")
-  const responseGoogle = (res)=>{
+  const [email, setEmail] = React.useState("")
+  const responseGoogle = async (res)=>{
+    try{
+      const userEmail = await axios.get(`/api/GoogleAuthValidation?token=${res.tokenId}`);
+      setEmail(userEmail.data)
+    } catch(err){
+    }
     setToken(res.tokenId)
   }
   return (
@@ -17,6 +24,9 @@ function App() {
       />
       <p>
         {token}
+      </p>
+      <p>
+        Email: {email}
       </p>
     </div>
   );
