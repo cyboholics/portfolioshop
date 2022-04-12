@@ -2,8 +2,7 @@ import React from 'react'
 import axios from 'axios'
 export const EnvironmentContext = React.createContext({})
 export default function EnvironmentProvider({ children }) {
-    const [CLIENT_ID,setClientID] = React.useState("")
-    console.log(CLIENT_ID)
+    const [CLIENT_ID, setClientID] = React.useState("")
     React.useEffect(() => {
         axios.get(`/api/environments`).then((env) => {
             setClientID(env.data["GOOGLE_CLIENT_ID"])
@@ -13,7 +12,7 @@ export default function EnvironmentProvider({ children }) {
         })
     }, [])
     return (
-        <EnvironmentContext.Provider value={{CLIENT_ID}}>
+        <EnvironmentContext.Provider value={{ CLIENT_ID }}>
             {children}
         </EnvironmentContext.Provider>
     )
