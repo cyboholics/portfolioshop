@@ -16,8 +16,8 @@
     "url": "git+https://github.com/Portfolio-Shop/portfolioshop.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "portfolioshop",
+  "license": "GPL",
   "bugs": {
     "url": "https://github.com/Portfolio-Shop/portfolioshop/issues"
   },
