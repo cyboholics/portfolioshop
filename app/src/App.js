@@ -1,13 +1,11 @@
 import React from 'react'
-import GoogleLoginComp from './Components/GoogleAuth/GoogleLoginComp';
-import GoogleLogoutComp from './Components/GoogleAuth/GoogleLogoutComp';
-import { UserContext } from './Providers/UserStateProvider';
-
+import MenuAppBar from './Components/MenuAppBar'
+import Home from './Pages/Home'
 function App() {
-  const { userToken } = React.useContext(UserContext)
   return (
     <>
-      {userToken ? <GoogleLogoutComp /> : <GoogleLoginComp />}
+      <MenuAppBar />
+      <Home />
     </>
   );
 }
