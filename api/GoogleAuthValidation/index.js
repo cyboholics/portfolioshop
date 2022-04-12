@@ -1,4 +1,4 @@
-const CLIENT_ID = process.env["GOOGLE_AUTH_CLIENT_ID"]
+const CLIENT_ID = process.env["REACT_APP_API_KEY"]
 const {OAuth2Client} = require('google-auth-library')
 const client = new OAuth2Client(CLIENT_ID)
 module.exports = async function (context, req) {

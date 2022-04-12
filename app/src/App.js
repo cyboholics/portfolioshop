@@ -9,14 +9,15 @@ function App() {
       const userEmail = await axios.get(`/api/GoogleAuthValidation?token=${res.tokenId}`);
       setEmail(userEmail.data)
     } catch(err){
+      console.log(err)
     }
     setToken(res.tokenId)
   }
   return (
     <div>
       <GoogleLogin
-        clientId="691540684671-tu8rdq80k4juqk68j8tblm8vcts4ni5u.apps.googleusercontent.com"
-        buttonText="Login"
+        clientId={process.env["REACT_APP_GOOGLE_AUTH_CLIENT_ID"]}
+        buttonText={"Continue with Google"}
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}
