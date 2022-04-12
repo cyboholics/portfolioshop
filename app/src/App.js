@@ -1,15 +1,17 @@
 import React from 'react'
-import GoogleLoginComp from './Components/GoogleLoginComp';
-import EnvironmentProvider from './Providers/EnvironmentProvider';
-import UserStateProvider from './Providers/UserStateProvider';
+import { Routes, Route } from 'react-router-dom';
+import MenuAppBar from './Components/MenuAppBar'
+import Home from './Pages/Home'
+import Team from './Pages/Team'
 function App() {
-
   return (
-    <UserStateProvider>
-      <EnvironmentProvider>
-        <GoogleLoginComp />
-      </EnvironmentProvider>
-    </UserStateProvider>
+    <>
+      <MenuAppBar />
+      <Routes>
+        <Route path="/" element={ <Home/> } />
+        <Route path="/Team" element={ <Team/> } />
+      </Routes>
+    </>
   );
 }
 
