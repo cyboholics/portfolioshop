@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 
-const pages = ['Pricing', 'Team'];
+const pages = ['Team'];
 
 export default function MenuAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);

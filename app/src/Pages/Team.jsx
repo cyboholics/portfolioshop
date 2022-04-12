@@ -13,7 +13,7 @@ const Team = () => {
         name: "Ayush Tiwari",
         title: "Tech Lead",
         description: "Organization admin and backend engineer at portfolioshop. Experienced in enoromous domains of software including App dev, Machine Learning, Web Dev, DevOps etc.",
-        linkedin: "https://www.linkedin.com/in/sudipmondal2002/",
+        linkedin: "https://www.linkedin.com/in/ayush-tiwari26/",
         github: "https://github.com/ayush-tiwari26"
     }]
     return (
