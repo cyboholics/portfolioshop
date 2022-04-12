@@ -4,6 +4,15 @@ import { GoogleLogin } from 'react-google-login'
 function App() {
   const [token,setToken] = React.useState("")
   const [email, setEmail] = React.useState("")
+  const [clientId, setClientID] = React.useState("")
+  React.useEffect(()=>{
+    axios.get(`/api/environments`).then((env)=>{
+      setClientID(env.data["GOOGLE_CLIENT_ID"])
+    }
+    ).catch((err)=>{
+      console.log(err)
+    })
+  },[])
   const responseGoogle = async (res)=>{
     try{
       const userEmail = await axios.get(`/api/GoogleAuthValidation?token=${res.tokenId}`);
@@ -15,14 +24,14 @@ function App() {
   }
   return (
     <div>
-      <GoogleLogin
-        clientId={process.env["REACT_APP_GOOGLE_AUTH_CLIENT_ID"]}
+      {clientId && <GoogleLogin
+        clientId={clientId}
         buttonText={"Continue with Google"}
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}
         permission='id_token'
-      />
+      />}
       <p>
         {token}
       </p>
