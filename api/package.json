@@ -18,7 +18,7 @@
     "nodemailer-smtp-transport": "^2.7.4",
     "uuid": "^8.3.2"
   },
-  "license": "UNLICENSED",
+  "license": "GPL",
   "repository": {
     "type": "git",
     "url": "https://github.com/sudip-mondal-2002/portfolioshopMicros.git"
