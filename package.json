@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "install": "cd app && npm install && cd ../ && cd api && npm install && cd ../",
     "start-api": "cd api && npm start",
     "start-app": "cd app && npm run start",
     "start-dev": "concurrently \"npm:start-api\" \"npm:start-app\" ",

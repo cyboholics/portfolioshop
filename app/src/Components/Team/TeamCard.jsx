@@ -13,7 +13,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 export default function RecipeReviewCard(props) {
     console.log(props)
     return (
-        <Card sx={{ maxWidth: 345, display:'inline-block' }}>
+        <Card sx={{ maxWidth: 345, display:'inline-block'}}>
             <CardHeader
                 avatar={
                     <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe" src={props.imageLink} />
