@@ -75,6 +75,11 @@ export default function MenuAppBar() {
                                     </Link>
                                 </MenuItem>
                             ))}
+                            <MenuItem onClick={handleCloseNavMenu}>
+                                    <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to={"https://github.com/Portfolio-Shop/portfolioshop"}>
+                                        <Typography textAlign="center">Source</Typography>
+                                    </Link>
+                                </MenuItem>
                         </Menu>
                     </Box>
                     <Typography
@@ -96,6 +101,14 @@ export default function MenuAppBar() {
                                 </Link>
                             </Button>
                         ))}
+                        <Button
+                                onClick={handleCloseNavMenu}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
+                            >
+                                <a style={{ color: 'inherit', textDecoration: 'inherit' }} href={"https://github.com/Portfolio-Shop/portfolioshop"}>
+                                    {"Source Code"}
+                                </a>
+                            </Button>
                     </Box>
                 </Toolbar>
             </Container>
