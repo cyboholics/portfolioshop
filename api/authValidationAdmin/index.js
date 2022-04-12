@@ -1,5 +1,5 @@
 const { adminAuthModel } = require("../models/index")
-const CLIENT_ID = process.env["REACT_APP_API_KEY"]
+const CLIENT_ID = process.env["REACT_APP_GOOGLE_AUTH_CLIENT_ID"]
 const {OAuth2Client} = require('google-auth-library')
 const client = new OAuth2Client(CLIENT_ID)
 
