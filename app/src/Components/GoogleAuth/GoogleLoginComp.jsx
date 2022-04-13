@@ -20,7 +20,7 @@ const GoogleLoginComp = () => {
         alert("Google Sign in Failed")
     }
     return (
-        <div>
+        <>
             {CLIENT_ID && <GoogleLogin
                 clientId={CLIENT_ID}
                 buttonText={"Continue with Google"}
@@ -30,7 +30,7 @@ const GoogleLoginComp = () => {
                 permission='id_token'
                 theme="dark"
             />}
-        </div>
+        </>
     );
 }
 

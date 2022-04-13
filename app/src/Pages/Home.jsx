@@ -1,14 +1,14 @@
 import React from 'react'
-import GoogleLoginComp from '../Components/GoogleAuth/GoogleLoginComp';
-import GoogleLogoutComp from '../Components/GoogleAuth/GoogleLogoutComp';
 import { UserContext } from '../Providers/UserStateProvider';
+import Landing from './Landing';
+import Dashboard from './Dashboard'
 
 export default function Home() {
     const { userToken } = React.useContext(UserContext)
-
+    console.log(userToken)
     return (
         <>
-            {userToken ? <GoogleLogoutComp /> : <GoogleLoginComp />}
+            {userToken ?  <Dashboard/>: <Landing />}
         </>
     )
 }
