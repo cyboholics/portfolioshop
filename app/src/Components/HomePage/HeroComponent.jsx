@@ -1,5 +1,5 @@
 import React from 'react';
-import GoogleLoginComp from '../Components/GoogleAuth/GoogleLoginComp';
+import GoogleLoginComp from '../GoogleAuth/GoogleLoginComp';
 import { Container, Typography } from '@mui/material'
 import { withStyles } from '@mui/styles'
 const backgroundImage = 'https://alltopstartups.com/wp-content/uploads/2015/11/professional-business.png';
