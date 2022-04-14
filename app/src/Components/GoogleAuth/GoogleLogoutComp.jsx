@@ -1,7 +1,7 @@
 import React from 'react'
 import { GoogleLogout } from 'react-google-login'
-import { EnvironmentContext } from '../../Providers/EnvironmentProvider';
-import { UserContext } from '../../Providers/UserStateProvider';
+import { EnvironmentContext } from '../../Providers/EnvironmentProvider'
+import { UserContext } from '../../Providers/UserStateProvider'
 const GoogleLogoutComp = () => {
     const { CLIENT_ID } = React.useContext(EnvironmentContext)
     const { setUserToken } = React.useContext(UserContext)
@@ -21,7 +21,7 @@ const GoogleLogoutComp = () => {
                 theme="dark"
             />}
         </>
-    );
+    )
 }
 
-export default GoogleLogoutComp;
+export default GoogleLogoutComp

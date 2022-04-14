@@ -1,12 +1,12 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom'
 import MenuAppBar from './Components/MenuAppBar'
 import { ThemeProvider } from '@mui/material'
 import theme from './Components/Theme'
 import Home from './Pages/Home'
 import Team from './Pages/Team'
-import Aboutus from './Pages/AboutUs';
-import Menufooter from './Components/MenuFooter';
+import Aboutus from './Pages/AboutUs'
+import Menufooter from './Components/MenuFooter'
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Menufooter />
       </ThemeProvider>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

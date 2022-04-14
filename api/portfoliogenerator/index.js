@@ -3,12 +3,12 @@ const { BlobServiceClient } = require("@azure/storage-blob")
 const ejs = require('ejs')
 
 async function streamToText(readable) {
-    readable.setEncoding('utf8');
-    let data = '';
+    readable.setEncoding('utf8')
+    let data = ''
     for await (const chunk of readable) {
-        data += chunk;
+        data += chunk
     }
-    return data;
+    return data
 }
 
 module.exports = async function (context, req) {
@@ -26,8 +26,8 @@ module.exports = async function (context, req) {
         //gets cintainer
         const containerClient = await blobServiceClient.getContainerClient(container)
         //gets template file
-        const blockBlobClient = containerClient.getBlockBlobClient(template + ".ejs");
-        const downloadBlockBlobResponse = await blockBlobClient.download(0);
+        const blockBlobClient = containerClient.getBlockBlobClient(template + ".ejs")
+        const downloadBlockBlobResponse = await blockBlobClient.download(0)
         const templateFile = await streamToText(downloadBlockBlobResponse.readableStreamBody)
         const result = ejs.render(templateFile, data)
         context.res = {
@@ -38,6 +38,7 @@ module.exports = async function (context, req) {
             }
         }
         context.done()
+        return
     } catch (err) {
         context.res = {
             statusCode: 500,

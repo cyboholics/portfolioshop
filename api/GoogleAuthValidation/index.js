@@ -16,4 +16,5 @@ module.exports = async function (context, req) {
         context.res.body = err.message
     }
     context.done()
+    return
 }

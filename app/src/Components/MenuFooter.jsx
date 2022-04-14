@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 import { Container, Typography, Grid, IconButton } from '@mui/material'
 import { withStyles } from '@mui/styles'
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
+import GitHubIcon from '@mui/icons-material/GitHub'
 
 const styles = (theme) => ({
     container: {
@@ -80,7 +80,7 @@ const Menufooter = (props) => {
                 </Grid>
             </Container>
         </>
-    );
+    )
 }
 
-export default withStyles(styles)(Menufooter);
+export default withStyles(styles)(Menufooter)

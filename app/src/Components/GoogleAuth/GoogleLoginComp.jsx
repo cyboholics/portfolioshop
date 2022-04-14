@@ -1,7 +1,7 @@
 import React from 'react'
 import { GoogleLogin } from 'react-google-login'
-import { EnvironmentContext } from '../../Providers/EnvironmentProvider';
-import { UserContext } from '../../Providers/UserStateProvider';
+import { EnvironmentContext } from '../../Providers/EnvironmentProvider'
+import { UserContext } from '../../Providers/UserStateProvider'
 
 const GoogleLoginComp = () => {
     const { setUserToken } = React.useContext(UserContext)
@@ -23,7 +23,7 @@ const GoogleLoginComp = () => {
                 theme="dark"
             />}
         </>
-    );
+    )
 }
 
-export default GoogleLoginComp;
+export default GoogleLoginComp

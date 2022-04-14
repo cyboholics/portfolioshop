@@ -11,6 +11,7 @@ module.exports = async function (context, req) {
             body: "Bad Request"
         }
         context.done()
+        return
     }
     let filter
     if (admin_token) {
@@ -23,6 +24,7 @@ module.exports = async function (context, req) {
                 body: err.message
             }
             context.done()
+            return
         }
         filter = {}
     }
@@ -36,6 +38,7 @@ module.exports = async function (context, req) {
                 body: err.message
             }
             context.done()
+            return
         }
         const username = res.data
         filter = { username: username }

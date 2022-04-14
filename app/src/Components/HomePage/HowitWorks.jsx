@@ -1,5 +1,5 @@
-import React from 'react';
-import { withStyles } from '@mui/styles';
+import React from 'react'
+import { withStyles } from '@mui/styles'
 import { Grid, Container, Typography } from '@mui/material'
 
 const styles = (theme) => ({
@@ -44,10 +44,10 @@ const styles = (theme) => ({
     button: {
         marginTop: theme.spacing(8),
     },
-});
+})
 
 function HowItWorks(props) {
-    const { classes } = props;
+    const { classes } = props
 
     return (
         <section className={classes.root}>
@@ -106,8 +106,8 @@ function HowItWorks(props) {
                 </div>
             </Container>
         </section>
-    );
+    )
 }
 
 
-export default withStyles(styles)(HowItWorks);
+export default withStyles(styles)(HowItWorks)

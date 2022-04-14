@@ -12,7 +12,8 @@ module.exports = async function (context, req) {
             statusCode: 401,
             body: err.message
         }
-        context.done();
+        context.done()
+        return
     }
     const user = res.data
     try {

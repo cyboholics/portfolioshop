@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import TeamCard from '../Components/Team/TeamCard'
 import {Grid, Typography} from '@mui/material'
 
@@ -34,7 +34,7 @@ const Team = () => {
                     })}
             </Grid>
         </>
-    );
+    )
 }
 
-export default Team;
+export default Team

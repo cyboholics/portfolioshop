@@ -21,6 +21,7 @@ module.exports = async function (context, req) {
                 body: err.message
             }
             context.done()
+            return
         }
         allAdmins.map((admin)=>{
             if(admin.email == adminname){
@@ -29,6 +30,7 @@ module.exports = async function (context, req) {
                     body: admin.email
                 }
                 context.done()
+                return
             }
         })
         context.res = {
@@ -36,6 +38,7 @@ module.exports = async function (context, req) {
             body: "Access Forbidden"
         }
         context.done()
+        return
     }catch(err){
         context.res = {
             statusCode: 401,
@@ -43,4 +46,5 @@ module.exports = async function (context, req) {
         }
     }
     context.done()
+    return
 }

@@ -3,10 +3,10 @@ import axios from 'axios'
 export const UserContext = React.createContext({})
 
 const UserStateProvider = ({ children }) => {
-    const [userToken, setUserToken] = React.useState("");
-    const [userEmail, setUserEmail] = React.useState("");
+    const [userToken, setUserToken] = React.useState("")
+    const [userEmail, setUserEmail] = React.useState("")
     React.useEffect(()=>{
-        if(!userToken) return;
+        if(!userToken) return
         axios.get(`/api/GoogleAuthValidation?token=${userToken}`).then((res) => {
             setUserEmail(res.data)
         })
@@ -17,4 +17,4 @@ const UserStateProvider = ({ children }) => {
         </UserContext.Provider>
     )
 }
-export default UserStateProvider;
+export default UserStateProvider

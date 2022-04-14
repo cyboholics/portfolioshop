@@ -1,8 +1,8 @@
-import React from 'react';
-import GoogleLoginComp from '../GoogleAuth/GoogleLoginComp';
+import React from 'react'
+import GoogleLoginComp from '../GoogleAuth/GoogleLoginComp'
 import { Container, Typography } from '@mui/material'
 import { withStyles } from '@mui/styles'
-const backgroundImage = 'https://alltopstartups.com/wp-content/uploads/2015/11/professional-business.png';
+const backgroundImage = 'https://alltopstartups.com/wp-content/uploads/2015/11/professional-business.png'
 
 const styles = (theme) => ({
     container: {
@@ -21,7 +21,7 @@ const styles = (theme) => ({
         marginTop: theme.spacing(2),
         display: 'block'
     }
-});
+})
 const Herocomponent = (props) => {
     const { classes } = props
 
@@ -44,7 +44,7 @@ const Herocomponent = (props) => {
                 <div className={classes.backdrop} />
             </Container>
         </>
-    );
+    )
 }
 
-export default withStyles(styles)(Herocomponent);
+export default withStyles(styles)(Herocomponent)

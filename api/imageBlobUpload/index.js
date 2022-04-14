@@ -15,6 +15,7 @@ module.exports = async function (context, req) {
             body: err.message
         }
         context.done()
+        return
     }
     var token = req.query["token"]
     try {
@@ -25,6 +26,7 @@ module.exports = async function (context, req) {
             body: err.message
         }
         context.done()
+        return
     }
     try {
         const blobServiceClient = await BlobServiceClient.fromConnectionString(AZURE_BLOB_CONNECTION_STRING)

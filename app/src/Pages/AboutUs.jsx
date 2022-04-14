@@ -1,5 +1,5 @@
-import { Typography, Grid } from '@mui/material';
-import React from 'react';
+import { Typography, Grid } from '@mui/material'
+import React from 'react'
 
 const Aboutus = () => {
     return (
@@ -39,7 +39,7 @@ const Aboutus = () => {
                 </Grid>
             </Grid>
         </>
-    );
+    )
 }
 
-export default Aboutus;
+export default Aboutus

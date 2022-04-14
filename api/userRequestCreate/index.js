@@ -14,6 +14,7 @@ module.exports = async function (context, req) {
             body: `Unauthorized Access : ${err.message}`,
         }
         context.done()
+        return
     }
     const usernm = res.data
     const userReq = req.body["userRequest"]
@@ -23,6 +24,7 @@ module.exports = async function (context, req) {
             body: "Bad Request, missing userRequest"
         }
         context.done()
+        return
     }
 
     try {

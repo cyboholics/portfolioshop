@@ -1,5 +1,5 @@
-import { createTheme } from '@mui/material';
-import { green, grey, red } from '@mui/material/colors';
+import { createTheme } from '@mui/material'
+import { green, grey, red } from '@mui/material/colors'
 
 const rawTheme = createTheme({
     palette: {
@@ -36,14 +36,14 @@ const rawTheme = createTheme({
         fontWeightMedium: 700, // Roboto Condensed
         fontFamilySecondary: "'Roboto Condensed', sans-serif",
     },
-});
+})
 
 const fontHeader = {
     color: rawTheme.palette.text.primary,
     fontWeight: rawTheme.typography.fontWeightMedium,
     fontFamily: rawTheme.typography.fontFamilySecondary,
     textTransform: 'uppercase',
-};
+}
 
 const theme = {
     ...rawTheme,
@@ -103,6 +103,6 @@ const theme = {
             fontSize: 14,
         },
     },
-};
+}
 
-export default theme;
+export default theme

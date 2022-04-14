@@ -1,7 +1,7 @@
-import React from 'react';
-import { withStyles } from '@mui/styles';
-import { Container, Typography, TextField, Snackbar, Button, Hidden, Grid } from '@mui/material';
-import axios from 'axios';
+import React from 'react'
+import { withStyles } from '@mui/styles'
+import { Container, Typography, TextField, Snackbar, Button, Hidden, Grid } from '@mui/material'
+import axios from 'axios'
 
 
 const styles = (theme) => ({
@@ -42,29 +42,29 @@ const styles = (theme) => ({
         width: '100%',
         maxWidth: 600,
     },
-});
+})
 
 function ProductCTA(props) {
-    const { classes } = props;
-    const [open, setOpen] = React.useState(false);
-    const [email, setEmail] = React.useState('');
+    const { classes } = props
+    const [open, setOpen] = React.useState(false)
+    const [email, setEmail] = React.useState('')
     const handleEmailChange = (e) => {
-        setEmail(e.target.value);
+        setEmail(e.target.value)
     }
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault()
         try {
             await axios.get(`/api/newsletterSubscribe?email=${email}`)
-            setOpen(true);
-            setEmail('');
+            setOpen(true)
+            setEmail('')
         } catch (err) {
             console.log(err.message)
         }
-    };
+    }
 
     const handleClose = () => {
-        setOpen(false);
-    };
+        setOpen(false)
+    }
 
     return (
         <Container className={classes.root} component="section">
@@ -103,8 +103,8 @@ function ProductCTA(props) {
                 message="We will send you our best offers, once a week."
             />
         </Container>
-    );
+    )
 }
 
 
-export default withStyles(styles)(ProductCTA);
+export default withStyles(styles)(ProductCTA)

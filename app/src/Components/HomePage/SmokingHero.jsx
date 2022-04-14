@@ -1,6 +1,6 @@
-import React from 'react';
-import { withStyles } from '@mui/styles';
-import { Grid, Container, Typography } from '@mui/material';
+import React from 'react'
+import { withStyles } from '@mui/styles'
+import { Grid, Container, Typography } from '@mui/material'
 
 const styles = (theme) => ({
     root: {
@@ -32,10 +32,10 @@ const styles = (theme) => ({
         position: 'absolute',
         top: -180,
     },
-});
+})
 
 function ProductValues(props) {
-    const { classes } = props;
+    const { classes } = props
 
     return (
         <section className={classes.root}>
@@ -79,7 +79,7 @@ function ProductValues(props) {
                 </Grid>
             </Container>
         </section>
-    );
+    )
 }
 
-export default withStyles(styles)(ProductValues);
+export default withStyles(styles)(ProductValues)

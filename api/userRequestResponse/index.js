@@ -17,6 +17,7 @@ module.exports = async function (context, req) {
             body: "Bad Request"
         }
         context.done()
+        return
     }
     let res
     try {
@@ -44,12 +45,14 @@ module.exports = async function (context, req) {
                     body: `Update Successful. Request ID ${id}`,
                 }
                 context.done()
+                return
             } catch (err) {
                 context.res = {
                     status: 500,
                     body: err.message
                 }
                 context.done()
+                return
             }
         }
 
@@ -79,6 +82,7 @@ module.exports = async function (context, req) {
                     body: `Update Successful. Request ID ${id}`,
                 }
                 context.done()
+                return
             } catch (err) {
                 context.res = {
                     status: 500,

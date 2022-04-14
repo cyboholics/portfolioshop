@@ -10,7 +10,7 @@ module.exports = async function (context, req) {
         context.done()
     }
     try{
-        const user = await newsletterModel.remove({
+        await newsletterModel.remove({
             email: email
         })
         context.res = {
