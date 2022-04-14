@@ -51,7 +51,7 @@ const Herocomponent = (props) => {
                 <Typography color="inherit" align="center" variant="h5" className={classes.h5}>
                     Build and manage amazing portfolio with us, avail exciting offers and enjoy your online profile.
                 </Typography>
-                <div style={{ display: "flex", justifyContent: "center" }}>
+                <div style={{ display: "flex", justifyContent: "center", marginTop:50, marginBottom:30 }}>
                     <GoogleLoginComp />
                 </div>
                 <Typography variant="body2" align='center' color="inherit" className={classes.more}>
