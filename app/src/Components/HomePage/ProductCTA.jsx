@@ -57,16 +57,16 @@ function ProductCTA(props) {
     const { classes } = props;
     const [open, setOpen] = React.useState(false);
     const [email, setEmail] = React.useState('');
-    const handleEmailChange = (e)=>{
+    const handleEmailChange = (e) => {
         setEmail(e.target.value);
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try{
+        try {
             await axios.get(`/api/newsletterSubscribe?email=${email}`)
             setOpen(true);
             setEmail('');
-        }catch(err){
+        } catch (err) {
             console.log(err.message)
         }
     };
@@ -87,7 +87,7 @@ function ProductCTA(props) {
                             <Typography variant="h5">
                                 Allow us to send you our latest updates.
                             </Typography>
-                            <TextField className={classes.textField} placeholder="Your email" value={email} onChange={handleEmailChange}/>
+                            <TextField className={classes.textField} placeholder="Your email" value={email} onChange={handleEmailChange} />
                             <Button type="submit" color="primary" variant="contained" className={classes.button}>
                                 Keep me updated
                             </Button>
@@ -101,6 +101,8 @@ function ProductCTA(props) {
                             src="https://envoc.com/uploads/images/think-professional.jpg?auto=format&fit=crop&w=750&q=80"
                             alt="call to action"
                             className={classes.image}
+                            width= {'100%'}
+                            height={'auto'}
                         />
                     </Hidden>
                 </Grid>
