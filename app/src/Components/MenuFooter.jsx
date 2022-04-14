@@ -10,7 +10,7 @@ const styles = (theme) => ({
         backgroundColor: theme.palette.primary.dark,
         display: 'block',
         width: "100%",
-        position: 'absolute',
+        position: 'static',
         bottom: 0,
         paddingTop: theme.spacing(4),
         paddingBottom: theme.spacing(4)

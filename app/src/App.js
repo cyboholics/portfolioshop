@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom';
 import MenuAppBar from './Components/MenuAppBar'
-import {ThemeProvider } from '@mui/material'
+import { ThemeProvider } from '@mui/material'
 import theme from './Components/Theme'
 import Home from './Pages/Home'
 import Team from './Pages/Team'
