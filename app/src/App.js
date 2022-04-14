@@ -5,6 +5,7 @@ import Home from './Pages/Home'
 import Team from './Pages/Team'
 import theme from './Components/Theme'
 import {ThemeProvider } from '@mui/material'
+import Menufooter from './Components/MenuFooter';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Team" element={<Team />} />
         </Routes>
+        <Menufooter />
       </ThemeProvider>
     </>
   );
