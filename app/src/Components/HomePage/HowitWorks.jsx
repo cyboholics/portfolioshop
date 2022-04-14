@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles } from '@mui/styles';
-import { Grid, Container, Typography} from '@mui/material'
+import { Grid, Container, Typography } from '@mui/material'
 
 const styles = (theme) => ({
     root: {
@@ -32,7 +32,6 @@ const styles = (theme) => ({
         fontWeight: theme.typography.fontWeightMedium,
     },
     image: {
-        height: 55,
         marginTop: theme.spacing(4),
         marginBottom: theme.spacing(4),
     },
@@ -53,11 +52,6 @@ function HowItWorks(props) {
     return (
         <section className={classes.root}>
             <Container className={classes.container}>
-                <img
-                    src="/productCurvyLines.png"
-                    className={classes.curvyLines}
-                    alt="curvy lines"
-                />
                 <Typography variant="h4" align="center" className={classes.title} component="h2" paddingBottom={10}>
                     How it works
                 </Typography>
@@ -70,6 +64,8 @@ function HowItWorks(props) {
                                     src="/productHowItWorks1.svg"
                                     alt="suitcase"
                                     className={classes.image}
+                                    width={"auto"}
+                                    height={55}
                                 />
                                 <Typography variant="h5" align="center">
                                     Head to signing into the website and create a profile of yours.
@@ -83,6 +79,8 @@ function HowItWorks(props) {
                                     src="/productHowItWorks2.svg"
                                     alt="graph"
                                     className={classes.image}
+                                    width={"auto"}
+                                    height={55}
                                 />
                                 <Typography variant="h5" align="center">
                                     Fill up the details and update whenever necessary.
@@ -96,6 +94,8 @@ function HowItWorks(props) {
                                     src="/productHowItWorks3.svg"
                                     alt="clock"
                                     className={classes.image}
+                                    width={"auto"}
+                                    height={55}
                                 />
                                 <Typography variant="h5" align="center">
                                     Get the portfolio website instantly and share with the targeted audience.

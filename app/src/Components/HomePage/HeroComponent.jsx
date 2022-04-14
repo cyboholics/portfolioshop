@@ -28,7 +28,7 @@ const Herocomponent = (props) => {
     return (
         <>
             <Container maxWidth={false} className={classes.container}>
-                <img style={{ display: 'none' }} alt="increase priority" />
+                <img style={{ display: 'none' }} alt="increase priority" width={1} height={1}/>
                 <Typography color="inherit" align="center" variant="h2" marked="center" paddingY={10}>
                     Upgrade your Presence
                 </Typography>

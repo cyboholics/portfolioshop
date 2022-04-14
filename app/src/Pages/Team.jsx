@@ -27,6 +27,7 @@ const Team = () => {
             direction="row"
             justifyContent="center"
             alignItems="center"
+            minHeight={"70vh"}
             >                
                     {leads.map((lead) => {
                         return <Grid item><TeamCard key={lead.github} imageLink={lead.imageLink} name={lead.name} title={lead.title} description={lead.description} linkedin={lead.linkedin} github={lead.github} /></Grid>
