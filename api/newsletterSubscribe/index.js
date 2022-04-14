@@ -7,41 +7,42 @@ module.exports = async function (context, req) {
         );
     }
     const email = req.query["email"]
-    if(!validateEmail(email)){
+    if (!validateEmail(email)) {
         context.res = {
             statusCode: 400,
             body: "Enter a valid email"
         }
         context.done()
-    }
-    if (!email) {
+    } else if (!email) {
         context.res = {
             statusCode: 400,
             body: "Bad Request"
         }
         context.done()
-    }
-    try {
-        let msg
-        const user = await newsletterModel.find({
-            email: email
-        })
-        if (user.length == 0) {
-            await newsletterModel.create({
+    } else {
+
+        try {
+            let msg
+            const user = await newsletterModel.find({
                 email: email
             })
-            msg = email
-        } else {
-            msg = "Already Subscribed"
-        }
-        context.res = {
-            statusCode: 200,
-            body: msg
-        }
-    } catch (err) {
-        context.res = {
-            statusCode: 500,
-            body: err.message
+            if (user.length == 0) {
+                await newsletterModel.create({
+                    email: email
+                })
+                msg = email
+            } else {
+                msg = "Already Subscribed"
+            }
+            context.res = {
+                statusCode: 200,
+                body: msg
+            }
+        } catch (err) {
+            context.res = {
+                statusCode: 500,
+                body: err.message
+            }
         }
     }
 }
