@@ -6,8 +6,6 @@ import theme from './Components/Theme'
 import Home from './Pages/Home'
 import Team from './Pages/Team'
 import Aboutus from './Pages/AboutUs';
-import theme from './Components/Theme'
-import {ThemeProvider } from '@mui/material'
 import Menufooter from './Components/MenuFooter';
 
 function App() {

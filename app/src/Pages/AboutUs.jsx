@@ -18,18 +18,14 @@ const Aboutus = () => {
                     padding={5}>
                     <Typography
                         align="justify">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nam nec tellus in lacus dignissim porta.
-                        Proin efficitur neque nec justo interdum congue.
-                        Etiam in lorem eu velit interdum ultricies a ac lacus.
-                        Ut vitae cursus lectus. Ut hendrerit nec felis sed finibus.
-                        Praesent dolor nisi, condimentum quis diam at, pharetra euismod eros.
-                        Vivamus vitae quam in dui hendrerit dictum ac sed mauris.
-                        Morbi pellentesque sapien nunc, in consequat justo malesuada vel.
-                        Nulla dui elit, imperdiet id nisl ac, convallis mollis velit.
-                        Etiam ultrices nisi sit amet orci commodo, vitae sagittis lorem consequat.
-                        Pellentesque molestie arcu sit amet felis rutrum accumsan.
-                        Nulla dignissim sed neque eget gravida. Ut eget pulvinar augue.
+                        We at portfolioshop bring the best templates that suits your profile.
+                        We have always seen that students and job seekers needs to waste a lot of 
+                        time on building their own portfolio website. But, it will now be a thing of past.
+                        Introducing you to the best portfolio management system ever for your profile.
+                        Ayush Tiwari and Sudip Mondal, students of IIT Madras, started this as an open 
+                        source project. It is lisenced under the GPL-3 and open to accept contributions. 
+                        If you want to try this, please try it, it's complete free to use. Feedbacks are 
+                        welcome, please raise an issue in our GitHub repository to do so.
                     </Typography>
                 </Grid>
                 <Grid
