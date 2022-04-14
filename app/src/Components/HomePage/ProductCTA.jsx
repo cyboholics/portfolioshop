@@ -88,7 +88,7 @@ function ProductCTA(props) {
                 <Grid item xs={12} md={6} className={classes.imagesWrapper}>
                     <Hidden smDown>
                         <img
-                            src="https://envoc.com/uploads/images/think-professional.jpg?auto=format&fit=crop&w=750&q=80"
+                            src="/productCTA.png"
                             alt="call to action"
                             className={classes.image}
                             width= {'100%'}
