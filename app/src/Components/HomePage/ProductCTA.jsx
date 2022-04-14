@@ -33,15 +33,6 @@ const styles = (theme) => ({
     imagesWrapper: {
         position: 'relative',
     },
-    imageDots: {
-        position: 'absolute',
-        top: -67,
-        left: -67,
-        right: 0,
-        bottom: 0,
-        width: '100%',
-        background: 'url(/static/onepirate/productCTAImageDots.png)',
-    },
     image: {
         position: 'absolute',
         top: -28,
@@ -96,7 +87,6 @@ function ProductCTA(props) {
                 </Grid>
                 <Grid item xs={12} md={6} className={classes.imagesWrapper}>
                     <Hidden smDown>
-                        <div className={classes.imageDots} />
                         <img
                             src="https://envoc.com/uploads/images/think-professional.jpg?auto=format&fit=crop&w=750&q=80"
                             alt="call to action"

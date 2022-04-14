@@ -6,10 +6,11 @@ const UserStateProvider = ({ children }) => {
     const [userToken, setUserToken] = React.useState("");
     const [userEmail, setUserEmail] = React.useState("");
     React.useEffect(()=>{
+        if(!userToken) return;
         axios.get(`/api/GoogleAuthValidation?token=${userToken}`).then((res) => {
             setUserEmail(res.data)
         })
-    })
+    },[userToken])
     return (
         <UserContext.Provider value={{ userToken, setUserToken, userEmail }}>
             {children}
