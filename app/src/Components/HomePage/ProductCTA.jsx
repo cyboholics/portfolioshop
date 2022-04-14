@@ -1,6 +1,7 @@
 import React from 'react';
 import { withStyles } from '@mui/styles';
 import { Container, Typography, TextField, Snackbar, Button, Hidden, Grid } from '@mui/material';
+import axios from 'axios';
 
 
 const styles = (theme) => ({
@@ -55,10 +56,19 @@ const styles = (theme) => ({
 function ProductCTA(props) {
     const { classes } = props;
     const [open, setOpen] = React.useState(false);
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        setOpen(true);
+    const [email, setEmail] = React.useState('');
+    const handleEmailChange = (e)=>{
+        setEmail(e.target.value);
+    }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try{
+            await axios.get(`/api/newsletterSubscribe?email=${email}`)
+            setOpen(true);
+            setEmail('');
+        }catch(err){
+            console.log(err.message)
+        }
     };
 
     const handleClose = () => {
@@ -77,7 +87,7 @@ function ProductCTA(props) {
                             <Typography variant="h5">
                                 Allow us to send you our latest updates.
                             </Typography>
-                            <TextField noBorder className={classes.textField} placeholder="Your email" />
+                            <TextField className={classes.textField} placeholder="Your email" value={email} onChange={handleEmailChange}/>
                             <Button type="submit" color="primary" variant="contained" className={classes.button}>
                                 Keep me updated
                             </Button>
