@@ -8,7 +8,6 @@ export default function EnvironmentProvider({ children }) {
             setClientID(env.data["GOOGLE_CLIENT_ID"])
         }
         ).catch((err) => {
-            console.log(err)
         })
     }, [])
     return (
