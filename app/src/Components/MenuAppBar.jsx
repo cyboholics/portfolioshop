@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 
-const pages = ['Team'];
+const pages = ['team', 'about-us'];
 
 export default function MenuAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -71,15 +71,17 @@ export default function MenuAppBar() {
                             {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                                     <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to={page}>
-                                        <Typography textAlign="center">{page}</Typography>
+                                        <Typography textAlign="center">
+                                            {page.replace('-', ' ')}
+                                        </Typography>
                                     </Link>
                                 </MenuItem>
                             ))}
                             <MenuItem onClick={handleCloseNavMenu}>
-                                    <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to={"https://github.com/Portfolio-Shop/portfolioshop"}>
-                                        <Typography textAlign="center">Source</Typography>
-                                    </Link>
-                                </MenuItem>
+                                <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to={"https://github.com/Portfolio-Shop/portfolioshop"}>
+                                    <Typography textAlign="center">Source</Typography>
+                                </Link>
+                            </MenuItem>
                         </Menu>
                     </Box>
                     <Typography
@@ -97,18 +99,18 @@ export default function MenuAppBar() {
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
                                 <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to={page}>
-                                    {page}
+                                    {page.replace('-', ' ')}
                                 </Link>
                             </Button>
                         ))}
                         <Button
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                            >
-                                <a style={{ color: 'inherit', textDecoration: 'inherit' }} href={"https://github.com/Portfolio-Shop/portfolioshop"}>
-                                    {"Source Code"}
-                                </a>
-                            </Button>
+                            onClick={handleCloseNavMenu}
+                            sx={{ my: 2, color: 'white', display: 'block' }}
+                        >
+                            <a style={{ color: 'inherit', textDecoration: 'inherit' }} href={"https://github.com/Portfolio-Shop/portfolioshop"}>
+                                {"Source Code"}
+                            </a>
+                        </Button>
                     </Box>
                 </Toolbar>
             </Container>
