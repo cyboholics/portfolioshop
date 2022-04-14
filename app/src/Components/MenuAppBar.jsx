@@ -72,14 +72,14 @@ export default function MenuAppBar() {
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                                     <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to={page}>
                                         <Typography textAlign="center">
-                                            {page.replace('-', ' ')}
+                                            {page.replace('-', ' ').toUpperCase()}
                                         </Typography>
                                     </Link>
                                 </MenuItem>
                             ))}
                             <MenuItem onClick={handleCloseNavMenu}>
                                 <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to={"https://github.com/Portfolio-Shop/portfolioshop"}>
-                                    <Typography textAlign="center">Source</Typography>
+                                    <Typography textAlign="center">SOURCE</Typography>
                                 </Link>
                             </MenuItem>
                         </Menu>
