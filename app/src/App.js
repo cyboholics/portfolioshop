@@ -8,7 +8,7 @@ import Team from './Pages/Team'
 import Aboutus from './Pages/AboutUs'
 import Menufooter from './Components/MenuFooter'
 
-function App() {
+const App = () => {
   return (
     <>
       <ThemeProvider theme={theme}>

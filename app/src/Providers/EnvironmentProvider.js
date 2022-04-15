@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 export const EnvironmentContext = React.createContext({})
-export default function EnvironmentProvider({ children }) {
+const EnvironmentProvider = ({ children }) => {
     const [CLIENT_ID, setClientID] = React.useState("")
     React.useEffect(() => {
         axios.get(`/api/environments`).then((env) => {
@@ -16,3 +16,4 @@ export default function EnvironmentProvider({ children }) {
         </EnvironmentContext.Provider>
     )
 }
+export default EnvironmentProvider

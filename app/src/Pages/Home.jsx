@@ -3,7 +3,7 @@ import { UserContext } from '../Providers/UserStateProvider'
 import Landing from './Landing'
 import Dashboard from './Dashboard'
 
-export default function Home() {
+const Home = () => {
     const { userToken } = React.useContext(UserContext)
     return (
         <>
@@ -11,3 +11,5 @@ export default function Home() {
         </>
     )
 }
+
+export default Home

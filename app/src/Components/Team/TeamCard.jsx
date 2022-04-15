@@ -8,9 +8,9 @@ import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import { red } from '@mui/material/colors'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
-import GitHubIcon from '@mui/icons-material/GitHub'
+import GitHubIcon from '@mui/icons-material/GitHub' 
 
-export default function RecipeReviewCard(props) {
+const TeamCard = (props) => {
     return (
         <Card sx={{ maxWidth: 345, display:'inline-block'}}>
             <CardHeader
@@ -40,3 +40,6 @@ export default function RecipeReviewCard(props) {
         </Card>
     )
 }
+
+
+export default TeamCard
