@@ -6,10 +6,10 @@ import { UserContext } from '../../Providers/UserStateProvider'
 const GoogleLoginComp = () => {
     const { setUserToken } = React.useContext(UserContext)
     const { CLIENT_ID } = React.useContext(EnvironmentContext)
-    const responseGoogleSuccess = async (res) => {
+    const responseGoogleSuccess = (res) => {
         setUserToken(res.tokenId)
     }
-    const responseGoogleFailure = () => {
+    const responseGoogleFailure = (e) => {
     }
     return (
         <>
@@ -21,6 +21,7 @@ const GoogleLoginComp = () => {
                 cookiePolicy={'single_host_origin'}
                 permission='id_token'
                 theme="dark"
+                isSignedIn={true}
             />}
         </>
     )
