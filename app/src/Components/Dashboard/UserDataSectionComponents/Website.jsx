@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { UserDataContext } from '../../../Providers/UserDataStateProvider'
 import { TextField, Typography, Stack } from '@mui/material'
 import Paper from '../../MuiComponents/Paper'
@@ -15,12 +15,10 @@ const Website = (props) => {
     const { classes } = props
     const { website, setWebsite } = React.useContext(UserDataContext)
     const setWebsiteTitle = (event) => {
-        website.title = event.target.value
-        setWebsite(website)
+        setWebsite({...website, title: event.target.value})
     }
     const setFaviconUrl = (event) => {
-        website.faviconUrl = event.target.value
-        setWebsite(website)
+        setWebsite({...website, faviconUrl: event.target.value})    
     }
     return <>
         <Paper
@@ -30,11 +28,12 @@ const Website = (props) => {
             <Stack spacing={2} className={classes.stack}>
                 <TextField
                     id="standard-size-small"
-                    size="small" label="Website Title"
+                    size="small" 
+                    label="Website Title"
                     variant="standard"
                     autoComplete='off'
                     InputLabelProps={{ shrink: true }}
-                    value={website?.title}
+                    value={website?.title || ''}
                     onChange={setWebsiteTitle} />
 
                 <TextField
@@ -44,7 +43,7 @@ const Website = (props) => {
                     variant="standard"
                     autoComplete='off'
                     InputLabelProps={{ shrink: true }}
-                    value={website?.faviconUrl}
+                    value={website?.faviconUrl || ''}
                     onChange={setFaviconUrl} />
             </Stack>
         </Paper>

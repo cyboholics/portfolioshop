@@ -15,12 +15,6 @@ const styles = (theme) => ({
 const UserDisplayItems = (props) => {
     const { classes } = props
     const { name, setName, tagline, setTagline, socials, setSocials } = React.useContext(UserDataContext)
-    const [twitter, setTwitter] = useState(socials.twitter||"")
-    const [instagram, setInstagram] = useState(socials.instagram||"")
-    const [facebook, setFacebook] = useState(socials.facebook||"")
-    const [linkedin, setLinkedin] = useState(socials.linkedin||"")
-    const [github, setGitHub] = useState(socials.github||"")
-    const [socialSites, setSocialSites] = useState({})
     const [tags, setTags] = useState(tagline.join(" "))
     const handelTags = (event) => {
         setTags((event.target.value))
@@ -28,18 +22,9 @@ const UserDisplayItems = (props) => {
         setTagline(tagArr)
     }
     const handelName = (event) => {
-        console.log(name)
         setName(event.target.value)
     }
-    React.useEffect(()=>{
-        setSocialSites({
-            Twitter: [twitter, setTwitter],
-            Facebook: [facebook, setFacebook],
-            LinkedIn: [linkedin, setLinkedin],
-            GitHub: [github, setGitHub],
-            Instagram: [instagram, setInstagram]
-        })
-    },[twitter,facebook,github,linkedin,instagram])
+    
     return (
         <Paper>
             <Typography variant="h5">User Details</Typography>
@@ -60,17 +45,19 @@ const UserDisplayItems = (props) => {
                     variant="standard"
                     autoComplete="off"
                     InputLabelProps={{ shrink: true }}
-                    value={tagline}
+                    value={tagline.join(" ")}
                     onChange={handelTags}
                     placeholder="Tags Are Space Seperated (eg. <Artist Developer Singer>" />
                 <Typography variant="h5">Social Handles</Typography>
-                {Object.keys(socialSites).map((site) => {
+                {Object.keys(socials).map((site) => {
                     return <TextField
                         key={site}
                         id="standard-size-small"
-                        label={site}
-                        value = {socialSites[site][0]}
-                        onChange = {(event) => {socialSites[site][1](event.target.value)}}
+                        label={site.toUpperCase()}
+                        value={socials[site]}
+                        onChange={(event) => {
+                            setSocials({ ...socials, [site]: event.target.value })
+                        }}
                         variant="standard"
                         autoComplete="off"
                         InputLabelProps={{ shrink: true }}
