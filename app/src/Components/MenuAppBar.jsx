@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom'
 
 const pages = ['team', 'about-us']
 
-export default function MenuAppBar() {
+const MenuAppBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null)
 
     const handleOpenNavMenu = (event) => {
@@ -117,3 +117,6 @@ export default function MenuAppBar() {
         </AppBar>
     )
 }
+
+
+export default MenuAppBar

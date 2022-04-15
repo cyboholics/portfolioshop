@@ -34,7 +34,7 @@ const styles = (theme) => ({
     },
 })
 
-function ProductValues(props) {
+const ProductValues = (props) => {
     const { classes } = props
 
     return (

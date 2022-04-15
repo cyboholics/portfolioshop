@@ -46,7 +46,7 @@ const styles = (theme) => ({
     },
 })
 
-function HowItWorks(props) {
+const HowItWorks = (props) => {
     const { classes } = props
 
     return (
@@ -64,7 +64,7 @@ function HowItWorks(props) {
                                     src="/productHowItWorks1.svg"
                                     alt="suitcase"
                                     className={classes.image}
-                                    width={"auto"}
+                                    width={55}
                                     height={55}
                                 />
                                 <Typography variant="h5" align="center">
@@ -79,7 +79,7 @@ function HowItWorks(props) {
                                     src="/productHowItWorks2.svg"
                                     alt="graph"
                                     className={classes.image}
-                                    width={"auto"}
+                                    width={55}
                                     height={55}
                                 />
                                 <Typography variant="h5" align="center">
@@ -94,7 +94,7 @@ function HowItWorks(props) {
                                     src="/productHowItWorks3.svg"
                                     alt="clock"
                                     className={classes.image}
-                                    width={"auto"}
+                                    width={55}
                                     height={55}
                                 />
                                 <Typography variant="h5" align="center">
