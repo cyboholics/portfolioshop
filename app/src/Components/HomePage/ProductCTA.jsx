@@ -44,7 +44,7 @@ const styles = (theme) => ({
     },
 })
 
-function ProductCTA(props) {
+const ProductCTA = (props) => {
     const { classes } = props
     const [open, setOpen] = React.useState(false)
     const [email, setEmail] = React.useState('')
@@ -88,7 +88,7 @@ function ProductCTA(props) {
                 <Grid item xs={12} md={6} className={classes.imagesWrapper}>
                     <Hidden smDown>
                         <img
-                            src="/productCTA.png"
+                            src="/productCTA.webp"
                             alt="call to action"
                             className={classes.image}
                             width= {'100%'}
