@@ -35,7 +35,7 @@ jobs:
         uses: mdsadiq/lighthouse-compare@v1.2.0
         with:
           lhciServerURL: ${{ steps.builddeploy.outputs.static_web_app_url }}
-          githubToken: ${{ secret.LH_COMPARE_GITHUB_APP_TOKEN }}
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
