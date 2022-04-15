@@ -36,6 +36,7 @@ jobs:
         with: 
           gitHubAccessToken: ${{ secrets.GITHUB_TOKEN }}
           urls: ${{ steps.builddeploy.outputs.static_web_app_url }}
+          device: 'all'
           
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
