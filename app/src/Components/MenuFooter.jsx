@@ -24,6 +24,7 @@ const styles = (theme) => ({
         alignItems: 'center'
     }
 })
+
 const Menufooter = (props) => {
     const { classes } = props
     return (
