@@ -8,6 +8,8 @@ const GoogleLoginComp = () => {
     const { CLIENT_ID } = React.useContext(EnvironmentContext)
     const responseGoogleSuccess = async (res) => {
         setUserToken(res.tokenId)
+        //TODO: Remove the log statements
+        console.log(res.tokenId)
     }
     const responseGoogleFailure = () => {
     }
