@@ -1,11 +1,14 @@
 import React from 'react'
+import {Box} from '@mui/material'
 import Userdata from '../Components/Dashboard/UserData'
 import GoogleLogoutComp from '../Components/GoogleAuth/GoogleLogoutComp'
 const Dashboard = () => {
     return (
         <>
-            <GoogleLogoutComp />
-            <Userdata/>
+            <Box sx={{ marginTop: 10 }}>
+                <GoogleLogoutComp />
+            </Box>
+            <Userdata />
         </>
     )
 }
