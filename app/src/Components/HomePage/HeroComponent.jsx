@@ -7,7 +7,7 @@ const styles = (theme) => ({
     container: {
         color: theme.palette.common.white,
         display: 'flex',
-        height: '90vh',
+        height: '100vh',
         flexDirection: 'column',
         alignItems: 'center',
         backgroundImage: 'url("/heroBG.webp")',
@@ -28,7 +28,7 @@ const Herocomponent = (props) => {
         <>
             <Container maxWidth={false} className={classes.container}>
                 <img style={{ display: 'none' }} alt="increase priority"/>
-                <Typography color="inherit" align="center" variant="h2" marked="center" paddingY={10}>
+                <Typography color="inherit" align="center" variant="h2" marked="center" paddingY={20}>
                     Upgrade your Presence
                 </Typography>
                 <Typography color="inherit" align="center" variant="h5">

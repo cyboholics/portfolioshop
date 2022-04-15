@@ -26,7 +26,7 @@ const MenuAppBar = () => {
 
 
     return (
-        <AppBar position="static" color="primary">
+        <AppBar position="fixed" color="primary">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to="/">
@@ -34,9 +34,9 @@ const MenuAppBar = () => {
                             variant="h6"
                             noWrap
                             component="div"
-                            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+                            sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, color:"#ddb500" }}
                         >
-                            LOGO
+                            Portfolioshop
                         </Typography>
                     </Link>
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -88,9 +88,9 @@ const MenuAppBar = () => {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color:"#ddb500" }}
                     >
-                        LOGO
+                        PORTFOLIOSHOP
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
