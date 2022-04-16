@@ -7,9 +7,8 @@
     "install": "cd app && npm install && cd ../ && cd api && npm install && cd ../",
     "start-api": "cd api && npm start",
     "start-app": "cd app && npm run start",
-    "start-dev": "concurrently \"npm:start-api\" \"npm:start-app\" ",
-    "start-swa": "swa start http://localhost:3000 --api-location http://localhost:7071",
-    "start": " npm run start-dev && npm run swa-up"
+    "start-dev": "concurrently \"npm:start-app\" \"npm:start-api\"",
+    "start": "swa start http://localhost:3000 --api-location http://localhost:7071 --open --run \"npm run start-dev\""
   },
   "repository": {
     "type": "git",
