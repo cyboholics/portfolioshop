@@ -10,6 +10,7 @@ import Container from '@mui/material/Container'
 import Button from '@mui/material/Button'
 import MenuItem from '@mui/material/MenuItem'
 import { Link } from 'react-router-dom'
+import DonateButton from './ThirdPartyButtons/DonateButton'
 
 const pages = ['team', 'about-us']
 
@@ -34,7 +35,7 @@ const MenuAppBar = () => {
                             variant="h6"
                             noWrap
                             component="div"
-                            sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, color:"#ddb500" }}
+                            sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, color: "#ddb500" }}
                         >
                             Portfolioshop
                         </Typography>
@@ -88,7 +89,7 @@ const MenuAppBar = () => {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color:"#ddb500" }}
+                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "#ddb500" }}
                     >
                         PORTFOLIOSHOP
                     </Typography>
@@ -112,6 +113,7 @@ const MenuAppBar = () => {
                             </a>
                         </Button>
                     </Box>
+                    <DonateButton />
                 </Toolbar>
             </Container>
         </AppBar>
