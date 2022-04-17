@@ -63,7 +63,7 @@ const Skill = (props) => {
                 sx={{
                     height: 50,
                     width: 50,
-                    marginTop: {sm:2}
+                    marginTop: { sm: 2 }
                 }}
                 disabled={skills.length <= 1}
                 aria-label="delete"
@@ -97,7 +97,7 @@ const Skills = (props) => {
                     marginBottom: { xs: 1, sm: 0 },
                     alignSelf: 'flex-end'
                 }}
-                onClick={() => { setSkills([...skills, { skill: '', value: 50 }]) }}
+                onClick={() => { skills[skills?.length - 1]?.skill && setSkills([...skills, { skill: '', value: 50 }]) }}
                 variant="outlined"
                 color="success">
                 Add
