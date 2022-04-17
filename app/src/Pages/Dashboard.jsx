@@ -1,5 +1,5 @@
 import React from 'react'
-import GoogleLogoutComp from '../Components/GoogleAuth/GoogleLogoutComp'
+import GoogleLogoutComp from '../Components/ThirdPartyButtons/GoogleLogoutComp'
 const Dashboard = () => {
     return (
         <>
