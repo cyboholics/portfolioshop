@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { UserDataContext } from '../../../Providers/UserDataStateProvider'
 import Paper from "../../MuiComponents/Paper"
-import { Stack, Typography, TextField } from '@mui/material'
+import { Stack, Typography, TextField, Divider } from '@mui/material'
 import { withStyles } from '@mui/styles'
 
 const styles = (theme) => ({
@@ -24,36 +24,52 @@ const UserDisplayItems = (props) => {
     const handelName = (event) => {
         setName(event.target.value)
     }
-    
+
     return (
         <Paper>
             <Typography variant="h5">User Details</Typography>
             <Stack
                 className={classes.stack} spacing={2}>
-                    {/*TODO: Display*/}
-                <TextField
-                    id="standard-size-small"
-                    label="Full Name"
-                    variant="standard"
-                    InputLabelProps={{ shrink: true }}
-                    value={name}
-                    onChange={handelName} />
+                {/*TODO: Display*/}
+                <Stack spacing={2}
+                    direction={{ xs: 'column', md: 'row' }}>
+                    <TextField
+                        sx={{
+                            width: {
+                                xs: '100%',
+                                md: '30%'
+                            }
+                        }}
+                        id="standard-size-small"
+                        label="Full Name"
+                        variant="standard"
+                        InputLabelProps={{ shrink: true }}
+                        value={name}
+                        onChange={handelName} />
 
-                <TextField
-                    id="standard-size-small"
-                    label="Display Tags"
-                    variant="standard"
-                    autoComplete="off"
-                    InputLabelProps={{ shrink: true }}
-                    value={tagline.join(" ")}
-                    onChange={handelTags}
-                    placeholder="Tags Are Space Seperated (eg. <Artist Developer Singer>" />
+                    <TextField
+                        sx={{
+                            width: {
+                                xs: '100%',
+                                md: '70%'
+                            }
+                        }}
+                        id="standard-size-small"
+                        label="Display Tags"
+                        variant="standard"
+                        autoComplete="off"
+                        InputLabelProps={{ shrink: true }}
+                        value={tagline.join(" ")}
+                        onChange={handelTags}
+                        placeholder="Tags Are Space Seperated (eg. <Artist Developer Singer>" />
+                </Stack>
+
                 <Typography variant="h5">Social Handles</Typography>
                 {Object.keys(socials).map((site) => {
                     return <TextField
                         key={site}
                         id="standard-size-small"
-                        label={site.toUpperCase()}
+                        label={site[0].toUpperCase()+site.substr(1,site.length)}
                         value={socials[site]}
                         onChange={(event) => {
                             setSocials({ ...socials, [site]: event.target.value })
@@ -61,7 +77,7 @@ const UserDisplayItems = (props) => {
                         variant="standard"
                         autoComplete="off"
                         InputLabelProps={{ shrink: true }}
-                        placeholder = "Account URL"/>
+                        placeholder="Account URL" />
                 })}
             </Stack>
         </Paper>
