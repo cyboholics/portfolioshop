@@ -4,7 +4,7 @@ import InfoIcon from '@mui/icons-material/Info'
 import { UserDataContext } from '../../../Providers/UserDataStateProvider'
 import Paper from '../../MuiComponents/Paper'
 import { withStyles } from '@mui/styles'
-import { Divider, Grid, Stack, TextField, Button, Typography, IconButton, Slider, Tooltip } from '@mui/material'
+import { Box, Grid, Stack, TextField, Button, Typography, IconButton, Slider, Tooltip } from '@mui/material'
 
 
 const styles = (theme) => ({
@@ -107,7 +107,7 @@ const Project = (props) => {
                     </IconButton>
                 </Grid>
             </Grid>
-            {index != projects.length - 1 && <Divider sx={{ marginTop: 1, marginBottom: 3 }} flexItem orientations="horizontal" />}
+            {index != projects.length - 1 && <Box sx={{ marginTop: 1, marginBottom: 3 }} />}
         </>
     )
 }
