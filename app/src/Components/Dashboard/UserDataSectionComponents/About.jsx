@@ -6,9 +6,10 @@ import { UserDataContext } from '../../../Providers/UserDataStateProvider'
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { InputLabel, Typography, Stack, TextField, InputAdornment, Select, MenuItem } from '@mui/material'
+import { Typography, Stack, TextField, InputAdornment, IconButton, Tooltip } from '@mui/material'
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 import MuiPhoneNumber from 'material-ui-phone-number';
+import InfoIcon from '@mui/icons-material/Info';
 
 const styles = (theme) => ({
   stack: {
@@ -27,7 +28,15 @@ const About = (props) => {
   const { about, setAbout } = React.useContext(UserDataContext)
   return (
     <Paper>
-      <Typography variant="h5">About</Typography>
+      <Typography variant="h5">
+        About
+        <Tooltip arrow placement='right' title="Tell us about yourself in this section">
+          <IconButton>
+            <InfoIcon fontSize={'small'} />
+          </IconButton>
+        </Tooltip>
+      </Typography>
+
       <Stack direction={"column"}
         spacing={2}
         className={classes.stack}>

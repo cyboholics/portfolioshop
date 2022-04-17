@@ -1,6 +1,7 @@
 import React from 'react'
 import { UserDataContext } from '../../../Providers/UserDataStateProvider'
-import { TextField, Typography, Stack, Divider } from '@mui/material'
+import { TextField, Typography, Stack, IconButton, Tooltip } from '@mui/material'
+import InfoIcon from '@mui/icons-material/Info'
 import Paper from '../../MuiComponents/Paper'
 import { withStyles } from '@mui/styles'
 
@@ -24,7 +25,14 @@ const Website = (props) => {
         <Paper
             className={classes.paper}
         >
-            <Typography className={classes.heading} variant="h5">Website Details</Typography>
+            <Typography className={classes.heading} variant="h5">
+                Website Details
+                <Tooltip arrow placement='right' title="Fill up the website specific details">
+                    <IconButton>
+                        <InfoIcon fontSize={'small'} />
+                    </IconButton>
+                </Tooltip>
+            </Typography>
             <Stack spacing={4}
                 className={classes.stack}
                 direction={{ xs: 'column', md: 'row' }}>

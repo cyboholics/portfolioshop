@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded'
+import InfoIcon from '@mui/icons-material/Info'
 import { UserDataContext } from '../../../Providers/UserDataStateProvider'
 import Paper from '../../MuiComponents/Paper'
 import { withStyles } from '@mui/styles'
-import { Stack, TextField, Button, Typography, IconButton, Slider } from '@mui/material'
+import { Stack, TextField, Button, Typography, IconButton, Slider, Tooltip } from '@mui/material'
 
 
 const styles = (theme) => ({
@@ -79,11 +80,18 @@ const Skills = (props) => {
     const { classes } = props
     const { skills, setSkills } = React.useContext(UserDataContext)
     useEffect(() => {
-        if (skills.length == 0) setSkills([{ skill: '', value: 50 }])
+        if (skills.length === 0) setSkills([{ skill: '', value: 50 }])
     })
     return (
         <Paper>
-            <Typography variant="h5">Skills</Typography>
+            <Typography variant="h5">
+                Skills
+                <Tooltip arrow placement='right' title="What are your skills and what's your proficiency in them">
+                    <IconButton>
+                        <InfoIcon fontSize={'small'} />
+                    </IconButton>
+                </Tooltip>
+            </Typography>
             <Stack className={classes.stack}
                 spacing={{ xs: 2, sm: -4 }}
                 direction='column'>

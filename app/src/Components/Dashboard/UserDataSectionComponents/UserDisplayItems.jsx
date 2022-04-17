@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { UserDataContext } from '../../../Providers/UserDataStateProvider'
 import Paper from "../../MuiComponents/Paper"
-import { Stack, Typography, TextField } from '@mui/material'
+import { Stack, Typography, TextField, IconButton, Tooltip } from '@mui/material'
+import InfoIcon from '@mui/icons-material/Info'
 import { withStyles } from '@mui/styles'
 
 const styles = (theme) => ({
@@ -27,7 +28,14 @@ const UserDisplayItems = (props) => {
 
     return (
         <Paper>
-            <Typography variant="h5">User Details</Typography>
+            <Typography variant="h5">
+                User Details
+                <Tooltip arrow placement='right' title="Tell us about your personal details that should be put up in the website">
+                    <IconButton>
+                        <InfoIcon fontSize={'small'} />
+                    </IconButton>
+                </Tooltip>
+            </Typography>
             <Stack
                 className={classes.stack} spacing={2}>
                 {/*TODO: Display*/}
@@ -69,7 +77,7 @@ const UserDisplayItems = (props) => {
                     return <TextField
                         key={site}
                         id="standard-size-small"
-                        label={site[0].toUpperCase()+site.substr(1,site.length)}
+                        label={site[0].toUpperCase() + site.substr(1, site.length)}
                         value={socials[site]}
                         onChange={(event) => {
                             setSocials({ ...socials, [site]: event.target.value })
