@@ -45,7 +45,6 @@ const Skill = (props) => {
 </Stack>}
 
 const Skills = (props) => {
-    
     const { classes } = props
     const { skills, setSkills } = React.useContext(UserDataContext)
     return (
@@ -64,6 +63,7 @@ const Skills = (props) => {
                     marginBottom: 0.9,
                     alignSelf: 'flex-end'
                 }}
+                onClick={() => {setSkills([...skills, {skill: '', value: 50}])}}
                 variant="outlined"
                 color="success">
                 Add
