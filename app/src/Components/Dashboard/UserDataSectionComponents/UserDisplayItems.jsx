@@ -48,7 +48,7 @@ const UserDisplayItems = (props) => {
                                 md: '30%'
                             }
                         }}
-                        id="standard-size-small"
+                        
                         label="Full Name"
                         variant="standard"
                         InputLabelProps={{ shrink: true }}
@@ -62,7 +62,7 @@ const UserDisplayItems = (props) => {
                                 md: '70%'
                             }
                         }}
-                        id="standard-size-small"
+                        
                         label="Display Tags"
                         variant="standard"
                         autoComplete="off"
@@ -76,7 +76,7 @@ const UserDisplayItems = (props) => {
                 {Object.keys(socials).map((site) => {
                     return <TextField
                         key={site}
-                        id="standard-size-small"
+                        
                         label={site[0].toUpperCase() + site.substr(1, site.length)}
                         value={socials[site]}
                         onChange={(event) => {

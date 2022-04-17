@@ -33,7 +33,6 @@ const Skill = (props) => {
         spacing={{ xs: 2, sm: 4 }}>
         <TextField
             sx={{ width: { xs: '100%', sm: '30%' } }}
-            id="standard-size-small"
             label="Skill"
             size="medium"
             variant="standard"

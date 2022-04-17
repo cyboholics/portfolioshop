@@ -42,7 +42,6 @@ const About = (props) => {
         className={classes.stack}>
         {/* about.heading */}
         <TextField
-          id="standard-size-small"
           label="Heading"
           variant="standard"
           autoComplete="off"
@@ -78,7 +77,6 @@ const About = (props) => {
           {/* Age */}
           <TextField
             sx={{ width: { xs: '100%', sm: '13%' } }}
-            id="standard-size-small"
             label="Age"
             variant="standard"
             autoComplete="off"
@@ -91,7 +89,6 @@ const About = (props) => {
           {/* City */}
           <TextField
             sx={{ width: { xs: '100%', sm: '50%' } }}
-            id="standard-size-small"
             label="City"
             variant="standard"
             autoComplete="off"
@@ -114,7 +111,6 @@ const About = (props) => {
 
           <TextField
             sx={{ width: { xs: '100%', sm: '49%' } }}
-            id="standard-size-small"
             label="Email"
             variant="standard"
             autoComplete="on"
@@ -125,7 +121,7 @@ const About = (props) => {
         </Stack>
         <TextField
           multiline
-          id="standard-size-small"
+          
           label="Summary"
           variant="standard"
           autoComplete="off"

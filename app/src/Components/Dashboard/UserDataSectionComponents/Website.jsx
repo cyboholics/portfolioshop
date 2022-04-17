@@ -43,7 +43,7 @@ const Website = (props) => {
                             md: '30%'
                         }
                     }}
-                    id="standard-size-small"
+                    
                     size="medium"
                     label="Website Title"
                     variant="standard"
@@ -59,7 +59,7 @@ const Website = (props) => {
                             md: '70%'
                         }
                     }}
-                    id="standard-size-small"
+                    
                     size="medium"
                     label="Website Favicon Url"
                     variant="standard"

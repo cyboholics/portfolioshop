@@ -33,10 +33,9 @@ const Project = (props) => {
                 container
                 spacing={2}
             >
-                <Grid item xs={5}>
+                <Grid item xs={6}>
                     <TextField
                         sx={{ width: '100%' }}
-                        id="standard-size-small"
                         label="Project Title"
                         size="medium"
                         variant="standard"
@@ -44,12 +43,11 @@ const Project = (props) => {
                         InputLabelProps={{ shrink: true }}
                         placeholder="Title"
                         value={title || ''}
-                        onChange={(e) => {console.log(projects); console.log(e.target.value); setProjects(changeArray(projects, index, type, imageUrl, link, e.target.value, description)); console.log(title);}} />
+                        onChange={(e) => { console.log(projects); console.log(e.target.value); setProjects(changeArray(projects, index, type, imageUrl, link, e.target.value, description)); console.log(title); }} />
                 </Grid>
-                <Grid item xs={5}>
+                <Grid item xs={6}>
                     <TextField
                         sx={{ width: '100%' }}
-                        id="standard-size-small"
                         label="Project Domain"
                         size="medium"
                         variant="standard"
@@ -57,45 +55,42 @@ const Project = (props) => {
                         InputLabelProps={{ shrink: true }}
                         placeholder="Domain or Type of your Project"
                         value={type || ''}
-                        onChange={(e) => {setProjects(changeArray(projects, index, e.target.value, imageUrl, link, title, description))}} />
+                        onChange={(e) => { setProjects(changeArray(projects, index, e.target.value, imageUrl, link, title, description)) }} />
                 </Grid>
-                <Grid item xs={5}>
+                <Grid item xs={6}>
                     <TextField
                         sx={{ width: '100%' }}
-                        id="standard-size-small"
-                        label="Project ImageUrl"
+                        label="Project Image Link"
                         size="medium"
                         variant="standard"
                         autoComplete="off"
                         InputLabelProps={{ shrink: true }}
-                        placeholder="URL of Image to be shown on Website"
+                        placeholder="URL of Project Display Image"
                         value={imageUrl || ''}
-                        onChange={(e) => {setProjects(changeArray(projects, index, type, e.target.value, link, title, description))}} />
-                </Grid><Grid item xs={5}>
+                        onChange={(e) => { setProjects(changeArray(projects, index, type, e.target.value, link, title, description)) }} />
+                </Grid><Grid item xs={6}>
                     <TextField
                         sx={{ width: '100%' }}
-                        id="standard-size-small"
                         label="Deployment Link"
                         size="medium"
                         variant="standard"
                         autoComplete="off"
                         InputLabelProps={{ shrink: true }}
-                        placeholder="Deployment or Demo to showcase the Project"
+                        placeholder="Deployment or Demo Link"
                         value={link || ''}
-                        onChange={(e) => {setProjects(changeArray(projects, index, type, imageUrl, e.target.value, title, description))}} />
+                        onChange={(e) => { setProjects(changeArray(projects, index, type, imageUrl, e.target.value, title, description)) }} />
                 </Grid>
-                <Grid item xs={10}>
+                <Grid item xs={10.5}>
                     <TextField
-                        sx={{ width: '90%' }}
+                        sx={{ width: '100%' }}
                         multiline
-                        id="standard-size-small"
                         label="Description"
                         variant="standard"
                         autoComplete="off"
                         InputLabelProps={{ shrink: true }}
                         placeholder="Project Description"
                         value={description || ''}
-                        onChange={(e) => {setProjects(changeArray(projects, index, type, imageUrl, link, title, e.target.value))}} />
+                        onChange={(e) => { setProjects(changeArray(projects, index, type, imageUrl, link, title, e.target.value)) }} />
                 </Grid>
                 <Grid item xs={1}>
                     <IconButton
@@ -107,12 +102,12 @@ const Project = (props) => {
                         disabled={projects.length <= 1}
                         aria-label="delete"
                         size="large"
-                        onClick={(e)=>setProjects(removeArrayElement(projects, index))}>
+                        onClick={(e) => setProjects(removeArrayElement(projects, index))}>
                         <DeleteOutlineRoundedIcon />
                     </IconButton>
                 </Grid>
             </Grid>
-            {index!=projects.length-1 && <Divider sx={{marginTop:1, marginBottom:3}} flexItem orientations="horizontal"/>}
+            {index != projects.length - 1 && <Divider sx={{ marginTop: 1, marginBottom: 3 }} flexItem orientations="horizontal" />}
         </>
     )
 }
@@ -146,7 +141,7 @@ const Projects = (props) => {
                     marginBottom: { xs: 1, sm: 1 },
                     alignSelf: 'flex-end'
                 }}
-                onClick={() => { projects[projects?.length - 1]?.title && setProjects([...projects, { type:'', title:'', imageUrl:'', link:'', description:'' }]) }}
+                onClick={() => { projects[projects?.length - 1]?.title && setProjects([...projects, { type: '', title: '', imageUrl: '', link: '', description: '' }]) }}
                 variant="outlined"
                 color="success">
                 Add
