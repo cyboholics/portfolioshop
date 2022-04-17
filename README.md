@@ -35,4 +35,4 @@ Check out the [Contribution Guide](./CONTRIBUTING.md) for more insights.
 ## Contributors
 ![GitHub Contributors Image](https://contrib.rocks/image?repo=Portfolio-Shop/portfolioshop)
 
-## License [![GitHub license](https://badgen.net/github/license/Portfolio-Shop/portfolioshop)](https://github.com/Portfolio-Shop/portfolioshop/blob/master/LICENSE)
+## [![GitHub license](https://badgen.net/github/license/Portfolio-Shop/portfolioshop)](https://github.com/Portfolio-Shop/portfolioshop/blob/master/LICENSE)
