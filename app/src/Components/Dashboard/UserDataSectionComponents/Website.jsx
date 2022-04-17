@@ -36,7 +36,7 @@ const Website = (props) => {
                         }
                     }}
                     id="standard-size-small"
-                    size="small"
+                    size="medium"
                     label="Website Title"
                     variant="standard"
                     autoComplete='off'
@@ -52,7 +52,7 @@ const Website = (props) => {
                         }
                     }}
                     id="standard-size-small"
-                    size="small"
+                    size="medium"
                     label="Website Favicon Url"
                     variant="standard"
                     autoComplete='off'
