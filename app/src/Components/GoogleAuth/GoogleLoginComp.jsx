@@ -20,6 +20,7 @@ const GoogleLoginComp = () => {
                 onFailure={responseGoogleFailure}
                 cookiePolicy={'single_host_origin'}
                 permission='id_token'
+                uxMode={"redirect"}
                 theme="dark"
                 isSignedIn={true}
             />}
