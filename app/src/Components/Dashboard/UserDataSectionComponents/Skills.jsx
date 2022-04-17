@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded'
 import { UserDataContext } from '../../../Providers/UserDataStateProvider'
 import Paper from '../../MuiComponents/Paper'
 import { withStyles } from '@mui/styles'
-import { Stack, TextField, Button, Typography, Slider } from '@mui/material'
+import { Stack, TextField, Button, Typography, IconButton, Slider } from '@mui/material'
 
 
 const styles = (theme) => ({
@@ -11,59 +12,92 @@ const styles = (theme) => ({
         marginBottom: 10
     }
 })
-const Skill = (props) => { 
-    const {key, skill, value, setSkills, skills} = props
+
+function changeArray(arr, idx, newText, newValue) {
+    //search for idx, and reply value
+    const copy = [...arr]
+    copy[idx] = { "skill": newText, "value": newValue }
+    return copy
+}
+function removeArrayElement(arr, idx) {
+    const copy = arr.filter((e, i) => i !== idx)
+    return copy
+}
+
+const Skill = (props) => {
+    const { index, skill, value, setSkills, skills } = props
     return <Stack
-    marginBottom={{ xs: 0, sm: -5 }}
-    direction={{ xs: 'column', sm: 'row' }}
-    spacing={{ xs: 2, sm: 4 }}>
-    <TextField
-        sx={{ width: { xs: '100%', sm: '30%' } }}
-        id="standard-size-small"
-        label="Skill"
-        size="medium"
-        variant="standard"
-        autoComplete="off"
-        InputLabelProps={{ shrink: true }}
-        placeholder="Skill Name"
-        value={skill || ''}
-        onChange={(e) => {setSkills({...skills, [key]: {skill: e.target.value}})}}
-    />
-    <Slider
-        sx={{
-            width: { xs: '100%', sm: '70%' },
-            paddingTop: { xs: 0, sm: 11.5 },
-            paddingBottom: { sm: 0 }
-        }}
-        defaultValue={50}
-        valueLabelDisplay="auto"
-        step={10}
-        min={10}
-        max={100}
-        label="Skill Expertise"
-    />
-</Stack>}
+        marginBottom={{ xs: 0 }}
+        direction={{ xs: 'column', sm: 'row' }}
+        spacing={{ xs: 2, sm: 4 }}>
+        <TextField
+            sx={{ width: { xs: '100%', sm: '30%' } }}
+            id="standard-size-small"
+            label="Skill"
+            size="medium"
+            variant="standard"
+            autoComplete="off"
+            InputLabelProps={{ shrink: true }}
+            placeholder="Skill Name"
+            value={skill || ''}
+            onChange={(e) => { setSkills(changeArray(skills, index, e.target.value, value)) }}
+        />
+        <Stack direction='row'
+            sx={{
+                width: { xs: '100%', sm: '70%' },
+            }}>
+            <Slider
+                sx={{
+                    width: '90%',
+                    paddingTop: { xs: 3, sm: 11.5 },
+                    paddingBottom: { sm: 0 }
+                }}
+                value={value || 50}
+                onChange={(event) => { setSkills(changeArray(skills, index, skill, event.target.value)) }}
+                valueLabelDisplay="auto"
+                min={10}
+                max={100}
+                label="Skill Expertise"
+            />
+            <IconButton
+                sx={{
+                    height: 50,
+                    width: 50,
+                    marginTop: {sm:2}
+                }}
+                disabled={skills.length <= 1}
+                aria-label="delete"
+                size="large"
+                onClick={() => { setSkills(removeArrayElement(skills, index)) }}>
+                <DeleteOutlineRoundedIcon />
+            </IconButton>
+        </Stack>
+    </Stack>
+}
 
 const Skills = (props) => {
     const { classes } = props
     const { skills, setSkills } = React.useContext(UserDataContext)
+    useEffect(() => {
+        if (skills.length == 0) setSkills([{ skill: '', value: 50 }])
+    })
     return (
         <Paper>
             <Typography variant="h5">Skills</Typography>
             <Stack className={classes.stack}
-                spacing={2}
+                spacing={{ xs: 2, sm: -4 }}
                 direction='column'>
-                    {skills.map((skill, index) => {return <Skill key={index} skill={skill.skill} value={skill.value} setSkills={setSkills}/>})}
+                {skills.map((skill, index) => { return <Skill key={index} index={index} skill={skill.skill} value={skill.value} setSkills={setSkills} skills={skills} /> })}
             </Stack>
 
             <Button
                 sx={{
                     width: '20%',
-                    marginTop: { xs: 2, sm: 0 },
-                    marginBottom: 0.9,
+                    marginTop: { xs: 0, sm: -5 },
+                    marginBottom: { xs: 1, sm: 0 },
                     alignSelf: 'flex-end'
                 }}
-                onClick={() => {setSkills([...skills, {skill: '', value: 50}])}}
+                onClick={() => { setSkills([...skills, { skill: '', value: 50 }]) }}
                 variant="outlined"
                 color="success">
                 Add
