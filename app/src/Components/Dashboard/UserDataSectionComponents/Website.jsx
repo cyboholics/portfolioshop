@@ -5,8 +5,6 @@ import InfoIcon from '@mui/icons-material/Info'
 import Paper from '../../MuiComponents/Paper'
 import { withStyles } from '@mui/styles'
 import UploadImage from '../UploadImage'
-import axios from 'axios'
-import { UserContext } from '../../../Providers/UserStateProvider'
 
 const styles = (theme) => ({
     stack: {
@@ -17,32 +15,14 @@ const styles = (theme) => ({
 
 const Website = (props) => {
     const { classes } = props
-    const { userToken } = React.useContext(UserContext)
     const { website, setWebsite } = React.useContext(UserDataContext)
-    const [faviconLink, setFaviconLink] = React.useState(website.faviconUrl)
     const setWebsiteTitle = (event) => {
         setWebsite({ ...website, title: event.target.value })
     }
-    const setFaviconUrl = (event) => {
-        setWebsite({ ...website, faviconUrl: event.target.value })
+    const setFaviconUrl = (image) => {
+        setWebsite({ ...website, faviconUrl: image })
     }
-    const faviconLinkChangeHandler = async (link) => {
-        const dataURI = link[0]["data_url"]
-        try {
-            const url = await axios.post(`/api/imageBlobUpload?token=${userToken}`,{
-                "uri":dataURI
-            },{
-                headers: { 
-                    'Content-Type' : 'application/json' 
-                }
-            })
-            console.log(url.data.uri)
-            setFaviconLink(url.data.uri)
-            setWebsite({ ...website, faviconUrl: url.data.uri })
-        } catch (e) {
-            console.log(e)
-        }
-    }
+
     return <>
         <Paper
             className={classes.paper}
@@ -88,10 +68,10 @@ const Website = (props) => {
                     autoComplete='off'
                     InputLabelProps={{ shrink: true }}
                     value={website?.faviconUrl || ''}
-                    onChange={setFaviconUrl} />
+                    onChange={e=>setFaviconUrl(e.target.value)} />
                 <UploadImage
-                    onChange={faviconLinkChangeHandler}
-                    imageLink={faviconLink}
+                    onChange={setFaviconUrl}
+                    imageLink={website.faviconUrl}
                     width={20}
                     height={20}
                 />
