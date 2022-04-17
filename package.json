@@ -6,9 +6,11 @@
   "scripts": {
     "dev-install": "npm install && cd app && npm install && cd ../ && cd api && npm install && cd ../",
     "start-api": "cd api && npm start",
-    "start-app": "cd app && npm run start",
+    "start-app": "cd app && npm start",
     "start-dev": "concurrently \"npm:start-app\" \"npm:start-api\"",
-    "start": "swa start http://localhost:3000 --api-location http://localhost:7071 --open --run \"npm run start-dev\""
+    "start-swa": "swa start http://localhost:3000 --api-location http://localhost:7071 --open",
+    "start": "swa start http://localhost:3000 --api-location http://localhost:7071 --open --run \"npm run start-dev\"",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
