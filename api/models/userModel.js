@@ -194,15 +194,15 @@ const dataModel = mongoose.Schema({
                 required: true,
                 type: String
             },
+            title: {
+                required: true,
+                type: String
+            },
             imageUrl: {
                 required: true,
                 type: String
             },
             link: {
-                required: true,
-                type: String
-            },
-            title: {
                 required: true,
                 type: String
             },

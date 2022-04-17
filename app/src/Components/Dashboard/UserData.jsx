@@ -5,6 +5,7 @@ import Website from './UserDataSectionComponents/Website'
 import UserDisplayItems from './UserDataSectionComponents/UserDisplayItems'
 import About from './UserDataSectionComponents/About'
 import Skills from './UserDataSectionComponents/Skills'
+import Projects from './UserDataSectionComponents/Projects'
 
 const Userdata = () => {
     return (
@@ -14,6 +15,7 @@ const Userdata = () => {
                 <UserDisplayItems />
                 <About/>
                 <Skills/>
+                <Projects/>
             </Container>
         </UserDataStateProvider>
 
