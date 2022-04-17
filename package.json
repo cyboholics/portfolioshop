@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Portfolio-Shop/portfolioshop/issues"
   },
-  "homepage": "https://github.com/Portfolio-Shop/portfolioshop#readme"
+  "homepage": "https://github.com/Portfolio-Shop/portfolioshop#readme",
+  "dependencies": {
+    "@material-ui/pickers": "^3.3.10"
+  }
 }

@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { UserDataContext } from '../../../Providers/UserDataStateProvider'
 import Paper from "../../MuiComponents/Paper"
-import { Stack, Typography, TextField, Divider } from '@mui/material'
+import { Stack, Typography, TextField } from '@mui/material'
 import { withStyles } from '@mui/styles'
 
 const styles = (theme) => ({
     stack: {
         marginTop: 20,
-        marginBottom: 20
+        marginBottom: 10
     },
 
 })

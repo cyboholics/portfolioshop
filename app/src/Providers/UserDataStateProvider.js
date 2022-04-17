@@ -18,12 +18,14 @@ const UserDataStateProvider = ({ children }) => {
     const [contact, setContact] = useState({})
     React.useEffect(() => {
         axios.get(`/api/userDataRead?token=${userToken}`).then(res => {
-            setUserData(res.data.doc.templateData)
+            setUserData(res?.data?.doc?.templateData || {})
+        }).catch((err)=>{
+            console.log(err)
         })
     }, [userToken])
 
     React.useEffect(() => {
-        if(Object.keys(userData).length <= 0) return;
+        if(userData && Object.keys(userData).length <= 0) return;
         setWebsite(userData.website ? userData.website : {})
         setName(userData.name ? userData.name : {})
         setTagline(userData.tagline ? userData.tagline : [])

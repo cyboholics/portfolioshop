@@ -5,12 +5,14 @@ export default function Papers(props) {
     const {children} = props
     return (
         <Paper sx={{
-            padding: 3,
+            padding: 3.5,
+            paddingTop: 2.5,
             paddingBottom: 2.5,
             marginTop: 2,
             marginBottom: 2,
             marginLeft: 4,
-            marginRight: 4
+            marginRight: 4,
+            borderRadius: 2,
         }} 
         elevation={3}
         {...props} >
