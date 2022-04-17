@@ -116,6 +116,7 @@ const About = (props) => {
             autoComplete="on"
             InputLabelProps={{ shrink: true }}
             placeholder="Your Email"
+            type={'email'}
             value={about.email || ''}
             onChange={(event) => { setAbout({ ...about, email: event.target.value }) }} />
         </Stack>

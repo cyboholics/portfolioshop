@@ -6,6 +6,7 @@ import UserDisplayItems from './UserDataSectionComponents/UserDisplayItems'
 import About from './UserDataSectionComponents/About'
 import Skills from './UserDataSectionComponents/Skills'
 import Projects from './UserDataSectionComponents/Projects'
+import Contact from './UserDataSectionComponents/Contact'
 
 const Userdata = () => {
     return (
@@ -16,6 +17,7 @@ const Userdata = () => {
                 <About/>
                 <Skills/>
                 <Projects/>
+                <Contact/>
             </Container>
         </UserDataStateProvider>
 
