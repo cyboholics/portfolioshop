@@ -28,6 +28,7 @@ module.exports = async function (context, req) {
             body: data
         }
     } catch (err) {
+        context.log(err)
         context.res = {
             statusCode: 500,
             body: err.message

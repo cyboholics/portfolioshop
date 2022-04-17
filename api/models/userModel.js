@@ -3,21 +3,21 @@ const findOrCreate = require("mongoose-findorcreate")
 const dataModel = mongoose.Schema({
     username: {
         type: String,
-        required: true,
+        default: ''
     },
     templateData: {
         website: {
             title: {
-                required: true,
-                type: String,
+                default: '',
+                type: String
             },
             faviconUrl: {
-                required: true,
+                default: '',
                 type: String,
             },
         },
         name: {
-            required: true,
+            default: '',
             type: String,
         },
         tagline: [
@@ -28,54 +28,52 @@ const dataModel = mongoose.Schema({
         ],
         socials: {
             twitter: {
-                required: true,
                 type: String,
+                default: ''
             },
             facebook: {
-                required: true,
                 type: String,
+                default: ''
             },
             linkedin: {
-                required: true,
                 type: String,
+                default: ''
             },
             github: {
-                required: true,
                 type: String,
+                default: ''
             },
             instagram: {
-                required: true,
                 type: String,
+                default: ''
             },
         },
         about: {
             heading: {
-                required: true,
+                default: '',
                 type: String,
             },
             dateOfBirth: {
-                required: true,
                 type: Date
             },
             age: {
-                required: true,
                 type: Number,
                 default: 0
             },
             city: {
-                required: true,
                 type: String,
+                default: ''
             },
             phone: {
-                required: true,
                 type: String,
+                default: ''
             },
             email: {
-                required: true,
-                type: String,
+                default: '',
+                type: String
             },
             summary: {
-                required: true,
+                default: '',
                 type: String,
             }
         },
@@ -91,24 +89,24 @@ const dataModel = mongoose.Schema({
         }],
         resume: {
             summary: {
-                required: true,
+                default: '',
                 type: String,
             },
             education: [{
                 title: {
-                    required: true,
+                    default: '',
                     type: String
                 },
                 period: {
-                    required: true,
+                    default: '',
                     type: String
                 },
                 institution: {
-                    required: true,
+                    default: '',
                     type: String
                 },
                 marks: {
-                    required: true,
+                    default: '',
                     type: String
                 }
             }],
@@ -215,15 +213,15 @@ const dataModel = mongoose.Schema({
         }],
         contact: {
             email: {
-                required: true,
+                default: '',
                 type: String
             },
             phone: {
-                required: true,
+                default: '',
                 type: String
             },
             address: {
-                required: true,
+                default: '',
                 type: String
             }
         }

@@ -27,7 +27,7 @@ const UserDataStateProvider = ({ children }) => {
     React.useEffect(() => {
         if(userData && Object.keys(userData).length <= 0) return;
         setWebsite(userData.website ? userData.website : {})
-        setName(userData.name ? userData.name : {})
+        setName(userData.name ? userData.name : '')
         setTagline(userData.tagline ? userData.tagline : [])
         setSocials(userData.socials ? userData.socials : {})
         setAbout(userData.about ? userData.about : {})
