@@ -6,7 +6,7 @@ import { UserDataContext } from '../../../Providers/UserDataStateProvider'
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { Typography, Stack, TextField, InputAdornment } from '@mui/material'
+import { InputLabel, Typography, Stack, TextField, InputAdornment, Select, MenuItem } from '@mui/material'
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 import MuiPhoneNumber from 'material-ui-phone-number';
 
@@ -15,6 +15,11 @@ const styles = (theme) => ({
     marginTop: 20,
     marginBottom: 10
   },
+  root: {
+    '& .MuiFormLabel-root.Mui-disabled': {
+      color: 'red',
+    },
+  }
 })
 
 const About = (props) => {
@@ -37,7 +42,7 @@ const About = (props) => {
           value={about.heading || ''}
           onChange={(event) => { setAbout({ ...about, heading: event.target.value }); console.log(about) }} />
 
-        <Stack spacing={2}
+        <Stack spacing={{ xs: 2, sm: 2 }}
           direction={{ xs: 'column', sm: 'row' }}>
           {/* Date Of Birth */}
           <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -48,7 +53,7 @@ const About = (props) => {
               variant="inline"
               InputAdornmentProps={{ position: "start" }}
               renderInput={(params) => <TextField
-                sx={{ width: { xs: '100%', sm: '30%' } }}
+                sx={{ width: { xs: '100%', sm: '35%' } }}
                 variant="standard"
                 InputProps={{
                   startAdornment: (
@@ -63,7 +68,7 @@ const About = (props) => {
 
           {/* Age */}
           <TextField
-            sx={{ width: { xs: '100%', sm: '30%' } }}
+            sx={{ width: { xs: '100%', sm: '13%' } }}
             id="standard-size-small"
             label="Age"
             variant="standard"
@@ -76,7 +81,7 @@ const About = (props) => {
 
           {/* City */}
           <TextField
-            sx={{ width: { xs: '100%', sm: '30%' } }}
+            sx={{ width: { xs: '100%', sm: '50%' } }}
             id="standard-size-small"
             label="City"
             variant="standard"
