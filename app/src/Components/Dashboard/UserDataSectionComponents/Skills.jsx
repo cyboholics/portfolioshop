@@ -11,7 +11,9 @@ const styles = (theme) => ({
         marginBottom: 10
     }
 })
-const Skill = (props) => { return <Stack
+const Skill = (props) => { 
+    const {key, skill, value, setSkills, skills} = props
+    return <Stack
     marginBottom={{ xs: 0, sm: -5 }}
     direction={{ xs: 'column', sm: 'row' }}
     spacing={{ xs: 2, sm: 4 }}>
@@ -24,7 +26,8 @@ const Skill = (props) => { return <Stack
         autoComplete="off"
         InputLabelProps={{ shrink: true }}
         placeholder="Skill Name"
-        value={props.skill || ''}
+        value={skill || ''}
+        onChange={(e) => {setSkills({...skills, [key]: {skill: e.target.value}})}}
     />
     <Slider
         sx={{
@@ -51,7 +54,7 @@ const Skills = (props) => {
             <Stack className={classes.stack}
                 spacing={2}
                 direction='column'>
-                    {skills.map((skill, index) => {return <Skill key={index} skill={skill.skill} />})}
+                    {skills.map((skill, index) => {return <Skill key={index} skill={skill.skill} value={skill.value} setSkills={setSkills}/>})}
             </Stack>
 
             <Button
