@@ -1,7 +1,6 @@
 import React from 'react'
-import {Box} from '@mui/material'
-import Userdata from '../Components/Dashboard/UserData'
-import GoogleLogoutComp from '../Components/GoogleAuth/GoogleLogoutComp'
+import { Box } from '@mui/material'
+import GoogleLogoutComp from '../Components/ThirdPartyButtons/GoogleLogoutComp'
 const Dashboard = () => {
     return (
         <>

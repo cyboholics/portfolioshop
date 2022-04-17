@@ -23,38 +23,29 @@ in such case. Also check out Azure blob storage and cosmosDB as they were used a
 
 We have used a mongoDB database for storing data from our application. You should get familiar with it in case yu want to contribute to the server side. Check out [mongoose](https://www.npmjs.com/package/mongoose) also as it's being used for the implementation of MongoDB database in our application.
 
-### Development dependencies
+### Install the dependencies
 
 Once you have nodejs and reactjs libraries installed, you can run the following code to install additional libraries used to work with Azure tools.
 
 ```cmd
-> npm i -g concurrently @azure/static-web-apps-cli azure-functions-core-tools
+> npm run dev-install
 ```
 
 ## Run the application
-
-### Install the dependencies
-
-```cmd
-> cd app
-> npm i
-> cd ../api
-> npm i
-> cd ..
-```
 
 ### Run the website and API
 
 Run this command and don't close this terminal
 
 ```cmd
-> npm run start
+> npm start
 ```
 
-### Run the proxy
+## Contribution
 
-Open a new terminal and run the following code
+Once you're done with the previous steps, you can start working on the issue assigned to you.
 
-```cmd
-> npm run start-swa
-```
+- Create a pull request from the forked repo to the organization repo
+- You should tick the checklist in the pull request template
+- You should make sure there are no errors in the GitHub CI tests
+

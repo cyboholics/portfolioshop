@@ -1,5 +1,5 @@
 import React from 'react'
-import GoogleLoginComp from '../GoogleAuth/GoogleLoginComp'
+import GoogleLoginComp from '../ThirdPartyButtons/GoogleLoginComp'
 import { Container, Typography } from '@mui/material'
 import { withStyles } from '@mui/styles'
 
