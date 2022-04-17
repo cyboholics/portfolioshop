@@ -3,6 +3,7 @@ import { Container, Typography, Grid, IconButton } from '@mui/material'
 import { withStyles } from '@mui/styles'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import GitHubIcon from '@mui/icons-material/GitHub'
+import DonateButton from './ThirdPartyButtons/DonateButton'
 
 const styles = (theme) => ({
     container: {
@@ -40,10 +41,11 @@ const Menufooter = (props) => {
                         md={4}
                         sm={12}
                         className={classes.internalGrids}>
-                        <Typography align="center">
+                        <Typography align="center" marginRight={5}>
                             {'© PortfolioShop '}
                             {new Date().getFullYear()}
                         </Typography>
+                        <DonateButton buttonId={"footer-button"}/>
                     </Grid>
                     <Grid
                         item
