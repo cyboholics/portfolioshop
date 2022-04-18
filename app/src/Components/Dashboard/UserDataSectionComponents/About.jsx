@@ -6,10 +6,10 @@ import { UserDataContext } from '../../../Providers/UserDataStateProvider'
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { Typography, Stack, TextField, InputAdornment, IconButton, Tooltip } from '@mui/material'
+import { Typography, Stack, TextField, InputAdornment } from '@mui/material'
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 import MuiPhoneNumber from 'material-ui-phone-number';
-import InfoIcon from '@mui/icons-material/Info';
+import CustomToolTip from '../CustomToolTip';
 
 const styles = (theme) => ({
   stack: {
@@ -30,11 +30,7 @@ const About = (props) => {
     <Paper>
       <Typography variant="h5">
         About
-        <Tooltip arrow placement='right' title="Tell us about yourself in this section">
-          <IconButton>
-            <InfoIcon fontSize={'small'} />
-          </IconButton>
-        </Tooltip>
+        <CustomToolTip placement='right' title="Tell us about yourself in this section" />
       </Typography>
 
       <Stack direction={"column"}
@@ -122,7 +118,7 @@ const About = (props) => {
         </Stack>
         <TextField
           multiline
-          
+
           label="Summary"
           variant="standard"
           autoComplete="off"

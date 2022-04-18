@@ -1,10 +1,10 @@
 import React from 'react'
 import { UserDataContext } from '../../../Providers/UserDataStateProvider'
-import { TextField, Typography, Stack, IconButton, Tooltip, Button, Box } from '@mui/material'
+import { TextField, Typography, Stack,Button, Box } from '@mui/material'
 import MuiPhoneNumber from 'material-ui-phone-number';
-import InfoIcon from '@mui/icons-material/Info'
 import Paper from '../../MuiComponents/Paper'
 import { withStyles } from '@mui/styles'
+import CustomToolTip from '../CustomToolTip';
 
 const styles = (theme) => ({
     stack: {
@@ -31,28 +31,25 @@ const Contact = (props) => {
             className={classes.paper}
         >
             <Box sx={{
-                display:"flex",
-                justifyContent:'space-between'
+                display: "flex",
+                justifyContent: 'space-between'
             }}>
                 <Typography className={classes.heading} variant="h5">
                     Contact Details
-                    <Tooltip arrow placement='right' title="What if someone tries to contact you">
-                        <IconButton>
-                            <InfoIcon fontSize={'small'} />
-                        </IconButton>
-                    </Tooltip>
+                    <CustomToolTip lacement='right' title="What if someone tries to contact you">
+                    </CustomToolTip>
                 </Typography>
-                    <Button
-                        sx={{
-                            marginTop: 1,
-                            marginBottom: 1,
-                            flexDirection: 'row-reverse'
-                        }}
-                        onClick={handleToggle}
-                        variant="outlined"
-                        color="info">
-                        Copy details from about section
-                    </Button>
+                <Button
+                    sx={{
+                        marginTop: 1,
+                        marginBottom: 1,
+                        flexDirection: 'row-reverse'
+                    }}
+                    onClick={handleToggle}
+                    variant="outlined"
+                    color="info">
+                    Copy details from about section
+                </Button>
             </Box>
             <Stack
                 className={classes.stack}

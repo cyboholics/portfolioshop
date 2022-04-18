@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { UserDataContext } from '../../../Providers/UserDataStateProvider'
 import Paper from "../../MuiComponents/Paper"
-import { Stack, Typography, TextField, IconButton, Tooltip } from '@mui/material'
-import InfoIcon from '@mui/icons-material/Info'
+import { Stack, Typography, TextField } from '@mui/material'
 import { withStyles } from '@mui/styles'
+import CustomToolTip from '../CustomToolTip'
 
 const styles = (theme) => ({
     stack: {
@@ -30,11 +30,8 @@ const UserDisplayItems = (props) => {
         <Paper>
             <Typography variant="h5">
                 User Details
-                <Tooltip arrow placement='right' title="Tell us about your personal details that should be put up in the website">
-                    <IconButton>
-                        <InfoIcon fontSize={'small'} />
-                    </IconButton>
-                </Tooltip>
+                <CustomToolTip placement='right' title="Tell us about your personal details that should be put up in the website">
+                </CustomToolTip>
             </Typography>
             <Stack
                 className={classes.stack} spacing={2}>
@@ -48,7 +45,7 @@ const UserDisplayItems = (props) => {
                                 md: '30%'
                             }
                         }}
-                        
+
                         label="Full Name"
                         variant="standard"
                         InputLabelProps={{ shrink: true }}
@@ -62,7 +59,7 @@ const UserDisplayItems = (props) => {
                                 md: '70%'
                             }
                         }}
-                        
+
                         label="Display Tags"
                         variant="standard"
                         autoComplete="off"
@@ -76,7 +73,7 @@ const UserDisplayItems = (props) => {
                 {Object.keys(socials).map((site) => {
                     return <TextField
                         key={site}
-                        
+
                         label={site[0].toUpperCase() + site.substr(1, site.length)}
                         value={socials[site]}
                         onChange={(event) => {

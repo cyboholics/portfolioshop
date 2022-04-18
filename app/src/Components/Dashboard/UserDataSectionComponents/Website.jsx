@@ -1,10 +1,10 @@
 import React from 'react'
 import { UserDataContext } from '../../../Providers/UserDataStateProvider'
-import { TextField, Typography, Stack, IconButton, Tooltip } from '@mui/material'
-import InfoIcon from '@mui/icons-material/Info'
+import { TextField, Typography, Stack } from '@mui/material'
 import Paper from '../../MuiComponents/Paper'
 import { withStyles } from '@mui/styles'
 import UploadImage from '../UploadImage'
+import CustomToolTip from '../CustomToolTip'
 
 const styles = (theme) => ({
     stack: {
@@ -29,11 +29,8 @@ const Website = (props) => {
         >
             <Typography className={classes.heading} variant="h5">
                 Website Details
-                <Tooltip arrow placement='right' title="Fill up the website specific details">
-                    <IconButton>
-                        <InfoIcon fontSize={'small'} />
-                    </IconButton>
-                </Tooltip>
+                <CustomToolTip placement='right' title="Fill up the website specific details">
+                </CustomToolTip>
             </Typography>
             <Stack spacing={4}
                 className={classes.stack}
