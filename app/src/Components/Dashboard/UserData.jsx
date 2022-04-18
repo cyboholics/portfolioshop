@@ -22,7 +22,6 @@ const Userdata = () => {
                 <Contact/>
             </Container>
         </UserDataStateProvider>
-
     );
 }
 

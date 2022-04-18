@@ -4,7 +4,7 @@ import InfoIcon from '@mui/icons-material/Info'
 import { UserDataContext } from '../../../Providers/UserDataStateProvider'
 import Paper from '../../MuiComponents/Paper'
 import { withStyles } from '@mui/styles'
-import { Box, Grid, Stack, TextField, Button, Typography, IconButton, Slider, Tooltip } from '@mui/material'
+import { Box, Grid, Stack, TextField, Button, Typography, IconButton, Tooltip } from '@mui/material'
 
 
 const styles = (theme) => ({
