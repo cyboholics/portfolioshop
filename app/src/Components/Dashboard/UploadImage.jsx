@@ -1,5 +1,5 @@
 import React from 'react'
-import { IconButton } from '@mui/material'
+import { Button, Stack, Typography, CircularProgress } from '@mui/material'
 import ImageUploading from 'react-images-uploading'
 import CloudUploadIcon from '@mui/icons-material/CloudUpload'
 import axios from 'axios'
@@ -8,18 +8,21 @@ import { UserContext } from '../../Providers/UserStateProvider'
 
 export default function UploadImage({ imageLink, onChange, width, height }) {
     const { userToken } = React.useContext(UserContext)
-    const upload = async (link)=>{
+    const [loading, setLoading] = React.useState(false)
+    const upload = async (link) => {
         const dataURI = link[0]["data_url"]
         try {
-            const url = await axios.post(`/api/imageBlobUpload?token=${userToken}`,{
-                "uri":dataURI
-            },{
-                headers: { 
-                    'Content-Type' : 'application/json' 
+            setLoading(true)
+            const url = await axios.post(`/api/imageBlobUpload?token=${userToken}`, {
+                "uri": dataURI
+            }, {
+                headers: {
+                    'Content-Type': 'application/json'
                 }
             })
             onChange(url.data["uri"])
-        } catch(e) {
+            setLoading(false)
+        } catch (e) {
             console.log(e)
         }
     }
@@ -37,20 +40,34 @@ export default function UploadImage({ imageLink, onChange, width, height }) {
                     dragProps,
                 }) => (
                     // write your building UI
-                    <div className="upload__image-wrapper">
-                        <IconButton
-                            style={isDragging ? { color: 'red' } : undefined}
+                    <Stack sx={{
+                        marginTop: 1,
+                    }}
+                    direction={"row"}
+                    spacing={2}
+                    >
+                        <Button
+                            variant="outlined"
+                            color={isDragging ? 'info' : 'warning'}
                             onClick={onImageUpload}
                             {...dragProps}
                         >
                             <CloudUploadIcon />
-                        </IconButton>
-                        {imageLink && <img
+                            <Typography variant="body" marginLeft={1}>
+                                Upload or Drag
+                            </Typography>
+                        </Button>
+                        {loading ? <CircularProgress 
+                            size={Math.min(40,width,height)}
+                        />:imageLink && <img
                             src={imageLink}
-                            alt="favicon"
+                            alt="ico"
+                            style={{
+                                borderRadius: "50%"
+                            }}
                             width={width}
                             height={height} />}
-                    </div>
+                    </Stack>
                 )}
             </ImageUploading>
         </div>

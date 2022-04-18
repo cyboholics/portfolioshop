@@ -57,8 +57,9 @@ const Website = (props) => {
                 <TextField
                     sx={{
                         width: {
-                            xs: '50%',
-                            md: '40%'
+                            xs: '100%',
+                            md: '35%',
+                            lg: '40%'
                         }
                     }}
                     
@@ -72,8 +73,8 @@ const Website = (props) => {
                 <UploadImage
                     onChange={setFaviconUrl}
                     imageLink={website.faviconUrl}
-                    width={20}
-                    height={20}
+                    width={30}
+                    height={30}
                 />
             </Stack>
         </Paper>
