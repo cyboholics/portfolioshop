@@ -103,7 +103,7 @@ const Educations = (props) => {
     const { classes } = props
     const { education, setEducation } = React.useContext(UserDataContext)
     useEffect(() => {
-        if (education.length === 0) setEducation([{ edu: "", value: 50 }])
+        if (education.length === 0) setEducation([{ "title": "", "period": "", "institution": "", "marks": "" }])
     })
     return (
         <>

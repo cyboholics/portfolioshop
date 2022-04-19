@@ -103,7 +103,7 @@ const Awards = (props) => {
   const { classes } = props
   const { awards, setAwards } = React.useContext(UserDataContext)
   useEffect(() => {
-    if (awards.length === 0) setAwards([{ awd: "", value: 50 }])
+    if (awards.length === 0) setAwards([{ title: "", period: "", issuer: "", description: "" }])
   })
   return (
     <>

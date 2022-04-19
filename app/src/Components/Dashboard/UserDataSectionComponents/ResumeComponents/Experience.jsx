@@ -103,7 +103,7 @@ const Experiences = (props) => {
   const { classes } = props
   const { experience, setExperience } = React.useContext(UserDataContext)
   useEffect(() => {
-    if (experience.length === 0) setExperience([{ exp: "", value: 50 }])
+    if (experience.length === 0) setExperience([{ "title": "", "period": "", "company": "", "description": "" }])
   })
   return (
     <>

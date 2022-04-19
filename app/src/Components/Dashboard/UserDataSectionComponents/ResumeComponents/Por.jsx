@@ -103,7 +103,7 @@ const Pors = (props) => {
   const { classes } = props
   const { por, setPor } = React.useContext(UserDataContext)
   useEffect(() => {
-    if (por.length === 0) setPor([{ edu: "", value: 50 }])
+    if (por.length === 0) setPor([{ "title": "", "period": "", "organisation": "", "description": "" }])
   })
   return (
     <>
