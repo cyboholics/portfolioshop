@@ -4,11 +4,15 @@ import ImageUploading from 'react-images-uploading'
 import CloudUploadIcon from '@mui/icons-material/CloudUpload'
 import axios from 'axios'
 import { UserContext } from '../../Providers/UserStateProvider'
-
+import ReportGmailerrorredOutlinedIcon from '@mui/icons-material/ReportGmailerrorredOutlined';
 
 export default function UploadImage({ imageLink, onChange, width, height }) {
     const { userToken } = React.useContext(UserContext)
     const [loading, setLoading] = React.useState(false)
+    const [imageError, setImageError] = React.useState(false)
+    React.useEffect(()=>{
+        setImageError(false)
+    },[imageLink])
     const upload = async (link) => {
         const dataURI = link[0]["data_url"]
         try {
@@ -59,11 +63,20 @@ export default function UploadImage({ imageLink, onChange, width, height }) {
                         </Button>
                         {loading ? <CircularProgress 
                             size={Math.min(40,width,height)}
-                        />:imageLink && <img
+                        />: imageError? <ReportGmailerrorredOutlinedIcon
+                            color="error"
+                            sx={{
+                                height: 30,
+                                width: 30
+                            }}
+                        /> : imageLink && <img
                             src={imageLink}
                             alt="ico"
                             style={{
                                 borderRadius: "50%"
+                            }}
+                            onError={()=>{
+                                setImageError(true)
                             }}
                             width={width}
                             height={height} />}

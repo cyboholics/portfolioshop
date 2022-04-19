@@ -107,7 +107,7 @@ const Project = (props) => {
                     </IconButton>
                 </Grid>
             </Grid>
-            {index != projects.length - 1 && <Box sx={{ marginTop: 1, marginBottom: 3 }} />}
+            {index !== projects.length - 1 && <Box sx={{ marginTop: 1, marginBottom: 3 }} />}
         </>
     )
 }
