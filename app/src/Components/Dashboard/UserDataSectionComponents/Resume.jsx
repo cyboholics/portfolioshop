@@ -75,7 +75,7 @@ export default function FullWidthTabs() {
                 </Tabs>
             </>
             <Box
-                sx={{p:2}}
+                sx={{paddingTop:2, paddingLeft:0}}
                 index={value}
                 onChangeIndex={handleChangeIndex}
             >

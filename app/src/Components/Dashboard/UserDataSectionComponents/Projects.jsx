@@ -6,7 +6,6 @@ import Paper from '../../MuiComponents/Paper'
 import { withStyles } from '@mui/styles'
 import { Box, Grid, Stack, TextField, Button, Typography, IconButton, Tooltip } from '@mui/material'
 
-
 const styles = (theme) => ({
     stack: {
         marginTop: 20,
@@ -33,7 +32,7 @@ const Project = (props) => {
                 container
                 spacing={2}
             >
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                     <TextField
                         sx={{ width: '100%' }}
                         label="Project Title"
@@ -45,7 +44,7 @@ const Project = (props) => {
                         value={title || ''}
                         onChange={(e) => { console.log(projects); console.log(e.target.value); setProjects(changeArray(projects, index, type, imageUrl, link, e.target.value, description)); console.log(title); }} />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                     <TextField
                         sx={{ width: '100%' }}
                         label="Project Domain"
@@ -57,7 +56,7 @@ const Project = (props) => {
                         value={type || ''}
                         onChange={(e) => { setProjects(changeArray(projects, index, e.target.value, imageUrl, link, title, description)) }} />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                     <TextField
                         sx={{ width: '100%' }}
                         label="Project Image Link"
@@ -68,7 +67,8 @@ const Project = (props) => {
                         placeholder="URL of Project Display Image"
                         value={imageUrl || ''}
                         onChange={(e) => { setProjects(changeArray(projects, index, type, e.target.value, link, title, description)) }} />
-                </Grid><Grid item xs={6}>
+                </Grid>
+                <Grid item xs={12} sm={6}>
                     <TextField
                         sx={{ width: '100%' }}
                         label="Deployment Link"
@@ -80,7 +80,7 @@ const Project = (props) => {
                         value={link || ''}
                         onChange={(e) => { setProjects(changeArray(projects, index, type, imageUrl, e.target.value, title, description)) }} />
                 </Grid>
-                <Grid item xs={10.5}>
+                <Grid item xs={10} sm={11}>
                     <TextField
                         sx={{ width: '100%' }}
                         multiline

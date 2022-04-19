@@ -33,64 +33,54 @@ const Education = (props) => {
                 container
                 spacing={2}
             >
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                     <TextField
                         sx={{ width: '100%' }}
-                        label="Project Title"
+                        label="Degree"
                         size="medium"
                         variant="standard"
                         autoComplete="off"
                         InputLabelProps={{ shrink: true }}
-                        placeholder="Title"
+                        placeholder="Eg. B.Tech or B.E"
                         value={title || ''}
-                        onChange={(e) => { console.log(projects); console.log(e.target.value); setProjects(changeArray(projects, index, type, imageUrl, link, e.target.value, description)); console.log(title); }} />
+                        onChange={(e) => { console.log(e.target.value); setProjects(changeArray(projects, index, type, imageUrl, link, e.target.value, description)); console.log(title); }} />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                     <TextField
                         sx={{ width: '100%' }}
-                        label="Project Domain"
+                        label="Period"
                         size="medium"
                         variant="standard"
                         autoComplete="off"
                         InputLabelProps={{ shrink: true }}
-                        placeholder="Domain or Type of your Project"
+                        placeholder="Eg. 2020 - Present"
                         value={type || ''}
                         onChange={(e) => { setProjects(changeArray(projects, index, e.target.value, imageUrl, link, title, description)) }} />
+                        
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                     <TextField
                         sx={{ width: '100%' }}
-                        label="Project Image Link"
+                        label="Institution"
                         size="medium"
                         variant="standard"
                         autoComplete="off"
                         InputLabelProps={{ shrink: true }}
-                        placeholder="URL of Project Display Image"
+                        placeholder="Eg. IIT Madras"
                         value={imageUrl || ''}
                         onChange={(e) => { setProjects(changeArray(projects, index, type, e.target.value, link, title, description)) }} />
-                </Grid><Grid item xs={6}>
+                </Grid>
+                <Grid item xs={10} sm={5}>
                     <TextField
                         sx={{ width: '100%' }}
-                        label="Deployment Link"
+                        label="Marks"
                         size="medium"
                         variant="standard"
                         autoComplete="off"
                         InputLabelProps={{ shrink: true }}
-                        placeholder="Deployment or Demo Link"
+                        placeholder="Percentage Marks or GPA"
                         value={link || ''}
                         onChange={(e) => { setProjects(changeArray(projects, index, type, imageUrl, e.target.value, title, description)) }} />
-                </Grid>
-                <Grid item xs={10.5}>
-                    <TextField
-                        sx={{ width: '100%' }}
-                        multiline
-                        label="Description"
-                        variant="standard"
-                        autoComplete="off"
-                        InputLabelProps={{ shrink: true }}
-                        placeholder="Project Description"
-                        value={description || ''}
-                        onChange={(e) => { setProjects(changeArray(projects, index, type, imageUrl, link, title, e.target.value)) }} />
                 </Grid>
                 <Grid item xs={1}>
                     <IconButton
@@ -107,7 +97,7 @@ const Education = (props) => {
                     </IconButton>
                 </Grid>
             </Grid>
-            {index != projects.length - 1 && <Box sx={{ marginTop: 1, marginBottom: 3 }} />}
+            {index !== projects.length - 1 && <Box sx={{ marginTop: 1, marginBottom: 3 }} />}
         </>
     )
 }
@@ -119,15 +109,7 @@ const Educations = (props) => {
         if (projects.length === 0) setProjects([{ project: '', value: 50 }])
     })
     return (
-        <Paper>
-            <Typography variant="h5">
-                Projects
-                <Tooltip arrow placement='right' title="What are your projects and what's your proficiency in them">
-                    <IconButton>
-                        <InfoIcon fontSize={'small'} />
-                    </IconButton>
-                </Tooltip>
-            </Typography>
+        <>
             <Stack className={classes.stack}
                 spacing={0}
                 direction='column'>
@@ -146,7 +128,7 @@ const Educations = (props) => {
                 color="success">
                 Add
             </Button>
-        </Paper>
+        </>
     )
 }
 
