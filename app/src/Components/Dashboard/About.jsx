@@ -1,15 +1,15 @@
 import React from 'react'
 import { withStyles } from '@mui/styles'
 import 'date-fns';
-import Paper from '../../MuiComponents/Paper'
-import { UserDataContext } from '../../../Providers/UserDataStateProvider'
+import Paper from '../MuiComponents/Paper'
+import { UserDataContext } from '../../Providers/UserDataStateProvider'
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { Typography, Stack, TextField, InputAdornment } from '@mui/material'
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 import MuiPhoneNumber from 'material-ui-phone-number';
-import CustomToolTip from '../CustomToolTip';
+import CustomToolTip from './CustomToolTip';
 
 const styles = (theme) => ({
   stack: {

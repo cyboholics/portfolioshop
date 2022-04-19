@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded"
-import { UserDataContext } from "../../../../Providers/UserDataStateProvider"
+import { UserDataContext } from "../../../Providers/UserDataStateProvider"
 import { withStyles } from "@mui/styles"
 import { Box, Grid, Stack, TextField, Button, IconButton } from "@mui/material"
 
@@ -11,10 +11,10 @@ const styles = (theme) => ({
   }
 })
 
-function changeArray(arr, index, title, period, issuer, description) {
+function changeArray(arr, index, title, period, company, description) {
   //search for index, and reply value
   const copy = [...arr]
-  copy[index] = { "title": title, "period": period, "issuer": issuer, "description": description }
+  copy[index] = { "title": title, "period": period, "company": company, "description": description }
   return copy
 }
 function removeArrayElement(arr, index) {
@@ -22,8 +22,8 @@ function removeArrayElement(arr, index) {
   return copy
 }
 
-const Award = (props) => {
-  const { index, title, period, issuer, description, awards, setAwards } = props
+const Experience = (props) => {
+  const { index, title, period, company, description, experience, setExperience } = props
   return (
     <>
       <Grid
@@ -33,38 +33,38 @@ const Award = (props) => {
         <Grid item xs={12} sm={4}>
           <TextField
             sx={{ width: "100%" }}
-            label="Title"
+            label="Role"
             size="medium"
             variant="standard"
             autoComplete="off"
             InputLabelProps={{ shrink: true }}
-            placeholder="Award Title"
+            placeholder="Eg. Software Developer"
             value={title || ""}
-            onChange={(e) => { setAwards(changeArray(awards, index, e.target.value, period, issuer, description)) }} />
+            onChange={(e) => { setExperience(changeArray(experience, index, e.target.value, period, company, description)) }} />
         </Grid>
         <Grid item xs={12} sm={4}>
           <TextField
             sx={{ width: "100%" }}
-            label="Issuer"
+            label="Company"
             size="medium"
             variant="standard"
             autoComplete="off"
             InputLabelProps={{ shrink: true }}
-            placeholder="Organisation Issuing Award"
-            value={issuer || ""}
-            onChange={(e) => { setAwards(changeArray(awards, index, title, period, e.target.value, description)) }} />
+            placeholder="Eg. Amazon"
+            value={company || ""}
+            onChange={(e) => { setExperience(changeArray(experience, index, title, period, e.target.value, description)) }} />
         </Grid>
         <Grid item xs={12} sm={4}>
           <TextField
             sx={{ width: "100%" }}
-            label="Issue Date"
+            label="Period"
             size="medium"
             variant="standard"
             autoComplete="off"
             InputLabelProps={{ shrink: true }}
-            placeholder="Eg 12 August, 2020"
+            placeholder="Eg. 2020 - Present"
             value={period || ""}
-            onChange={(e) => { setAwards(changeArray(awards, index, title, e.target.value, issuer, description)) }} />
+            onChange={(e) => { setExperience(changeArray(experience, index, title, e.target.value, company, description)) }} />
         </Grid>
         <Grid item xs={10} sm={11}>
           <TextField
@@ -75,9 +75,9 @@ const Award = (props) => {
             variant="standard"
             autoComplete="off"
             InputLabelProps={{ shrink: true }}
-            placeholder="Description of Award"
+            placeholder="Summary of work"
             value={description || ""}
-            onChange={(e) => { setAwards(changeArray(awards, index, title, period, issuer, e.target.value)) }} />
+            onChange={(e) => { setExperience(changeArray(experience, index, title, period, company, e.target.value)) }} />
         </Grid>
         <Grid item xs={1}>
           <IconButton
@@ -86,31 +86,31 @@ const Award = (props) => {
               width: 50,
               marginTop: { sm: 2 }
             }}
-            disabled={awards.length <= 1}
+            disabled={experience.length <= 1}
             aria-label="delete"
             size="large"
-            onClick={(e) => setAwards(removeArrayElement(awards, index))}>
+            onClick={(e) => setExperience(removeArrayElement(experience, index))}>
             <DeleteOutlineRoundedIcon />
           </IconButton>
         </Grid>
       </Grid>
-      {index !== awards.length - 1 && <Box sx={{ marginTop: 1, marginBottom: 3 }} />}
+      {index !== experience.length - 1 && <Box sx={{ marginTop: 1, marginBottom: 3 }} />}
     </>
   )
 }
 
-const Awards = (props) => {
+const Experiences = (props) => {
   const { classes } = props
-  const { awards, setAwards } = React.useContext(UserDataContext)
+  const { experience, setExperience } = React.useContext(UserDataContext)
   useEffect(() => {
-    if (awards.length === 0) setAwards([{ title: "", period: "", issuer: "", description: "" }])
+    if (experience.length === 0) setExperience([{ "title": "", "period": "", "company": "", "description": "" }])
   })
   return (
     <>
       <Stack className={classes.stack}
         spacing={0}
         direction="column">
-        {awards.map((awd, index) => { return <Award key={index} index={index} title={awd.title} period={awd.period} issuer={awd.issuer} description={awd.description} awards={awards} setAwards={setAwards} /> })}
+        {experience.map((exp, index) => { return <Experience key={index} index={index} title={exp.title} period={exp.period} company={exp.company} description={exp.description} experience={experience} setExperience={setExperience} /> })}
       </Stack>
 
       <Button
@@ -120,7 +120,7 @@ const Awards = (props) => {
           marginBottom: { xs: 1, sm: 1 },
           alignSelf: "flex-end"
         }}
-        onClick={() => { awards[awards?.length - 1]?.title && setAwards([...awards, { title: "", period: "", issuer: "", description: "" }]) }}
+        onClick={() => { experience[experience?.length - 1]?.title && setExperience([...experience, { title: "", period: "", company: "", description: "" }]) }}
         variant="outlined"
         color="success">
         Add
@@ -129,4 +129,4 @@ const Awards = (props) => {
   )
 }
 
-export default withStyles(styles)(Awards)
+export default withStyles(styles)(Experiences)

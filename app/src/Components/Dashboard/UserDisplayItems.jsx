@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { UserDataContext } from '../../../Providers/UserDataStateProvider'
-import Paper from "../../MuiComponents/Paper"
+import { UserDataContext } from '../../Providers/UserDataStateProvider'
+import Paper from "../MuiComponents/Paper"
 import { Stack, Typography, TextField } from '@mui/material'
 import { withStyles } from '@mui/styles'
-import CustomToolTip from '../CustomToolTip'
+import CustomToolTip from './CustomToolTip'
 
 const styles = (theme) => ({
     stack: {

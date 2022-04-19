@@ -1,10 +1,10 @@
 import React from 'react'
-import { UserDataContext } from '../../../Providers/UserDataStateProvider'
+import { UserDataContext } from '../../Providers/UserDataStateProvider'
 import { TextField, Typography, Stack } from '@mui/material'
-import Paper from '../../MuiComponents/Paper'
+import Paper from '../MuiComponents/Paper'
 import { withStyles } from '@mui/styles'
-import UploadImage from '../UploadImage'
-import CustomToolTip from '../CustomToolTip'
+import UploadImage from './UploadImage'
+import CustomToolTip from './CustomToolTip'
 
 const styles = (theme) => ({
     stack: {
@@ -42,7 +42,7 @@ const Website = (props) => {
                             md: '30%'
                         }
                     }}
-                    
+
                     size="medium"
                     label="Website Title"
                     variant="standard"
@@ -59,14 +59,14 @@ const Website = (props) => {
                             lg: '40%'
                         }
                     }}
-                    
+
                     size="medium"
                     label="Website Favicon Url"
                     variant="standard"
                     autoComplete='off'
                     InputLabelProps={{ shrink: true }}
                     value={website?.faviconUrl || ''}
-                    onChange={e=>setFaviconUrl(e.target.value)} />
+                    onChange={e => setFaviconUrl(e.target.value)} />
                 <UploadImage
                     onChange={setFaviconUrl}
                     imageLink={website.faviconUrl}

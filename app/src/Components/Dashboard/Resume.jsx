@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Tabs, Tab, Typography } from "@mui/material"
-import Paper from "../../MuiComponents/Paper"
+import Paper from "../MuiComponents/Paper"
 import Awards from "./ResumeComponents/Awards"
-import CustomToolTip from "../CustomToolTip";
+import CustomToolTip from "./CustomToolTip";
 import Cocurricular from "./ResumeComponents/Cocurricular"
 import Experience from "./ResumeComponents/Experience"
 import Education from "./ResumeComponents/Education"

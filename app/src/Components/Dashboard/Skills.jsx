@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded'
-import { UserDataContext } from '../../../Providers/UserDataStateProvider'
-import Paper from '../../MuiComponents/Paper'
+import { UserDataContext } from '../../Providers/UserDataStateProvider'
+import Paper from '../MuiComponents/Paper'
 import { withStyles } from '@mui/styles'
 import { Stack, TextField, Button, Typography, IconButton, Slider } from '@mui/material'
-import CustomToolTip from '../CustomToolTip'
+import CustomToolTip from './CustomToolTip'
 
 
 const styles = (theme) => ({

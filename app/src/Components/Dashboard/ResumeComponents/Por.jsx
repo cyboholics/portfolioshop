@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded"
-import { UserDataContext } from "../../../../Providers/UserDataStateProvider"
+import { UserDataContext } from "../../../Providers/UserDataStateProvider"
 import { withStyles } from "@mui/styles"
 import { Box, Grid, Stack, TextField, Button, IconButton } from "@mui/material"
 

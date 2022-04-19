@@ -1,10 +1,10 @@
 import React from 'react'
-import { UserDataContext } from '../../../Providers/UserDataStateProvider'
+import { UserDataContext } from '../../Providers/UserDataStateProvider'
 import { TextField, Typography, Stack,Button, Box } from '@mui/material'
 import MuiPhoneNumber from 'material-ui-phone-number';
-import Paper from '../../MuiComponents/Paper'
+import Paper from '../MuiComponents/Paper'
 import { withStyles } from '@mui/styles'
-import CustomToolTip from '../CustomToolTip';
+import CustomToolTip from './CustomToolTip';
 
 const styles = (theme) => ({
     stack: {
