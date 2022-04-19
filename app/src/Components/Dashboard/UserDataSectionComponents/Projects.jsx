@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded'
-import InfoIcon from '@mui/icons-material/Info'
 import { UserDataContext } from '../../../Providers/UserDataStateProvider'
 import Paper from '../../MuiComponents/Paper'
 import { withStyles } from '@mui/styles'
-import { Box, Grid, Stack, TextField, Button, Typography, IconButton, Tooltip } from '@mui/material'
+import { Box, Grid, Stack, TextField, Button, Typography, IconButton } from '@mui/material'
+import CustomToolTip from '../CustomToolTip'
 
 const styles = (theme) => ({
     stack: {
@@ -122,11 +122,8 @@ const Projects = (props) => {
         <Paper>
             <Typography variant="h5">
                 Projects
-                <Tooltip arrow placement='right' title="What are your projects and what's your proficiency in them">
-                    <IconButton>
-                        <InfoIcon fontSize={'small'} />
-                    </IconButton>
-                </Tooltip>
+                <CustomToolTip placement='right' title="What are your projects and what's your proficiency in them">
+                </CustomToolTip>
             </Typography>
             <Stack className={classes.stack}
                 spacing={0}

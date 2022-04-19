@@ -3,6 +3,7 @@ import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded"
 import { UserDataContext } from "../../../../Providers/UserDataStateProvider"
 import { withStyles } from "@mui/styles"
 import { Box, Grid, Stack, TextField, Button, IconButton } from "@mui/material"
+import CustomToolTip from '../../CustomToolTip'
 
 const styles = (theme) => ({
     stack: {
@@ -94,7 +95,8 @@ const Education = (props) => {
                     </IconButton>
                 </Grid>
             </Grid>
-            {index !== education.length - 1 && <Box sx={{ marginTop: 1, marginBottom: 3 }} />}
+            {index !== projects.length - 1 && <Box sx={{ marginTop: 1, marginBottom: 3 }} />}
+
         </>
     )
 }
