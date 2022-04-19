@@ -58,7 +58,7 @@ export default function UploadImage({ imageLink, onChange, width, height }) {
                         >
                             <CloudUploadIcon />
                             <Typography variant="body" marginLeft={1}>
-                                Upload or Drag
+                                Upload
                             </Typography>
                         </Button>
                         {loading ? <CircularProgress 

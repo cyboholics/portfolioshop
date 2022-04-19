@@ -50,7 +50,7 @@ const Skill = (props) => {
                 sx={{
                     width: '90%',
                     paddingTop: { xs: 3, sm: 11.5 },
-                    paddingBottom: { sm: 0 }
+                    paddingBottom: { sm: 0 },
                 }}
                 value={value || 50}
                 onChange={(event) => { setSkills(changeArray(skills, index, skill, event.target.value)) }}

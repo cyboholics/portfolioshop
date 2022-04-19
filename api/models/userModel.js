@@ -3,21 +3,21 @@ const findOrCreate = require("mongoose-findorcreate")
 const dataModel = mongoose.Schema({
     username: {
         type: String,
-        default: ''
+        default: ""
     },
     templateData: {
         website: {
             title: {
-                default: '',
+                default: "",
                 type: String
             },
             faviconUrl: {
-                default: '',
+                default: "",
                 type: String,
             },
         },
         name: {
-            default: '',
+            default: "",
             type: String,
         },
         tagline: [
@@ -29,28 +29,28 @@ const dataModel = mongoose.Schema({
         socials: {
             twitter: {
                 type: String,
-                default: ''
+                default: ""
             },
             facebook: {
                 type: String,
-                default: ''
+                default: ""
             },
             linkedin: {
                 type: String,
-                default: ''
+                default: ""
             },
             github: {
                 type: String,
-                default: ''
+                default: ""
             },
             instagram: {
                 type: String,
-                default: ''
+                default: ""
             },
         },
         about: {
             heading: {
-                default: '',
+                default: "",
                 type: String,
             },
             dateOfBirth: {
@@ -62,18 +62,18 @@ const dataModel = mongoose.Schema({
             },
             city: {
                 type: String,
-                default: ''
+                default: ""
             },
             phone: {
                 type: String,
-                default: ''
+                default: ""
             },
             email: {
-                default: '',
+                default: "",
                 type: String
             },
             summary: {
-                default: '',
+                default: "",
                 type: String,
             }
         },
@@ -89,24 +89,24 @@ const dataModel = mongoose.Schema({
         }],
         resume: {
             summary: {
-                default: '',
+                default: "",
                 type: String,
             },
             education: [{
                 title: {
-                    default: '',
+                    default: "",
                     type: String
                 },
                 period: {
-                    default: '',
+                    default: "",
                     type: String
                 },
                 institution: {
-                    default: '',
+                    default: "",
                     type: String
                 },
                 marks: {
-                    default: '',
+                    default: "",
                     type: String
                 }
             }],
@@ -213,15 +213,15 @@ const dataModel = mongoose.Schema({
         }],
         contact: {
             email: {
-                default: '',
+                default: "",
                 type: String
             },
             phone: {
-                default: '',
+                default: "",
                 type: String
             },
             address: {
-                default: '',
+                default: "",
                 type: String
             }
         }
@@ -230,4 +230,4 @@ const dataModel = mongoose.Schema({
 
 dataModel.plugin(findOrCreate)
 
-module.exports = mongoose.model('Userdata', dataModel)
+module.exports = mongoose.model("Userdata", dataModel)

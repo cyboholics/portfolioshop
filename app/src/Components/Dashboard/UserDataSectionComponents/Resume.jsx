@@ -1,12 +1,12 @@
-import React from 'react';
-import { Box, Tabs, Tab, Typography } from '@mui/material'
-import Paper from '../../MuiComponents/Paper'
-import Awards from './ResumeComponents/Awards'
-import Cocurricular from './ResumeComponents/Cocurricular'
-import Experience from './ResumeComponents/Experience'
-import Education from './ResumeComponents/Education'
-import Por from './ResumeComponents/Por'
-import Publications from './ResumeComponents/Publications'
+import React from "react";
+import { Box, Tabs, Tab, Typography, IconButton } from "@mui/material"
+import Paper from "../../MuiComponents/Paper"
+import Awards from "./ResumeComponents/Awards"
+import Cocurricular from "./ResumeComponents/Cocurricular"
+import Experience from "./ResumeComponents/Experience"
+import Education from "./ResumeComponents/Education"
+import Por from "./ResumeComponents/Por"
+import Publications from "./ResumeComponents/Publications"
 import CustomToolTip from '../CustomToolTip';
 
 function TabPanel(props) {
@@ -32,7 +32,7 @@ function TabPanel(props) {
 function a11yProps(index) {
     return {
         id: `full-width-tab-${index}`,
-        'aria-controls': `full-width-tabpanel-${index}`,
+        "aria-controls": `full-width-tabpanel-${index}`,
     };
 }
 
@@ -51,8 +51,9 @@ export default function FullWidthTabs() {
         <Paper>
             <Typography variant="h5">
                 Resume
-                <CustomToolTip placement='right' title="Information about your Resume that will be displayed on the Website in a dedicated section">
-                </CustomToolTip>
+
+                <CustomToolTip placement='right' title="Information about your Resume that will be displayed on the Website in a dedicated section" />
+
             </Typography>
             <>
                 <Tabs
@@ -72,7 +73,7 @@ export default function FullWidthTabs() {
                 </Tabs>
             </>
             <Box
-                sx={{p:2}}
+                sx={{paddingTop:2, paddingLeft:0}}
                 index={value}
                 onChangeIndex={handleChangeIndex}
             >
