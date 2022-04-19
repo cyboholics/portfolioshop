@@ -103,14 +103,14 @@ const Experiences = (props) => {
   const { classes } = props
   const { experience, setExperience } = React.useContext(UserDataContext)
   useEffect(() => {
-    if (experience.length === 0) setExperience([{ edu: "", value: 50 }])
+    if (experience.length === 0) setExperience([{ exp: "", value: 50 }])
   })
   return (
     <>
       <Stack className={classes.stack}
         spacing={0}
         direction="column">
-        {experience.map((edu, index) => { return <Experience key={index} index={index} title={edu.title} period={edu.period} company={edu.company} description={edu.description} experience={experience} setExperience={setExperience} /> })}
+        {experience.map((exp, index) => { return <Experience key={index} index={index} title={exp.title} period={exp.period} company={exp.company} description={exp.description} experience={experience} setExperience={setExperience} /> })}
       </Stack>
 
       <Button
