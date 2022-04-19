@@ -14,7 +14,7 @@ const styles = (theme) => ({
 function changeArray(arr, index, title, period, institution, marks) {
     //search for index, and reply value
     const copy = [...arr]
-    copy[index] = { "title":title, "period":period, "institution":institution, "marks":marks }
+    copy[index] = { "title": title, "period": period, "institution": institution, "marks": marks }
     return copy
 }
 function removeArrayElement(arr, index) {
@@ -53,7 +53,6 @@ const Education = (props) => {
                         placeholder="Eg. 2020 - Present"
                         value={period || ""}
                         onChange={(e) => { setEducation(changeArray(education, index, title, e.target.value, institution, marks)) }} />
-                        
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <TextField
@@ -120,7 +119,7 @@ const Educations = (props) => {
                     marginBottom: { xs: 1, sm: 1 },
                     alignSelf: "flex-end"
                 }}
-                onClick={() => { education[education?.length - 1]?.title && setEducation([...education, { title:"", period:"", institution:"", marks:""}]) }}
+                onClick={() => { education[education?.length - 1]?.title && setEducation([...education, { title: "", period: "", institution: "", marks: "" }]) }}
                 variant="outlined"
                 color="success">
                 Add
