@@ -5,7 +5,6 @@ import Dashboard from './Dashboard'
 
 const Home = () => {
     const { userToken } = React.useContext(UserContext)
-    console.log(userToken)
     return (
         <>
             {userToken ?  <Dashboard/>: <Landing />}

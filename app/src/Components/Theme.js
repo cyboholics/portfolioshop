@@ -27,9 +27,12 @@ const rawTheme = createTheme({
             main: green[500],
             dark: green[700],
         },
+        white: {
+            main: '#ffffff'
+        }
     },
     typography: {
-        fontFamily: "'Work Sans', sans-serif",
+        fontFamily: "'Helvetica', 'Work Sans', sans-serif",
         fontSize: 14,
         fontWeightLight: 300, // Work Sans
         fontWeightRegular: 400, // Work Sans

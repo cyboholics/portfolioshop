@@ -58,7 +58,6 @@ const ProductCTA = (props) => {
             setOpen(true)
             setEmail('')
         } catch (err) {
-            console.log(err.message)
         }
     }
 

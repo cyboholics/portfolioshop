@@ -21,15 +21,16 @@ module.exports = async function (context, req) {
             username: user
         })
         context.res = {
+            statusCode: 200,
             headers: {
                 "Content-Type": 'application/json'
             },
             body: data
         }
-        context.statusCode = 200
     } catch (err) {
-        context.statusCode = 500
+        context.log(err)
         context.res = {
+            statusCode: 500,
             body: err.message
         }
     }
