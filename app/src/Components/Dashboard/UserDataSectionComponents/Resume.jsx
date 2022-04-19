@@ -1,13 +1,14 @@
 import React from "react";
-import { Box, Tabs, Tab, Typography, IconButton } from "@mui/material"
+import { Box, Tabs, Tab, Typography } from "@mui/material"
 import Paper from "../../MuiComponents/Paper"
 import Awards from "./ResumeComponents/Awards"
+import CustomToolTip from "../CustomToolTip";
 import Cocurricular from "./ResumeComponents/Cocurricular"
 import Experience from "./ResumeComponents/Experience"
 import Education from "./ResumeComponents/Education"
 import Por from "./ResumeComponents/Por"
 import Publications from "./ResumeComponents/Publications"
-import CustomToolTip from '../CustomToolTip';
+import Summary from "./ResumeComponents/Summary"
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -51,9 +52,7 @@ export default function FullWidthTabs() {
         <Paper>
             <Typography variant="h5">
                 Resume
-
-                <CustomToolTip placement='right' title="Information about your Resume that will be displayed on the Website in a dedicated section" />
-
+                <CustomToolTip placement="right" title="Information about your Resume that will be displayed on the Website in a dedicated section" />
             </Typography>
             <>
                 <Tabs
@@ -64,12 +63,13 @@ export default function FullWidthTabs() {
                     allowScrollButtonsMobile
                     aria-label="full width tabs example"
                 >
-                    <Tab wrapped label="Education" {...a11yProps(0)} />
-                    <Tab wrapped label="Experience" {...a11yProps(1)} />
-                    <Tab wrapped label="POR" {...a11yProps(2)} />
-                    <Tab wrapped label="Awards" {...a11yProps(3)} />
-                    <Tab wrapped label="Publications" {...a11yProps(4)} />
-                    <Tab wrapped label="Cocurriculars" {...a11yProps(5)} />
+                    <Tab wrapped label="Summary" {...a11yProps(0)} />
+                    <Tab wrapped label="Education" {...a11yProps(1)} />
+                    <Tab wrapped label="Experience" {...a11yProps(2)} />
+                    <Tab wrapped label="POR" {...a11yProps(3)} />
+                    <Tab wrapped label="Awards" {...a11yProps(4)} />
+                    <Tab wrapped label="Publications" {...a11yProps(5)} />
+                    <Tab wrapped label="Cocurriculars" {...a11yProps(6)} />
                 </Tabs>
             </>
             <Box
@@ -78,21 +78,24 @@ export default function FullWidthTabs() {
                 onChangeIndex={handleChangeIndex}
             >
                 <TabPanel value={value} index={0}>
-                    <Education />
+                    <Summary />
                 </TabPanel>
                 <TabPanel value={value} index={1}>
-                    <Experience />
+                    <Education />
                 </TabPanel>
                 <TabPanel value={value} index={2}>
-                    <Por />
+                    <Experience />
                 </TabPanel>
                 <TabPanel value={value} index={3}>
-                    <Awards />
+                    <Por />
                 </TabPanel>
                 <TabPanel value={value} index={4}>
-                    <Publications />
+                    <Awards />
                 </TabPanel>
                 <TabPanel value={value} index={5}>
+                    <Publications />
+                </TabPanel>
+                <TabPanel value={value} index={6}>
                     <Cocurricular />
                 </TabPanel>
             </Box>

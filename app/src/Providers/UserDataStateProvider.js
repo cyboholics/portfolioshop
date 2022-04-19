@@ -45,7 +45,7 @@ const UserDataStateProvider = ({ children }) => {
         setProjects(userData.projects ? userData.projects : [])
         setContact(userData.contact ? userData.contact : {})
         // Resume section states setters
-        setSummary(userData.resume.summary ? userData.resume.summary : {})
+        setSummary(userData.resume.summary ? userData.resume.summary : "")
         setEducation(userData.resume.education ? userData.resume.education : [])
         setExperience(userData.resume.experience ? userData.resume.experience : [])
         setPor(userData.resume.por ? userData.resume.por : [])
