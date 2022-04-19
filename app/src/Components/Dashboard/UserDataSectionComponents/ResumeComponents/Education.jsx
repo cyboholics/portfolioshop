@@ -1,11 +1,8 @@
-import React, { useEffect } from 'react'
-import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded'
-import InfoIcon from '@mui/icons-material/Info'
-import { UserDataContext } from '../../../../Providers/UserDataStateProvider'
-import Paper from '../../../MuiComponents/Paper'
-import { withStyles } from '@mui/styles'
-import { Box, Grid, Stack, TextField, Button, Typography, IconButton, Tooltip } from '@mui/material'
-
+import React, { useEffect } from "react"
+import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded"
+import { UserDataContext } from "../../../../Providers/UserDataStateProvider"
+import { withStyles } from "@mui/styles"
+import { Box, Grid, Stack, TextField, Button, IconButton } from "@mui/material"
 
 const styles = (theme) => ({
     stack: {
@@ -14,10 +11,10 @@ const styles = (theme) => ({
     }
 })
 
-function changeArray(arr, index, type, imageUrl, link, title, description) {
+function changeArray(arr, index, title, period, institution, marks) {
     //search for index, and reply value
     const copy = [...arr]
-    copy[index] = { "type": type, "imageUrl": imageUrl, "link": link, "title": title, "description": description }
+    copy[index] = { "title":title, "period":period, "institution":institution, "marks":marks }
     return copy
 }
 function removeArrayElement(arr, index) {
@@ -26,7 +23,7 @@ function removeArrayElement(arr, index) {
 }
 
 const Education = (props) => {
-    const { index, type, imageUrl, link, title, description, projects, setProjects } = props
+    const { index, title, period, institution, marks, education, setEducation } = props
     return (
         <>
             <Grid
@@ -35,52 +32,52 @@ const Education = (props) => {
             >
                 <Grid item xs={12} sm={6}>
                     <TextField
-                        sx={{ width: '100%' }}
+                        sx={{ width: "100%" }}
                         label="Degree"
                         size="medium"
                         variant="standard"
                         autoComplete="off"
                         InputLabelProps={{ shrink: true }}
                         placeholder="Eg. B.Tech or B.E"
-                        value={title || ''}
-                        onChange={(e) => { console.log(e.target.value); setProjects(changeArray(projects, index, type, imageUrl, link, e.target.value, description)); console.log(title); }} />
+                        value={title || ""}
+                        onChange={(e) => { setEducation(changeArray(education, index, e.target.value, period, institution, marks)) }} />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <TextField
-                        sx={{ width: '100%' }}
+                        sx={{ width: "100%" }}
                         label="Period"
                         size="medium"
                         variant="standard"
                         autoComplete="off"
                         InputLabelProps={{ shrink: true }}
                         placeholder="Eg. 2020 - Present"
-                        value={type || ''}
-                        onChange={(e) => { setProjects(changeArray(projects, index, e.target.value, imageUrl, link, title, description)) }} />
+                        value={period || ""}
+                        onChange={(e) => { setEducation(changeArray(education, index, title, e.target.value, institution, marks)) }} />
                         
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <TextField
-                        sx={{ width: '100%' }}
+                        sx={{ width: "100%" }}
                         label="Institution"
                         size="medium"
                         variant="standard"
                         autoComplete="off"
                         InputLabelProps={{ shrink: true }}
                         placeholder="Eg. IIT Madras"
-                        value={imageUrl || ''}
-                        onChange={(e) => { setProjects(changeArray(projects, index, type, e.target.value, link, title, description)) }} />
+                        value={institution || ""}
+                        onChange={(e) => { setEducation(changeArray(education, index, title, period, e.target.value, marks)) }} />
                 </Grid>
                 <Grid item xs={10} sm={5}>
                     <TextField
-                        sx={{ width: '100%' }}
+                        sx={{ width: "100%" }}
                         label="Marks"
                         size="medium"
                         variant="standard"
                         autoComplete="off"
                         InputLabelProps={{ shrink: true }}
                         placeholder="Percentage Marks or GPA"
-                        value={link || ''}
-                        onChange={(e) => { setProjects(changeArray(projects, index, type, imageUrl, e.target.value, title, description)) }} />
+                        value={marks || ""}
+                        onChange={(e) => { setEducation(changeArray(education, index, title, period, institution, e.target.value)) }} />
                 </Grid>
                 <Grid item xs={1}>
                     <IconButton
@@ -89,41 +86,41 @@ const Education = (props) => {
                             width: 50,
                             marginTop: { sm: 2 }
                         }}
-                        disabled={projects.length <= 1}
+                        disabled={education.length <= 1}
                         aria-label="delete"
                         size="large"
-                        onClick={(e) => setProjects(removeArrayElement(projects, index))}>
+                        onClick={(e) => setEducation(removeArrayElement(education, index))}>
                         <DeleteOutlineRoundedIcon />
                     </IconButton>
                 </Grid>
             </Grid>
-            {index !== projects.length - 1 && <Box sx={{ marginTop: 1, marginBottom: 3 }} />}
+            {index !== education.length - 1 && <Box sx={{ marginTop: 1, marginBottom: 3 }} />}
         </>
     )
 }
 
 const Educations = (props) => {
     const { classes } = props
-    const { projects, setProjects } = React.useContext(UserDataContext)
+    const { education, setEducation } = React.useContext(UserDataContext)
     useEffect(() => {
-        if (projects.length === 0) setProjects([{ project: '', value: 50 }])
+        if (education.length === 0) setEducation([{ edu: "", value: 50 }])
     })
     return (
         <>
             <Stack className={classes.stack}
                 spacing={0}
-                direction='column'>
-                {projects.map((project, index) => { return <Education key={index} index={index} type={project.type} imageUrl={project.imageUrl} link={project.link} title={project.title} description={project.description} projects={projects} setProjects={setProjects} /> })}
+                direction="column">
+                {education.map((edu, index) => { return <Education key={index} index={index} title={edu.title} period={edu.period} institution={edu.institution} marks={edu.marks} education={education} setEducation={setEducation} /> })}
             </Stack>
 
             <Button
                 sx={{
-                    width: '20%',
+                    width: "20%",
                     marginTop: { xs: 0, sm: 0 },
                     marginBottom: { xs: 1, sm: 1 },
-                    alignSelf: 'flex-end'
+                    alignSelf: "flex-end"
                 }}
-                onClick={() => { projects[projects?.length - 1]?.title && setProjects([...projects, { type: '', title: '', imageUrl: '', link: '', description: '' }]) }}
+                onClick={() => { education[education?.length - 1]?.title && setEducation([...education, { title:"", period:"", institution:"", marks:""}]) }}
                 variant="outlined"
                 color="success">
                 Add

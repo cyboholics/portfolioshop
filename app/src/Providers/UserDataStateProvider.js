@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import axios from 'axios'
-import { UserContext } from './UserStateProvider'
+import React, { useState } from "react"
+import axios from "axios"
+import { UserContext } from "./UserStateProvider"
 export const UserDataContext = React.createContext({})
 
 
@@ -8,7 +8,7 @@ const UserDataStateProvider = ({ children }) => {
     const { userToken } = React.useContext(UserContext)
     const [userData, setUserData] = useState({})
     const [website, setWebsite] = useState({})
-    const [name, setName] = useState('')
+    const [name, setName] = useState("")
     const [tagline, setTagline] = useState([])
     const [socials, setSocials] = useState({})
     const [about, setAbout] = useState({})
@@ -36,7 +36,7 @@ const UserDataStateProvider = ({ children }) => {
     React.useEffect(() => {
         if (userData && Object.keys(userData).length <= 0) return;
         setWebsite(userData.website ? userData.website : {})
-        setName(userData.name ? userData.name : '')
+        setName(userData.name ? userData.name : "")
         setTagline(userData.tagline ? userData.tagline : [])
         setSocials(userData.socials ? userData.socials : {})
         setAbout(userData.about ? userData.about : {})

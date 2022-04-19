@@ -1,13 +1,13 @@
-import React from 'react';
-import InfoIcon from '@mui/icons-material/Info'
-import { Box, Tabs, Tab, Typography, Tooltip, IconButton } from '@mui/material'
-import Paper from '../../MuiComponents/Paper'
-import Awards from './ResumeComponents/Awards'
-import Cocurricular from './ResumeComponents/Cocurricular'
-import Experience from './ResumeComponents/Experience'
-import Education from './ResumeComponents/Education'
-import Por from './ResumeComponents/Por'
-import Publications from './ResumeComponents/Publications'
+import React from "react";
+import InfoIcon from "@mui/icons-material/Info"
+import { Box, Tabs, Tab, Typography, Tooltip, IconButton } from "@mui/material"
+import Paper from "../../MuiComponents/Paper"
+import Awards from "./ResumeComponents/Awards"
+import Cocurricular from "./ResumeComponents/Cocurricular"
+import Experience from "./ResumeComponents/Experience"
+import Education from "./ResumeComponents/Education"
+import Por from "./ResumeComponents/Por"
+import Publications from "./ResumeComponents/Publications"
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -32,7 +32,7 @@ function TabPanel(props) {
 function a11yProps(index) {
     return {
         id: `full-width-tab-${index}`,
-        'aria-controls': `full-width-tabpanel-${index}`,
+        "aria-controls": `full-width-tabpanel-${index}`,
     };
 }
 
@@ -51,9 +51,9 @@ export default function FullWidthTabs() {
         <Paper>
             <Typography variant="h5">
                 Resume
-                <Tooltip arrow placement='right' title="Information about your Resume that will be displayed on the Website in a dedicated section">
+                <Tooltip arrow placement="right" title="Information about your Resume that will be displayed on the Website in a dedicated section">
                     <IconButton>
-                        <InfoIcon fontSize={'small'} />
+                        <InfoIcon fontSize={"small"} />
                     </IconButton>
                 </Tooltip>
             </Typography>
