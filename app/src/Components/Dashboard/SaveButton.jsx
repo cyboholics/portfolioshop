@@ -1,8 +1,10 @@
 import React from 'react';
 import { IconButton } from "@mui/material"
 import SaveIcon from '@mui/icons-material/Save';
+import { UserDataContext } from '../../Providers/UserDataStateProvider'
 
 const Savebutton = () => {
+    const { saveUserData } = React.useContext(UserDataContext)
     return (
         <IconButton
             color="white"
@@ -15,6 +17,7 @@ const Savebutton = () => {
                 padding: 0,
                 backgroundColor: "#aaaaff"
             }}
+            onClick={saveUserData}
         >
             <SaveIcon sx={{
                 height: 30,

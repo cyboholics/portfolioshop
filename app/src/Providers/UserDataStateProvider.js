@@ -17,13 +17,51 @@ const UserDataStateProvider = ({ children }) => {
     const [projects, setProjects] = useState([])
     const [contact, setContact] = useState({})
     // Resume section components state
-    const [summary, setSummary] = useState({})
+    const [summary, setSummary] = useState('')
     const [education, setEducation] = useState([])
     const [experience, setExperience] = useState([])
     const [por, setPor] = useState([])
     const [awards, setAwards] = useState([])
     const [publications, setPublications] = useState([])
     const [cocurricular, setCocurricular] = useState([])
+
+    const saveUserData = async () => {
+        const data = JSON.stringify({
+            website: website,
+            name: name,
+            tagline: tagline,
+            socials: socials,
+            about: about,
+            skills: skills,
+            resume: {
+                summary: summary,
+                education: education,
+                experience: experience,
+                por: por,
+                awards: awards,
+                publications: publications,
+                cocurricular: cocurricular,
+            },
+            projects: projects,
+            contact: contact
+        })
+        const config = {
+            method: 'put',
+            url: `/api/userDataUpdate?token=${userToken}`,
+            headers: { 
+                'Content-Type': 'application/json'
+            },
+            data: data
+        }
+        try{
+            const res = await axios(config)
+            alert(JSON.stringify(res.data))
+            return true
+        }catch(err){
+            alert(err)
+            return false
+        }
+    }
 
     React.useEffect(() => {
         axios.get(`/api/userDataRead`,{
@@ -61,6 +99,7 @@ const UserDataStateProvider = ({ children }) => {
 
     return (
         <UserDataContext.Provider value={{
+            saveUserData,
             website,
             name,
             tagline,
