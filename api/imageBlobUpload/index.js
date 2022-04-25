@@ -17,9 +17,13 @@ module.exports = async function (context, req) {
         context.done()
         return
     }
-    var token = req.query["token"]
+    var token = req.headers["token"]
     try {
-        await axios.get(`${HOST}/api/GoogleAuthValidation?token=${token}`)
+        await axios.get(`${HOST}/api/GoogleAuthValidation`,{
+            headers: {
+                token: token
+            }
+        })
     } catch (err) {
         context.res = {
             statusCode: 401,
