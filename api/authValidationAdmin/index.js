@@ -4,7 +4,7 @@ const {OAuth2Client} = require('google-auth-library')
 const client = new OAuth2Client(CLIENT_ID)
 
 module.exports = async function (context, req) {
-    const token = req.query["token"]
+    const token = req.headers["token"]
     try{
         const ticket = await client.verifyIdToken({
             idToken: token,

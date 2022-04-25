@@ -26,7 +26,11 @@ const UserDataStateProvider = ({ children }) => {
     const [cocurricular, setCocurricular] = useState([])
 
     React.useEffect(() => {
-        axios.get(`/api/userDataRead?token=${userToken}`).then(res => {
+        axios.get(`/api/userDataRead`,{
+            headers:{
+                token: userToken
+            }
+        }).then(res => {
             setUserData(res?.data?.doc?.templateData || {})
         }).catch((err) => {
             console.log(err)

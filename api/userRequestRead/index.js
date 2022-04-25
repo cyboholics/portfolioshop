@@ -3,8 +3,8 @@ const axios = require("axios")
 const HOST = process.env["HOST"]
 
 module.exports = async function (context, req) {
-    const admin_token = req.query["admin_token"]
-    const user_token = req.query["token"]
+    const admin_token = req.headers["admin_token"]
+    const user_token = req.headers["token"]
     if (!admin_token && !user_token) {
         context.res = {
             statusCode: 400,
@@ -17,7 +17,11 @@ module.exports = async function (context, req) {
     if (admin_token) {
         let res
         try {
-            res = await axios.get(`${HOST}/api/authValidationAdmin?token=${admin_token}`)
+            res = await axios.get(`${HOST}/api/authValidationAdmin`,{
+                headers: {
+                    token: admin_token
+                }
+            })
         } catch (err) {
             context.res = {
                 statusCode: err.toJSON().status,
@@ -31,7 +35,11 @@ module.exports = async function (context, req) {
     if (user_token) {
         let res
         try {
-            res = await axios.get(`${HOST}/api/googleAuthValidation?token=${user_token}`)
+            res = await axios.get(`${HOST}/api/googleAuthValidation`,{
+                headers: {
+                    token: user_token
+                }
+            })
         } catch (err) {
             context.res = {
                 statusCode: 401,

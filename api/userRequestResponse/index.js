@@ -3,8 +3,8 @@ const axios = require("axios")
 const HOST = process.env["HOST"]
 
 module.exports = async function (context, req) {
-    const admin_token = req.query["admin_token"]
-    const user_token = req.query["token"]
+    const admin_token = req.headers["admin_token"]
+    const user_token = req.headers["token"]
     const id = req.body["id"]
     const responseMsg = req.body["responseMessage"]
     let currStatus = req.body["status"]
@@ -22,7 +22,11 @@ module.exports = async function (context, req) {
     let res
     try {
         if (admin_token) {
-            res = await axios.get(`${HOST}/api/authValidationAdmin?token=${admin_token}`)
+            res = await axios.get(`${HOST}/api/authValidationAdmin`,{
+                headers: {
+                    token: admin_token
+                }
+            })
             responseBy = `Admin <` + `${res.data}>`
             try {
                 await userRequestModel.updateOne(
@@ -57,7 +61,11 @@ module.exports = async function (context, req) {
         }
 
         if (user_token) {
-            res = await axios.get(`${HOST}/api/googleAuthValidation?token=${user_token}`)
+            res = await axios.get(`${HOST}/api/googleAuthValidation`,{
+                headers: {
+                    token: user_token
+                }
+            })
             responseBy = res.data
             usernm = res.data
             try {

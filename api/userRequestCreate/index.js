@@ -3,12 +3,17 @@ const axios = require("axios")
 const HOST = process.env["HOST"]
 
 module.exports = async function (context, req) {
-    var token = req.query["token"]
+    var token = req.headers["token"]
     let res
 
     try {
-        res = await axios.get(`${HOST}/api/googleAuthValidation?token=${token}`)
+        res = await axios.get(`${HOST}/api/GoogleAuthValidation`, {
+            headers: {
+                token: token
+            }
+        })
     } catch (err) {
+        context.log(err.message)
         context.res = {
             statusCode: 401,
             body: `Unauthorized Access : ${err.message}`,
