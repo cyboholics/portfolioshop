@@ -3,10 +3,14 @@ const axios = require("axios")
 const HOST = process.env["HOST"]
 
 module.exports = async function (context, req) {
-    var token = req.query["token"]
+    var token = req.headers["token"]
     var res
     try {
-        res = await axios.get(`${HOST}/api/GoogleAuthValidation?token=${token}`)
+        res = await axios.get(`${HOST}/api/GoogleAuthValidation`,{
+            headers: {
+                token: token
+            }
+        })
     } catch (err) {
         context.res = {
             statusCode: 401,

@@ -3,7 +3,6 @@ import { withStyles } from '@mui/styles'
 import { Container, Typography, TextField, Snackbar, Button, Hidden, Grid } from '@mui/material'
 import axios from 'axios'
 
-
 const styles = (theme) => ({
     root: {
         marginTop: theme.spacing(10),
@@ -58,6 +57,7 @@ const ProductCTA = (props) => {
             setOpen(true)
             setEmail('')
         } catch (err) {
+            alert(err)
         }
     }
 
