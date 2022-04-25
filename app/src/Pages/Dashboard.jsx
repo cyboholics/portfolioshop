@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Container } from '@mui/material'
+import { Box, Container, Button } from '@mui/material'
 import GoogleLogoutComp from '../Components/ThirdPartyButtons/GoogleLogoutComp'
 import UserDataStateProvider from '../Providers/UserDataStateProvider'
 import Website from '../Components/Dashboard/Website'
@@ -10,14 +10,21 @@ import Resume from '../Components/Dashboard/Resume'
 import Projects from '../Components/Dashboard/Projects'
 import Contact from '../Components/Dashboard/Contact'
 import Savebutton from '../Components/Dashboard/SaveButton'
-
+import {withStyles} from '@mui/styles'
+const styles=(theme)=>{
+    actionButton: {
+        marginHorizontal: 10
+    }
+}
 const Dashboard = () => {
     return (
         <>
             <Box sx={{ marginTop: 10 }}>
-                <GoogleLogoutComp />
                 <UserDataStateProvider>
                     <Container>
+                        <Button color="info" variant="outlined">Raise Ticket</Button>
+                        <Button color="info" variant="outlined">Visit your website</Button>
+                        <GoogleLogoutComp />
                         <Website />
                         <UserDisplayItems />
                         <About />
@@ -34,4 +41,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard
+export default withStyles(styles)(Dashboard)
