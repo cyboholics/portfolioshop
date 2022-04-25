@@ -47,9 +47,10 @@ const UserDataStateProvider = ({ children }) => {
         })
         const config = {
             method: 'put',
-            url: `/api/userDataUpdate?token=${userToken}`,
+            url: `/api/userDataUpdate`,
             headers: { 
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'token': userToken
             },
             data: data
         }
