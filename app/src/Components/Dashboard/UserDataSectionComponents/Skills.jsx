@@ -56,6 +56,7 @@ const Skill = (props) => {
                 onChange={(event) => { setSkills(changeArray(skills, index, skill, event.target.value)) }}
                 valueLabelDisplay="auto"
                 min={10}
+                step={5}
                 max={100}
                 label="Skill Expertise"
             />
