@@ -1,6 +1,6 @@
 import React from 'react'
 import TeamCard from '../Components/Team/TeamCard'
-import {Grid, Typography} from '@mui/material'
+import {Container, Grid, Typography} from '@mui/material'
 
 const Team = () => {
     const leads = [{
@@ -19,7 +19,7 @@ const Team = () => {
         github: "https://github.com/ayush-tiwari26"
     }]
     return (
-        <>
+        <Container sx={{marginY: 20}}>
             <Typography variant="h4" sx={{color: "text.primary", margin: 5}} align="center">Portfolio Shop Team</Typography>
             <Grid 
             container
@@ -30,10 +30,10 @@ const Team = () => {
             minHeight={"70vh"}
             >                
                     {leads.map((lead) => {
-                        return <Grid item><TeamCard key={lead.github} imageLink={lead.imageLink} name={lead.name} title={lead.title} description={lead.description} linkedin={lead.linkedin} github={lead.github} /></Grid>
+                        return <Grid key={lead.github} item><TeamCard imageLink={lead.imageLink} name={lead.name} title={lead.title} description={lead.description} linkedin={lead.linkedin} github={lead.github} /></Grid>
                     })}
             </Grid>
-        </>
+        </Container>
     )
 }
 
