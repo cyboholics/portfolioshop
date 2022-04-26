@@ -17,11 +17,12 @@ export default function UploadImage({ imageLink, onChange, width, height }) {
         const dataURI = link[0]["data_url"]
         try {
             setLoading(true)
-            const url = await axios.post(`/api/imageBlobUpload?token=${userToken}`, {
+            const url = await axios.post(`/api/imageBlobUpload`, {
                 "uri": dataURI
             }, {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'token': userToken
                 }
             })
             onChange(url.data["uri"])
