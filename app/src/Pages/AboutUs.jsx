@@ -1,9 +1,9 @@
-import { Typography, Grid } from '@mui/material'
+import { Typography, Grid, Container } from '@mui/material'
 import React from 'react'
 
 const Aboutus = () => {
     return (
-        <>
+        <Container sx={{marginTop:20}}>
             <Typography variant={"h4"} align="center" marginTop={5}>About Us</Typography>
             <Grid
                 container
@@ -38,7 +38,7 @@ const Aboutus = () => {
                     <video width="100%" controls src="https://portfolioshop.blob.core.windows.net/website-assets/about-us.mp4" />
                 </Grid>
             </Grid>
-        </>
+        </Container>
     )
 }
 

@@ -97,9 +97,9 @@ const MenuAppBar = () => {
                         {pages.map((page) => (
                             <Button key={page}
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, display: 'block' }}
                             >
-                                <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to={page}>
+                                <Link style={{ color: '#ffffff', textDecoration: 'inherit' }} to={page}>
                                     {page.replace('-', ' ')}
                                 </Link>
                             </Button>
