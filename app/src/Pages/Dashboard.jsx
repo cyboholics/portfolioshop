@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Container } from '@mui/material'
+import { Box, Container, Button } from '@mui/material'
 import GoogleLogoutComp from '../Components/ThirdPartyButtons/GoogleLogoutComp'
 import UserDataStateProvider from '../Providers/UserDataStateProvider'
 import Website from '../Components/Dashboard/Website'
@@ -15,9 +15,11 @@ const Dashboard = () => {
     return (
         <>
             <Box sx={{ marginTop: 10 }}>
-                <GoogleLogoutComp />
                 <UserDataStateProvider>
                     <Container>
+                        <Button color="info" variant="outlined">Raise Ticket</Button>
+                        <Button color="info" variant="outlined">Visit your website</Button>
+                        <GoogleLogoutComp />
                         <Website />
                         <UserDisplayItems />
                         <About />

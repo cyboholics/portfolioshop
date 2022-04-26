@@ -1,6 +1,7 @@
 const AZURE_BLOB_CONNECTION_STRING = process.env["AZURE_BLOB_CONNECTION_STRING"]
 const { BlobServiceClient } = require("@azure/storage-blob")
 const ejs = require('ejs')
+const { userModel } = require("../models/index")
 
 async function streamToText(readable) {
     readable.setEncoding('utf8')
@@ -12,8 +13,30 @@ async function streamToText(readable) {
 }
 
 module.exports = async function (context, req) {
-    const data = req.body["data"]
-    const template = req.body["template"]
+    const template = "template1"
+    const user = req.query["email"]
+    var data;
+    try {
+        data = await userModel.findOrCreate({
+            username: user
+        })
+        context.res = {
+            statusCode: 200,
+            headers: {
+                "Content-Type": 'application/json'
+            },
+            body: data
+        }
+    } catch (err) {
+        context.log(err)
+        context.res = {
+            statusCode: 500,
+            body: err.message
+        }
+        context.done()
+        return
+    }
+    context.log(data.doc.templateData)
     if (!data || !template) {
         context.res = {
             statusCode: 400,
@@ -29,7 +52,7 @@ module.exports = async function (context, req) {
         const blockBlobClient = containerClient.getBlockBlobClient(template + ".ejs")
         const downloadBlockBlobResponse = await blockBlobClient.download(0)
         const templateFile = await streamToText(downloadBlockBlobResponse.readableStreamBody)
-        const result = ejs.render(templateFile, data)
+        const result = ejs.render(templateFile, data.doc.templateData)
         context.res = {
             statusCode: 200,
             body: result,
@@ -37,8 +60,6 @@ module.exports = async function (context, req) {
                 'Content-Type': "text/html"
             }
         }
-        context.done()
-        return
     } catch (err) {
         context.res = {
             statusCode: 500,
@@ -46,6 +67,6 @@ module.exports = async function (context, req) {
         }
     }
 
-
+    context.done()
 
 }
