@@ -10,12 +10,7 @@ import Resume from '../Components/Dashboard/Resume'
 import Projects from '../Components/Dashboard/Projects'
 import Contact from '../Components/Dashboard/Contact'
 import Savebutton from '../Components/Dashboard/SaveButton'
-import {withStyles} from '@mui/styles'
-const styles=(theme)=>{
-    actionButton: {
-        marginHorizontal: 10
-    }
-}
+
 const Dashboard = () => {
     return (
         <>
@@ -41,4 +36,4 @@ const Dashboard = () => {
     )
 }
 
-export default withStyles(styles)(Dashboard)
+export default Dashboard

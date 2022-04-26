@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { UserDataContext } from '../../Providers/UserDataStateProvider'
 import Paper from "../MuiComponents/Paper"
 import { Stack, Typography, TextField } from '@mui/material'
@@ -16,10 +16,9 @@ const styles = (theme) => ({
 const UserDisplayItems = (props) => {
     const { classes } = props
     const { name, setName, tagline, setTagline, socials, setSocials } = React.useContext(UserDataContext)
-    const [tags, setTags] = useState(tagline.join(" "))
     const handelTags = (event) => {
-        setTags((event.target.value))
-        var tagArr = tags.split(" ")
+        const tagsStr = event.target.value
+        var tagArr = tagsStr.split(" ")
         setTagline(tagArr)
     }
     const handelName = (event) => {
