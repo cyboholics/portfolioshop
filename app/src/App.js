@@ -7,6 +7,7 @@ import Home from './Pages/Home'
 import Team from './Pages/Team'
 import Aboutus from './Pages/AboutUs'
 import Menufooter from './Components/MenuFooter'
+import PrivacyPolicy from './Pages/PrivacyPolicy'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/team" element={<Team />} />
           <Route path="/about-us" element={<Aboutus />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
         </Routes>
         <Menufooter />
       </ThemeProvider>
