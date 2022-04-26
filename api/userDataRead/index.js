@@ -13,7 +13,7 @@ module.exports = async function (context, req) {
         })
     } catch (err) {
         context.res = {
-            statusCode: 400,
+            statusCode: 401,
             body: err.message
         }
         context.done()
