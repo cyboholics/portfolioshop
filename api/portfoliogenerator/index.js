@@ -13,7 +13,7 @@ async function streamToText(readable) {
 }
 
 module.exports = async function (context, req) {
-    const template = req.query["template"]
+    const template = "template1"
     const user = req.query["email"]
     var data;
     try {
