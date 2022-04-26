@@ -48,4 +48,3 @@ Once you're done with the previous steps, you can start working on the issue ass
 - Create a pull request from the forked repo to the organization repo
 - You should tick the checklist in the pull request template
 - You should make sure there are no errors in the GitHub CI tests
-

@@ -14,7 +14,6 @@
 [![GitHub issues](https://img.shields.io/github/issues/Portfolio-Shop/portfolioshop.svg)](https://GitHub.com/Portfolio-Shop/portfolioshop/issues/)
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/Portfolio-Shop/portfolioshop.svg)](https://GitHub.com/Portfolio-Shop/portfolioshop/pull/)
 
-
 [![git](https://badgen.net/badge/icon/git?icon=git&label)](https://git-scm.com)
 [![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com)
 [![Visual Studio Code](https://img.shields.io/badge/--007ACC?logo=visual%20studio%20code&logoColor=ffffff)](https://code.visualstudio.com/)
@@ -33,6 +32,7 @@
 Check out the [Contribution Guide](./CONTRIBUTING.md) for more insights.
 
 ## Contributors
+
 ![GitHub Contributors Image](https://contrib.rocks/image?repo=Portfolio-Shop/portfolioshop)
 
 ## [![GitHub license](https://badgen.net/github/license/Portfolio-Shop/portfolioshop)](https://github.com/Portfolio-Shop/portfolioshop/blob/master/LICENSE)
