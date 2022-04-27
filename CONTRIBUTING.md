@@ -31,6 +31,24 @@ Once you have nodejs and reactjs libraries installed, you can run the following 
 > npm run dev-install
 ```
 
+### Add environment variables to the API
+Create a file in the api folder named local.settings.json by adding local or hosted URLs for the databases. Needed for frontend developers also as the project uses both in development mode in the runtime.
+```js
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "MONGO_LINK": <add a link to a mongodb database>,
+    "AZURE_BLOB_CONNECTION_STRING": <add a connection link to blob storage>,
+    "AZURE_BLOB_URL": <add the link to the blob storage>,
+    "REACT_APP_GOOGLE_AUTH_CLIENT_ID": <create a google client ID and add in there>,
+    "HOST": "http://localhost:7071"
+  }
+}
+
+```
+
 ## Run the application
 
 ### Run the website and API
