@@ -108,7 +108,7 @@ const MenuAppBar = () => {
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'white', display: 'block' }}
                         >
-                            <a style={{ color: 'inherit', textDecoration: 'inherit' }} href={"https://github.com/Portfolio-Shop/portfolioshop"}>
+                            <a style={{ color: 'white', textDecoration: 'inherit' }} href={"https://github.com/Portfolio-Shop/portfolioshop"}>
                                 {"Source Code"}
                             </a>
                         </Button>
