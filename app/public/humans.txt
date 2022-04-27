@@ -1,0 +1,20 @@
+/* TEAM */
+Developer: Sudip Mondal 
+contact: sudip@portfolioshop.tech
+Twitter: SUDIPMO19931261
+LinkedIn: sudipmondal2002
+GitHub: sudip-mondal-2002
+Location: Chennai, India
+
+Developer: Ayush Tiwari
+contact: ayush@portfolioshop.tech
+Twitter: ayush_tiwari26
+LinkedIn: ayush-tiwari26
+GitHub: ayush-tiwari26
+Location: Chennai, India
+
+/* SITE */
+
+Standards: HTML5, CSS3,javascript
+Components: ReactJS,NodeJs, Material UI
+Software: MERN Stack
