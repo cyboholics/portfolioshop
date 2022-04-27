@@ -1,6 +1,6 @@
-const AZURE_BLOB_CONNECTION_STRING = process.env["AZURE_BLOB_CONNECTION_STRING"]
-const { BlobServiceClient } = require("@azure/storage-blob")
 const ejs = require('ejs')
+const path = require("path")
+const fs = require("fs")
 const { userModel } = require("../models/index")
 
 async function streamToText(readable) {
@@ -36,7 +36,6 @@ module.exports = async function (context, req) {
         context.done()
         return
     }
-    context.log(data.doc.templateData)
     if (!data || !template) {
         context.res = {
             statusCode: 400,
@@ -44,14 +43,7 @@ module.exports = async function (context, req) {
         }
     }
     try {
-        const blobServiceClient = await BlobServiceClient.fromConnectionString(AZURE_BLOB_CONNECTION_STRING)
-        const container = "templates"
-        //gets cintainer
-        const containerClient = await blobServiceClient.getContainerClient(container)
-        //gets template file
-        const blockBlobClient = containerClient.getBlockBlobClient(template + ".ejs")
-        const downloadBlockBlobResponse = await blockBlobClient.download(0)
-        const templateFile = await streamToText(downloadBlockBlobResponse.readableStreamBody)
+        const templateFile = fs.readFileSync(path.join(__dirname,"../templates",template+'.ejs'), "utf8")
         const result = ejs.render(templateFile, data.doc.templateData)
         context.res = {
             statusCode: 200,
