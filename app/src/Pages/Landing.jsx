@@ -7,6 +7,11 @@ import SmokingHero from '../Components/HomePage/SmokingHero'
 const Landing = () => {
     return (
         <>
+            <Helmet htmlAttributes>
+                <html lang="en" />
+                <title>Home - Portfolio Shop: We build for you</title>
+                <meta name="description" content="Portfolio Shop is a fast growing open source portfolio management system with several templates to help people build portfolios at a go." />
+            </Helmet>
             <HeroComponent/>
             <Howitworks/>
             <ProductCTA/>

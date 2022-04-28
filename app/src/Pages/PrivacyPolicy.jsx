@@ -12,9 +12,18 @@ const PrivacyPolicy = () => {
             setRawData(text);
         });
     },[])
-    return <Container sx={{marginTop:12}}>
-    <Markdown>{rawData}</Markdown>;
-    </Container>
+    return (
+    <>   
+        <Helmet htmlAttributes>
+            <html lang="en" />
+            <title>Privacy Policy - Portfolio Shop: We build for you</title>
+            <meta name="description" content="We at Portfolio Shop priotize our user privacy on our website. We take precautions to protect the security of your information. Learn more on our privacy policy..." />
+        </Helmet>
+        <Container sx={{marginTop:12}}>
+        <Markdown>{rawData}</Markdown>;
+        </Container>
+    </> 
+    )
 };
 
 export default PrivacyPolicy;
