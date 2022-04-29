@@ -18,7 +18,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/team" element={<Team />} />
           <Route path="/about-us" element={<Aboutus />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
         <Menufooter />
       </ThemeProvider>
