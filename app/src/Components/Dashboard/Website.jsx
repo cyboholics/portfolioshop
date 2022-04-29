@@ -72,6 +72,7 @@ const Website = (props) => {
                     imageLink={website.faviconUrl}
                     width={30}
                     height={30}
+                    circular
                 />
             </Stack>
         </Paper>
