@@ -3,6 +3,7 @@ import HeroComponent from '../Components/HomePage/HeroComponent'
 import Howitworks from '../Components/HomePage/HowitWorks'
 import ProductCTA from '../Components/HomePage/ProductCTA'
 import SmokingHero from '../Components/HomePage/SmokingHero'
+import {Helmet} from 'react-helmet'
 
 const Landing = () => {
     return (

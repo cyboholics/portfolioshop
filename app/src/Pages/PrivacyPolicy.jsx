@@ -2,6 +2,7 @@ import { Container } from '@mui/material';
 import React from 'react'
 import Markdown from 'react-markdown'
 import privacypolicy from '../assets/Markdowns/PRIVACY_POLICY.md'
+import {Helmet} from 'react-helmet'
 
 const PrivacyPolicy = () => {
     const [rawData, setRawData] = React.useState("")

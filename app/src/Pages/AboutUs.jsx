@@ -1,5 +1,6 @@
 import { Typography, Grid, Container } from '@mui/material'
 import React from 'react'
+import {Helmet} from 'react-helmet'
 
 const Aboutus = () => {
     return (
