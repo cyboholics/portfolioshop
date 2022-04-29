@@ -5,6 +5,7 @@ import Paper from '../MuiComponents/Paper'
 import { withStyles } from '@mui/styles'
 import { Box, Grid, Stack, TextField, Button, Typography, IconButton } from '@mui/material'
 import CustomToolTip from './CustomToolTip'
+import UploadImage from './UploadImage'
 
 const styles = (theme) => ({
     stack: {
@@ -26,6 +27,9 @@ function removeArrayElement(arr, index) {
 
 const Project = (props) => {
     const { index, type, imageUrl, link, title, description, projects, setProjects } = props
+    const setImageUrl = (image) => {
+        setProjects(changeArray(projects, index, type, image, link, title, description))
+    }
     return (
         <>
             <Grid
@@ -57,16 +61,29 @@ const Project = (props) => {
                         onChange={(e) => { setProjects(changeArray(projects, index, e.target.value, imageUrl, link, title, description)) }} />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <TextField
-                        sx={{ width: '100%' }}
-                        label="Project Image Link"
-                        size="medium"
-                        variant="standard"
-                        autoComplete="off"
-                        InputLabelProps={{ shrink: true }}
-                        placeholder="URL of Project Display Image"
-                        value={imageUrl || ''}
-                        onChange={(e) => { setProjects(changeArray(projects, index, type, e.target.value, link, title, description)) }} />
+                    <Stack spacing={4}
+                        direction={{ xs: 'column', md: 'row' }}>
+                        <TextField
+                            sx={{
+                                width: {
+                                    xs: '100%',
+                                    md: '60%',
+                                    lg: '40%'
+                                }
+                            }}
+                            label="Project Image Link"
+                            size="medium"
+                            variant="standard"
+                            autoComplete="off"
+                            InputLabelProps={{ shrink: true }}
+                            placeholder="URL of Project Display Image"
+                            value={imageUrl || ''}
+                            onChange={(e) => { setImageUrl(e.target.value) }} />
+                        <UploadImage
+                            imageLink={projects[index].imageUrl}
+                            onChange={setImageUrl}
+                            width={100} />
+                    </Stack>
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <TextField

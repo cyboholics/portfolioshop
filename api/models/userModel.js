@@ -15,6 +15,10 @@ const dataModel = mongoose.Schema({
                 default: "",
                 type: String,
             },
+            heroBG: {
+                default: "",
+                type: String
+            }
         },
         name: {
             default: "",
@@ -49,6 +53,10 @@ const dataModel = mongoose.Schema({
             },
         },
         about: {
+            image: {
+                default: "",
+                type: String
+            },
             heading: {
                 default: "",
                 type: String,
