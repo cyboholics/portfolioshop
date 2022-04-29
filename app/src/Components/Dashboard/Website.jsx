@@ -22,6 +22,9 @@ const Website = (props) => {
     const setFaviconUrl = (image) => {
         setWebsite({ ...website, faviconUrl: image })
     }
+    const setHeroBG = (image) => {
+        setWebsite({ ...website, heroBG: image })
+    }
 
     return <>
         <Paper
@@ -37,10 +40,7 @@ const Website = (props) => {
                 direction={{ xs: 'column', md: 'row' }}>
                 <TextField
                     sx={{
-                        width: {
-                            xs: '100%',
-                            md: '30%'
-                        }
+                        width: '100%'
                     }}
 
                     size="medium"
@@ -50,7 +50,10 @@ const Website = (props) => {
                     InputLabelProps={{ shrink: true }}
                     value={website?.title || ''}
                     onChange={setWebsiteTitle} />
-
+            </Stack>
+            <Stack
+                spacing={2}
+                direction={{ xs: 'column', md: 'row' }}>
                 <TextField
                     sx={{
                         width: {
@@ -69,11 +72,33 @@ const Website = (props) => {
                     onChange={e => setFaviconUrl(e.target.value)} />
                 <UploadImage
                     onChange={setFaviconUrl}
-                    imageLink={website.faviconUrl}
+                    imageLink={website?.faviconUrl}
                     width={30}
                     height={30}
                     circular
                 />
+
+                <TextField
+                    sx={{
+                        width: {
+                            xs: '100%',
+                            md: '35%',
+                            lg: '40%'
+                        }
+                    }}
+
+                    size="medium"
+                    label="Hero Background Image"
+                    variant="standard"
+                    autoComplete='off'
+                    InputLabelProps={{ shrink: true }}
+                    value={website?.heroBG || ''}
+                    onChange={e => setHeroBG(e.target.value)} />
+                <UploadImage
+                    onChange={setHeroBG}
+                    imageLink={website?.heroBG}
+                    width={30}
+                    height={30} />
             </Stack>
         </Paper>
     </>
