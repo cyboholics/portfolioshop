@@ -27,6 +27,9 @@ function removeArrayElement(arr, index) {
 
 const Project = (props) => {
     const { index, type, imageUrl, link, title, description, projects, setProjects } = props
+    const setImageUrl = (image) => {
+        setProjects(changeArray(projects, index, type, image, link, title, description))
+    }
     return (
         <>
             <Grid
@@ -75,9 +78,10 @@ const Project = (props) => {
                             InputLabelProps={{ shrink: true }}
                             placeholder="URL of Project Display Image"
                             value={imageUrl || ''}
-                            onChange={(e) => { setProjects(changeArray(projects, index, type, e.target.value, link, title, description)) }} />
+                            onChange={(e) => { setImageUrl(e.target.value) }} />
                         <UploadImage
                             imageLink={projects[index].imageUrl}
+                            onChange={setImageUrl}
                             width={100} />
                     </Stack>
                 </Grid>
