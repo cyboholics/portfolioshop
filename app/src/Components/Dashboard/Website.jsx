@@ -97,8 +97,7 @@ const Website = (props) => {
                 <UploadImage
                     onChange={setHeroBG}
                     imageLink={website?.heroBG}
-                    width={30}
-                    height={30} />
+                    width={100} />
             </Stack>
         </Paper>
     </>
