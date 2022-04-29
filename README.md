@@ -3,7 +3,6 @@
 [![GitHub forks](https://img.shields.io/github/forks/Portfolio-Shop/portfolioshop.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/Portfolio-Shop/portfolioshop/network/)
 [![GitHub stars](https://img.shields.io/github/stars/Portfolio-Shop/portfolioshop.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/Portfolio-Shop/portfolioshop/stargazers/)
 [![GitHub watchers](https://img.shields.io/github/watchers/Portfolio-Shop/portfolioshop.svg?style=social&label=Watch&maxAge=2592000)](https://GitHub.com/Portfolio-Shop/portfolioshop/watchers/)
-[![GitHub contributors](https://img.shields.io/github/contributors/Portfolio-Shop/portfolioshop.svg)](https://GitHub.com/Naereen/badges/graphs/contributors/)
 [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
 [![Website cv.lbesson.qc.to](https://img.shields.io/website-up-down-green-red/http/www.portfolioshop.tech)](https://www.portfolioshop.tech)
@@ -31,7 +30,7 @@
 
 Check out the [Contribution Guide](./CONTRIBUTING.md) for more insights.
 
-## Contributors
+## [![GitHub contributors](https://img.shields.io/github/contributors/Portfolio-Shop/portfolioshop.svg)](https://GitHub.com/Naereen/badges/graphs/contributors/)
 
 ![GitHub Contributors Image](https://contrib.rocks/image?repo=Portfolio-Shop/portfolioshop)
 
