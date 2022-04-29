@@ -7,7 +7,6 @@
 
 [![Website cv.lbesson.qc.to](https://img.shields.io/website-up-down-green-red/http/www.portfolioshop.tech)](https://www.portfolioshop.tech)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Portfolio-Shop/portfolioshop/graphs/commit-activity)
-![Maintainer](https://img.shields.io/badge/maintainer-portfolioshop-blue)
 [![GitHub commits](https://badgen.net/github/commits/Portfolio-Shop/portfolioshop)](https://GitHub.com/Portfolio-Shop/portfolioshop/commit/)
 [![GitHub latest commit](https://badgen.net/github/last-commit/Portfolio-Shop/portfolioshop)](https://GitHub.com/Portfolio-Shop/portfolioshop/commit/)
 [![GitHub issues](https://img.shields.io/github/issues/Portfolio-Shop/portfolioshop.svg)](https://GitHub.com/Portfolio-Shop/portfolioshop/issues/)
@@ -30,7 +29,7 @@
 
 Check out the [Contribution Guide](./CONTRIBUTING.md) for more insights.
 
-## [![GitHub contributors](https://img.shields.io/github/contributors/Portfolio-Shop/portfolioshop.svg)](https://GitHub.com/Naereen/badges/graphs/contributors/)
+## [![GitHub contributors](https://img.shields.io/github/contributors/Portfolio-Shop/portfolioshop.svg)](https://GitHub.com/Naereen/badges/graphs/contributors/) ![Maintainer](https://img.shields.io/badge/maintainer-Sudip%20Mondal%20&%20Ayush%20Tiwari-blue)
 
 ![GitHub Contributors Image](https://contrib.rocks/image?repo=Portfolio-Shop/portfolioshop)
 
