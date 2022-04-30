@@ -6,7 +6,7 @@ const userReqSchema = mongoose.Schema({
         required: true
     },
     status: {
-        type: String,
+        type: Boolean,
     },
     thread:[{
         message:{
