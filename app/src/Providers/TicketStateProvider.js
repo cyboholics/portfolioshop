@@ -27,9 +27,9 @@ const TicketStateProvider = ({ children }) => {
     }, [userTicket])
 
     return (
-        <UserContext.Provider value={{ userTicket, setUserTicket, userEmail, status, setStatus, thread, setThread}}>
+        <TicketContext.Provider value={{ userTicket, setUserTicket, userEmail, status, setStatus, thread, setThread}}>
             {children}
-        </UserContext.Provider>
+        </TicketContext.Provider>
     )
 }
 export default TicketStateProvider

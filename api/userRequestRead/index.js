@@ -51,12 +51,12 @@ module.exports = async function (context, req) {
         const username = res.data
         filter = { username: username }
     }
-
+    //TODO: Decide upon the fact that a user can create just one thread or multiple one
     try {
         const requests = await userRequestModel.find(filter)
         context.res = {
             statusCode: 200,
-            body: requests
+            body: requests[0]
         }
     } catch (err) {
         context.res = {
