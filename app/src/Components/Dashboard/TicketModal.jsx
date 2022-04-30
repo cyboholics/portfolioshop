@@ -20,9 +20,7 @@ const styles = (theme) => ({
 
 const TicketModal = (props) => {
     const { classes } = props
-    //TODO: Get States from API
     const { status, setStatus, thread, setThread } = React.useContext(TicketContext);
-    console.log(status, thread)
     const handleChange = () => setStatus(!status)
     return (
         <>
@@ -50,7 +48,7 @@ const TicketModal = (props) => {
                             </Typography>
                         </Stack>
                     </Stack>
-                    //TODO Maping thread for msgs
+                    {thread.map((a)=> <p>{a.message}+""</p>)}
                 </Box>
             </Modal>
         </>
