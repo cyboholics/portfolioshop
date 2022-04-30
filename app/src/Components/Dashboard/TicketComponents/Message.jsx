@@ -7,6 +7,8 @@ const Message = (props) => {
         <>
             <Box>
                 {message.message}
+                {message.by}
+                {message.timestamp}
             </Box>
         </>
     )

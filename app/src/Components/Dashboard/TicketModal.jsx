@@ -1,5 +1,6 @@
 import React from 'react'
 import { TicketContext } from './../../Providers/TicketStateProvider' 
+import Message from './TicketComponents/Message'
 import { Box, Modal, Switch, Stack, Typography } from '@mui/material'
 import { withStyles } from '@mui/styles'
 
@@ -48,7 +49,7 @@ const TicketModal = (props) => {
                             </Typography>
                         </Stack>
                     </Stack>
-                    {thread.map((a)=> <p>{a.message}+""</p>)}
+                    {thread?.map((item, idx)=> <Message key={idx} message={item}/>)}
                 </Box>
             </Modal>
         </>
