@@ -5,7 +5,6 @@ const HOST = process.env["HOST"]
 module.exports = async function (context, req) {
     var token = req.headers["token"]
     let res
-
     try {
         res = await axios.get(`${HOST}/api/GoogleAuthValidation`, {
             headers: {
@@ -33,15 +32,22 @@ module.exports = async function (context, req) {
     }
 
     try {
-        const ticket = await userRequestModel.create({
-            username: usernm,
-            status: "Open",
-            thread: [{
-                message: userReq,
-                by: usernm,
-                timestamp: Date.now()
-            }]
-        })
+        const ticket = await userRequestModel.updateOne(
+            {
+                username: usernm
+            },
+            {
+                status: true,
+                $push: {
+                    thread: {
+                        message: userReq,
+                        by: usernm,
+                        timestamp: Date.now()
+                    }
+                }
+            },
+            {upsert: true, setDefaultsOnInsert: true}
+        )
         context.res = {
             statusCode: 200,
             body: `Created Ticket with Ticket Id : ${ticket._id}`,
@@ -52,7 +58,7 @@ module.exports = async function (context, req) {
     } catch (err) {
         context.res = {
             statusCode: 500,
-            body: err.message,
+            body: err.message
         }
     }
     context.done()

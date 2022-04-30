@@ -2,6 +2,7 @@ import React from 'react'
 import { Box, Container, Button } from '@mui/material'
 import GoogleLogoutComp from '../Components/ThirdPartyButtons/GoogleLogoutComp'
 import UserDataStateProvider from '../Providers/UserDataStateProvider'
+import TicketStateProvider from '../Providers/TicketStateProvider'
 import { UserContext } from '../Providers/UserStateProvider'
 import Website from '../Components/Dashboard/Website'
 import UserDisplayItems from '../Components/Dashboard/UserDisplayItems'
@@ -14,7 +15,8 @@ import Savebutton from '../Components/Dashboard/SaveButton'
 import TicketModal from '../Components/Dashboard/TicketModal'
 
 const Dashboard = () => {
-    const { userEmail } = React.useContext(UserContext)
+    const { userEmail, userToken } = React.useContext(UserContext)
+    console.log(userEmail, userToken)
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
@@ -22,29 +24,31 @@ const Dashboard = () => {
         <>
             <Box sx={{ marginTop: 10 }}>
                 <UserDataStateProvider>
-                    <Container>
-                        <a href={`/api/portfolioGenerator?email=${userEmail}`} target="blank" style={{ textDecoration: "none" }}>
-                            <Button sx={{ height: 45 }} color="info" variant="outlined">
-                                Visit your website
+                    <TicketStateProvider>
+                        <Container>
+                            <a href={`/api/portfolioGenerator?email=${userEmail}`} target="blank" style={{ textDecoration: "none" }}>
+                                <Button sx={{ height: 45 }} color="info" variant="outlined">
+                                    Visit your website
+                                </Button>
+                            </a>
+                            <Button sx={{ height: 45 }}
+                                color="info"
+                                variant="outlined"
+                                onClick={handleOpen}>
+                                Raise a Ticket
                             </Button>
-                        </a>
-                        <Button sx={{ height: 45 }}
-                            color="info"
-                            variant="outlined"
-                            onClick={handleOpen}>
-                            Raise a Ticket
-                        </Button>
-                        <TicketModal open={open} onClose={handleClose} />
-                        <GoogleLogoutComp />
-                        <Website />
-                        <UserDisplayItems />
-                        <About />
-                        <Skills />
-                        <Resume />
-                        <Projects />
-                        <Contact />
-                        <Savebutton />
-                    </Container>
+                            <TicketModal open={open} onClose={handleClose} />
+                            <GoogleLogoutComp />
+                            <Website />
+                            <UserDisplayItems />
+                            <About />
+                            <Skills />
+                            <Resume />
+                            <Projects />
+                            <Contact />
+                            <Savebutton />
+                        </Container>
+                    </TicketStateProvider>
                 </UserDataStateProvider>
             </Box>
 

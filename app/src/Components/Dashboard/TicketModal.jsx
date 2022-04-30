@@ -1,4 +1,5 @@
 import React from 'react'
+import { TicketContext } from './../../Providers/TicketStateProvider' 
 import { Box, Modal, Switch, Stack, Typography } from '@mui/material'
 import { withStyles } from '@mui/styles'
 
@@ -20,8 +21,8 @@ const styles = (theme) => ({
 const TicketModal = (props) => {
     const { classes } = props
     //TODO: Get States from API
-    const [checked, setChecked] = React.useState(false);
-    const handleChange = () => setChecked(!checked)
+    const { status, setStatus, thread, setThread } = React.useContext(TicketContext);
+    const handleChange = () => setStatus(!status)
     return (
         <>
             <Modal
@@ -39,7 +40,7 @@ const TicketModal = (props) => {
                                 Closed
                             </Typography>
                             <Switch
-                                checked={checked}
+                                checked={status}
                                 onChange={handleChange}
                                 inputProps={{ 'aria-label': 'controlled' }}
                             />

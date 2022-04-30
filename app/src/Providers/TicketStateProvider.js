@@ -7,7 +7,7 @@ const TicketStateProvider = ({ children }) => {
     const {userToken, userEmail} = React.useContext(UserContext)
     const [userTicket, setUserTicket] = React.useState({})
     const [status, setStatus] = React.useState(false)
-    const [thread, setThread] = React.useStatus([])
+    const [thread, setThread] = React.useState([])
     React.useEffect(() => {
         if (!userToken) return
         axios.get(`/api/userRequestRead`, {
@@ -27,7 +27,7 @@ const TicketStateProvider = ({ children }) => {
     }, [userTicket])
 
     return (
-        <UserContext.Provider value={{ userTicket, setUserTicket, userEmail, status, thread}}>
+        <UserContext.Provider value={{ userTicket, setUserTicket, userEmail, status, setStatus, thread, setThread}}>
             {children}
         </UserContext.Provider>
     )
