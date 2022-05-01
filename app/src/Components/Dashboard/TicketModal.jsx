@@ -1,8 +1,9 @@
 import React from 'react'
-import { TicketContext } from './../../Providers/TicketStateProvider' 
+import { TicketContext } from './../../Providers/TicketStateProvider'
 import Message from './TicketComponents/Message'
-import { Box, Modal, Switch, Stack, Typography } from '@mui/material'
+import { Box, List, ListItem, Modal, Switch, Stack, Typography } from '@mui/material'
 import { withStyles } from '@mui/styles'
+import { FixedSizeList } from 'react-window'
 
 const styles = (theme) => ({
     box: {
@@ -23,6 +24,14 @@ const TicketModal = (props) => {
     const { classes } = props
     const { status, setStatus, thread, setThread } = React.useContext(TicketContext);
     const handleChange = () => setStatus(!status)
+    const renderRow = (props) => {
+        const { index } = props;
+        return (
+            <ListItem key={index} component="div" disablePadding>
+               <Message key={index} message={thread[index]} />
+            </ListItem>
+        );
+    }
     return (
         <>
             <Modal
@@ -31,6 +40,7 @@ const TicketModal = (props) => {
                 aria-describedby="modal-modal-description"
             >
                 <Box className={classes.box}>
+                    {/* TODO:Status Open/Close Switch */}
                     <Stack>
                         <Typography>
                             Resolve Status
@@ -44,12 +54,23 @@ const TicketModal = (props) => {
                                 onChange={handleChange}
                                 inputProps={{ 'aria-label': 'controlled' }}
                             />
-                            <Typography sx={{marginTop:1}}>
+                            <Typography sx={{ marginTop: 1 }}>
                                 Open
                             </Typography>
                         </Stack>
                     </Stack>
-                    {thread?.map((item, idx)=> <Message key={idx} message={item}/>)}
+                    {/* List of preious messages */}
+                    <FixedSizeList
+                        height={400}
+                        width={360}
+                        itemSize={46}
+                        itemCount={thread?.length}
+                        overscanCount={5}
+                    >
+                        {renderRow}
+                    </FixedSizeList>
+                    {/* New Comment */}
+                    
                 </Box>
             </Modal>
         </>
