@@ -1,16 +1,26 @@
 import React from 'react'
-import { Box } from '@mui/material'
+import { Avatar, Box, Stack, Typography } from '@mui/material'
 
 const Message = (props) => {
     const message = props.message
     return (
-        <>
-            <Box>
-                {message.message}
+        <Stack direction="row">
+            <Stack direction="column" spacing={2}>
+                <Avatar sx={{ bgcolor: 'green', width: 30, height: 30 }}>N</Avatar>
+            </Stack>
+            <Stack direction="column">
+                <Typography >
+                    {message.by}
+                </Typography>
+                <Typography>
+                    {message.message}
+                </Typography>
+                <p style={{ textAlign: "left", color: "gray" }}>
+                    {message.timestamp}
+                </p>
                 {message.by}
-                {message.timestamp}
-            </Box>
-        </>
+            </Stack>
+        </Stack>
     )
 }
 
