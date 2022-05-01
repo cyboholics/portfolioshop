@@ -23,35 +23,30 @@ const Dashboard = () => {
     return (
         <>
             <Box sx={{ marginTop: 10 }}>
-                <UserDataStateProvider>
-                    <TicketStateProvider>
-                        <Container>
-                            <a href={`/api/portfolioGenerator?email=${userEmail}`} target="blank" style={{ textDecoration: "none" }}>
-                                <Button sx={{ height: 45 }} color="info" variant="outlined">
-                                    Visit your website
-                                </Button>
-                            </a>
-                            <Button sx={{ height: 45 }}
-                                color="info"
-                                variant="outlined"
-                                onClick={handleOpen}>
-                                Raise a Ticket
-                            </Button>
-                            <TicketModal open={open} onClose={handleClose} />
-                            <GoogleLogoutComp />
-                            <Website />
-                            <UserDisplayItems />
-                            <About />
-                            <Skills />
-                            <Resume />
-                            <Projects />
-                            <Contact />
-                            <Savebutton />
-                        </Container>
-                    </TicketStateProvider>
-                </UserDataStateProvider>
+                <Container>
+                    <a href={`/api/portfolioGenerator?email=${userEmail}`} target="blank" style={{ textDecoration: "none" }}>
+                        <Button sx={{ height: 45 }} color="info" variant="outlined">
+                            Visit your website
+                        </Button>
+                    </a>
+                    <Button sx={{ height: 45 }}
+                        color="info"
+                        variant="outlined"
+                        onClick={handleOpen}>
+                        Raise a Ticket
+                    </Button>
+                    <TicketModal open={open} onClose={handleClose} />
+                    <GoogleLogoutComp />
+                    <Website />
+                    <UserDisplayItems />
+                    <About />
+                    <Skills />
+                    <Resume />
+                    <Projects />
+                    <Contact />
+                    <Savebutton />
+                </Container>
             </Box>
-
         </>
     )
 }

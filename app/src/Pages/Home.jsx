@@ -7,7 +7,11 @@ const Home = () => {
     const { userToken } = React.useContext(UserContext)
     return (
         <>
-            {userToken ?  <Dashboard/>: <Landing />}
+            <UserDataStateProvider>
+                <TicketStateProvider>
+                    {userToken ? <Dashboard /> : <Landing />}
+                </TicketStateProvider>
+            </UserDataStateProvider>
         </>
     )
 }
