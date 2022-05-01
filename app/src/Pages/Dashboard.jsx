@@ -1,8 +1,6 @@
 import React from 'react'
 import { Box, Container, Button } from '@mui/material'
 import GoogleLogoutComp from '../Components/ThirdPartyButtons/GoogleLogoutComp'
-import UserDataStateProvider from '../Providers/UserDataStateProvider'
-import TicketStateProvider from '../Providers/TicketStateProvider'
 import { UserContext } from '../Providers/UserStateProvider'
 import Website from '../Components/Dashboard/Website'
 import UserDisplayItems from '../Components/Dashboard/UserDisplayItems'
