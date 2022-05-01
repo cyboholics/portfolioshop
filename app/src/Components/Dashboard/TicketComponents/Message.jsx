@@ -25,7 +25,7 @@ const Message = (props) => {
     return (
         <Stack direction="row"
             spacing={2}
-            sx={{ margin: 3 }}>
+            sx={{ marginTop: 2, marginBottom: 2, marginLeft: { xs: 0, sm: 2 }, marginRight: { xs: 0, sm: 2 } }}>
             <Stack direction="column">
                 <Avatar sx={{ bgcolor: getRandomColor(), width: 30, height: 30 }}>{message.by[0].toUpperCase()}</Avatar>
             </Stack>
