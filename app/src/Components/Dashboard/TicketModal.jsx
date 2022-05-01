@@ -1,5 +1,6 @@
 import React from 'react'
 import { TicketContext } from './../../Providers/TicketStateProvider'
+import Comment from './TicketComponents/Comment'
 import Message from './TicketComponents/Message'
 import Status from './TicketComponents/Status'
 import { Box, List, ListItem, Modal, Switch, Stack, Typography } from '@mui/material'
@@ -26,9 +27,9 @@ const TicketModal = (props) => {
     const { status, setStatus, thread, setThread } = React.useContext(TicketContext);
     
     const renderRow = (props) => {
-        const { index } = props;
+        const { index, style } = props;
         return (
-            <ListItem key={index} component="div" disablePadding>
+            <ListItem style={style} key={index} component="div" disablePadding>
                <Message key={index} message={thread[index]} />
             </ListItem>
         );
@@ -44,16 +45,16 @@ const TicketModal = (props) => {
                     <Status status={status} setStatus={setStatus}/>
                     {/* List of preious messages */}
                     <FixedSizeList
-                        height={400}
-                        width={360}
-                        itemSize={46}
+                        height={300}
+                        width={'100%'}
+                        itemSize={100}
                         itemCount={thread?.length}
                         overscanCount={5}
                     >
                         {renderRow}
                     </FixedSizeList>
                     {/* New Comment */}
-
+                    <Comment thread={thread} setThread={setThread}/>
                 </Box>
             </Modal>
         </>
