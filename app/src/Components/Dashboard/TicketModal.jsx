@@ -1,6 +1,7 @@
 import React from 'react'
 import { TicketContext } from './../../Providers/TicketStateProvider'
 import Message from './TicketComponents/Message'
+import Status from './TicketComponents/Status'
 import { Box, List, ListItem, Modal, Switch, Stack, Typography } from '@mui/material'
 import { withStyles } from '@mui/styles'
 import { FixedSizeList } from 'react-window'
@@ -23,7 +24,7 @@ const styles = (theme) => ({
 const TicketModal = (props) => {
     const { classes } = props
     const { status, setStatus, thread, setThread } = React.useContext(TicketContext);
-    const handleChange = () => setStatus(!status)
+    
     const renderRow = (props) => {
         const { index } = props;
         return (
@@ -40,25 +41,7 @@ const TicketModal = (props) => {
                 aria-describedby="modal-modal-description"
             >
                 <Box className={classes.box}>
-                    {/* TODO:Status Open/Close Switch */}
-                    <Stack>
-                        <Typography>
-                            Resolve Status
-                        </Typography>
-                        <Stack direction="row">
-                            <Typography>
-                                Closed
-                            </Typography>
-                            <Switch
-                                checked={status}
-                                onChange={handleChange}
-                                inputProps={{ 'aria-label': 'controlled' }}
-                            />
-                            <Typography sx={{ marginTop: 1 }}>
-                                Open
-                            </Typography>
-                        </Stack>
-                    </Stack>
+                    <Status status={status} setStatus={setStatus}/>
                     {/* List of preious messages */}
                     <FixedSizeList
                         height={400}
@@ -70,7 +53,7 @@ const TicketModal = (props) => {
                         {renderRow}
                     </FixedSizeList>
                     {/* New Comment */}
-                    
+
                 </Box>
             </Modal>
         </>
