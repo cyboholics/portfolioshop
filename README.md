@@ -29,7 +29,7 @@
 
 Check out the [Contribution Guide](./CONTRIBUTING.md) for more insights.
 
-## [![GitHub contributors](https://img.shields.io/github/contributors/Portfolio-Shop/portfolioshop.svg)](https://GitHub.com/Naereen/badges/graphs/contributors/) ![Maintainer](https://img.shields.io/badge/maintainer-Sudip%20Mondal%20&%20Ayush%20Tiwari-blue)
+## [![GitHub contributors](https://img.shields.io/github/contributors/Portfolio-Shop/portfolioshop.svg)](https://GitHub.com/Naereen/badges/graphs/contributors/) ![Maintainer](https://img.shields.io/badge/maintainers-Sudip%20Mondal%20&%20Ayush%20Tiwari-blue)
 
 ![GitHub Contributors Image](https://contrib.rocks/image?repo=Portfolio-Shop/portfolioshop)
 
