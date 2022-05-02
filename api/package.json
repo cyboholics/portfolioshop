@@ -10,7 +10,7 @@
   "dependencies": {
     "@azure/storage-blob": "^12.9.0",
     "axios": "^0.26.1",
-    "ejs": "^3.1.6",
+    "ejs": "^3.1.7",
     "google-auth-library": "^7.14.1",
     "mongoose": "^6.2.8",
     "mongoose-findorcreate": "^3.0.0",
@@ -23,5 +23,7 @@
     "type": "git",
     "url": "https://github.com/sudip-mondal-2002/portfolioshopMicros.git"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "azure-functions-core-tools": "^3.0.4484"
+  }
 }

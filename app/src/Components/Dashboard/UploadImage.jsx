@@ -6,7 +6,7 @@ import axios from 'axios'
 import { UserContext } from '../../Providers/UserStateProvider'
 import ReportGmailerrorredOutlinedIcon from '@mui/icons-material/ReportGmailerrorredOutlined';
 
-export default function UploadImage({ imageLink, onChange, width, height }) {
+export default function UploadImage({ imageLink, onChange, width, height, circular }) {
     const { userToken } = React.useContext(UserContext)
     const [loading, setLoading] = React.useState(false)
     const [imageError, setImageError] = React.useState(false)
@@ -74,7 +74,7 @@ export default function UploadImage({ imageLink, onChange, width, height }) {
                             src={imageLink}
                             alt="ico"
                             style={{
-                                borderRadius: "50%"
+                                borderRadius: circular ? "50%" : 0
                             }}
                             onError={()=>{
                                 setImageError(true)

@@ -10,6 +10,7 @@ import { Typography, Stack, TextField, InputAdornment } from '@mui/material'
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 import MuiPhoneNumber from 'material-ui-phone-number';
 import CustomToolTip from './CustomToolTip';
+import UploadImage from './UploadImage';
 
 const styles = (theme) => ({
   stack: {
@@ -26,6 +27,9 @@ const styles = (theme) => ({
 const About = (props) => {
   const { classes } = props
   const { about, setAbout } = React.useContext(UserDataContext)
+  const setProfilePic = (image) => {
+    setAbout({ ...about, image : image })
+  }
   return (
     <Paper>
       <Typography variant="h5">
@@ -37,14 +41,47 @@ const About = (props) => {
         spacing={2}
         className={classes.stack}>
         {/* about.heading */}
-        <TextField
-          label="Heading"
-          variant="standard"
-          autoComplete="off"
-          InputLabelProps={{ shrink: true }}
-          placeholder="Website Heading"
-          value={about.heading || ''}
-          onChange={(event) => { setAbout({ ...about, heading: event.target.value }); console.log(about) }} />
+        <Stack
+          direction={"row"}
+          spacing={2}
+        >
+          <TextField
+            sx={{
+              width: {
+                xs: '100%',
+                md: '40%',
+                lg: '40%'
+              }
+            }}
+            label="Heading"
+            variant="standard"
+            autoComplete="off"
+            InputLabelProps={{ shrink: true }}
+            placeholder="Website Heading"
+            value={about.heading || ''}
+            onChange={(event) => { setAbout({ ...about, heading: event.target.value }); console.log(about) }} />
+          <TextField
+            sx={{
+              width: {
+                xs: '100%',
+                md: '30%',
+                lg: '30%'
+              }
+            }}
+            size="medium"
+            label="Profile Image"
+            variant="standard"
+            autoComplete='off'
+            InputLabelProps={{ shrink: true }}
+            value={about?.image || ''}
+            onChange={e => setProfilePic(e.target.value)} />
+          <UploadImage
+            onChange={setProfilePic}
+            imageLink={about?.image}
+            width={100}
+            height={100}
+          />
+        </Stack>
 
         <Stack spacing={{ xs: 2, sm: 2 }}
           direction={{ xs: 'column', sm: 'row' }}>
