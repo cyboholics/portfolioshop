@@ -13,7 +13,7 @@ import Savebutton from '../Components/Dashboard/SaveButton'
 import TicketModal from '../Components/Dashboard/TicketModal'
 
 const Dashboard = () => {
-    const { userEmail, userToken } = React.useContext(UserContext)
+    const { userEmail } = React.useContext(UserContext)
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)

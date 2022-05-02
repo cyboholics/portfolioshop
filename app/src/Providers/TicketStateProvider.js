@@ -23,8 +23,7 @@ const TicketStateProvider = ({ children }) => {
             data: data
         }
         try {
-            const response = await axios(config)
-            return true
+            await axios(config)
         } catch (error) {
             throw error
         }
