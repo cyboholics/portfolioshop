@@ -5,13 +5,15 @@ import { TicketContext } from './../../../Providers/TicketStateProvider'
 
 const Comment = (props) => {
     const { thread, setThread, userEmail, setStatus } = React.useContext(TicketContext)
-    const { opneToast, setOpenToast } = React.useContext(SnackbarContext)
+    const { opneToast, setOpenToast, setMessage, setSeverity } = React.useContext(SnackbarContext)
     const [value, setValue] = React.useState("")
     const saveData = () => {
         if (value.trim().length == 0) return
         //TODO Save In API
         setValue("")
         setStatus(true)
+        setMessage("Sent Request Successfully")
+        setSeverity("success")
         setOpenToast(true)
         setThread([...thread, { 'message': value, 'by': userEmail, 'timestamp': (new Date()).toJSON() }])
     }
