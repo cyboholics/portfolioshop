@@ -27,5 +27,4 @@
     "@azure/static-web-apps-cli": "^0.8.3",
     "concurrently": "^7.1.0"
   }
-  
 }
