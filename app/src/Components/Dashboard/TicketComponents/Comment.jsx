@@ -1,10 +1,11 @@
 import React from 'react'
-import { Alert, Button, Grid, TextField, Snackbar } from '@mui/material'
+import { SnackbarContext } from './../../../Providers/SnackbarStateProvider'
+import { Button, Grid, TextField } from '@mui/material'
 import { TicketContext } from './../../../Providers/TicketStateProvider'
 
 const Comment = (props) => {
     const { thread, setThread, userEmail, setStatus } = React.useContext(TicketContext)
-    const [opneToast, setOpenToast] = React.useState(false)
+    const { opneToast, setOpenToast } = React.useContext(SnackbarContext)
     const [value, setValue] = React.useState("")
     const saveData = () => {
         if (value.trim().length == 0) return
@@ -15,7 +16,6 @@ const Comment = (props) => {
         setThread([...thread, { 'message': value, 'by': userEmail, 'timestamp': (new Date()).toJSON() }])
     }
     const handleChange = (e) => setValue(e.target.value)
-    const handleToastClose = () => setOpenToast(false)
     const handleEnterKey = (e) => {
         if (e.key == 'Enter') {
             saveData()
@@ -54,15 +54,6 @@ const Comment = (props) => {
                     </Button>
                 </Grid>
             </Grid>
-            <Snackbar
-                open={opneToast}
-                autoHideDuration={6000}
-                onClose={handleToastClose}
-                sx={{position:"absolute", bottom:0, left:0}}>
-                <Alert onClose={handleToastClose} severity="success" sx={{ width: '100%' }}>
-                    This is a success message!
-                </Alert>
-            </Snackbar>
         </>
     )
 }
