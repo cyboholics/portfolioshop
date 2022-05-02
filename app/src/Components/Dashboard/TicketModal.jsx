@@ -18,7 +18,7 @@ const styles = (theme) => ({
         border: '0px solid #000',
         borderRadius: '10px',
         boxShadow: 24,
-        padding: 20,
+        padding: 25,
     }
 })
 
