@@ -4,23 +4,39 @@ import { Button, Grid, TextField } from '@mui/material'
 import { TicketContext } from './../../../Providers/TicketStateProvider'
 
 const Comment = (props) => {
-    const { thread, setThread, userEmail, setStatus } = React.useContext(TicketContext)
+    const { thread, setThread, userEmail, setStatus, saveTicket } = React.useContext(TicketContext)
     const { opneToast, setOpenToast, setMessage, setSeverity } = React.useContext(SnackbarContext)
     const [value, setValue] = React.useState("")
-    const saveData = () => {
-        if (value.trim().length == 0) return
-        //TODO Save In API
-        setValue("")
-        setStatus(true)
-        setMessage("Sent Request Successfully")
-        setSeverity("success")
-        setOpenToast(true)
-        setThread([...thread, { 'message': value, 'by': userEmail, 'timestamp': (new Date()).toJSON() }])
+
+    const saveData = async () => {
+        if (value.trim().length == 0) {
+            setValue("")
+            return;
+        }
+        try {
+            await saveTicket(value)
+            setValue("")
+            setStatus(true)
+            setMessage("Sent Request Successfully")
+            setSeverity("success")
+            setOpenToast(true)
+            console.log(value)
+            setThread([...thread, { 'message': value, 'by': userEmail, 'timestamp': (new Date()).toJSON() }])
+        } catch (error) {
+            //TODO Backend Issue: Could Not Update value in 
+            setMessage("Could not raise request")
+            setSeverity("error")
+            setOpenToast(true)
+        }
     }
+
     const handleChange = (e) => setValue(e.target.value)
     const handleEnterKey = (e) => {
         if (e.key == 'Enter') {
             saveData()
+        }
+        if (e.key == ' ' && value != null && value[0] == " ") {
+            setValue("")
         }
     }
 

@@ -4,10 +4,33 @@ import { UserContext } from "./UserStateProvider"
 export const TicketContext = React.createContext({})
 
 const TicketStateProvider = ({ children }) => {
-    const {userToken, userEmail} = React.useContext(UserContext)
+    const { userToken, userEmail } = React.useContext(UserContext)
     const [userTicket, setUserTicket] = React.useState({})
     const [status, setStatus] = React.useState(false)
     const [thread, setThread] = React.useState([])
+
+    const saveTicket = async (message) => {
+        const data = {
+            "userRequest": message
+        }
+        const config = {
+            method: 'post',
+            url: '/api/userRequestCreate',
+            headers: {
+                'token': userToken,
+                'Content-Type': 'application/json'
+            },
+            data: data
+        }
+        try {
+            const response = await axios(config)
+            console.log("Success" + JSON.stringify(response.data));
+            return true
+        } catch (error) {
+            throw error
+        }
+    }
+
     React.useEffect(() => {
         if (!userToken) return
         axios.get(`/api/userRequestRead`, {
@@ -27,9 +50,10 @@ const TicketStateProvider = ({ children }) => {
     }, [userTicket])
 
     return (
-        <TicketContext.Provider value={{ userTicket, setUserTicket, userEmail, status, setStatus, thread, setThread}}>
+        <TicketContext.Provider value={{ userTicket, setUserTicket, userEmail, status, setStatus, thread, setThread, saveTicket }}>
             {children}
         </TicketContext.Provider>
     )
 }
+
 export default TicketStateProvider
