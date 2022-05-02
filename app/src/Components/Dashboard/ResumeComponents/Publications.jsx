@@ -104,7 +104,7 @@ const Publications = (props) => {
       <Button
         sx={{
           width: "20%",
-          marginTop: { xs: 0, sm: 0 },
+          marginTop: { xs: 2, sm: 0 },
           marginBottom: { xs: 1, sm: 1 },
           alignSelf: "flex-end"
         }}

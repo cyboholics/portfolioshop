@@ -1,6 +1,8 @@
 import React from 'react'
 import { withStyles } from '@mui/styles'
-import { Container, Typography, TextField, Snackbar, Button, Hidden, Grid } from '@mui/material'
+import { Container, Typography, TextField, Button, Hidden, Grid } from '@mui/material'
+import { SnackbarContext } from '../../Providers/SnackbarStateProvider'
+
 import axios from 'axios'
 
 const styles = (theme) => ({
@@ -44,8 +46,8 @@ const styles = (theme) => ({
 })
 
 const ProductCTA = (props) => {
+    const { setOpenToast, setMessage, setSeverity } = React.useContext(SnackbarContext)
     const { classes } = props
-    const [open, setOpen] = React.useState(false)
     const [email, setEmail] = React.useState('')
     const handleEmailChange = (e) => {
         setEmail(e.target.value)
@@ -54,17 +56,16 @@ const ProductCTA = (props) => {
         e.preventDefault()
         try {
             await axios.get(`/api/newsletterSubscribe?email=${email}`)
-            setOpen(true)
+            setMessage("We will send you our best offers.")
+            setSeverity("success")
+            setOpenToast("true")
             setEmail('')
         } catch (err) {
-            alert(err)
+            setMessage("Coundn't connect to backend please try again later.")
+            setSeverity("success")
+            setOpenToast("true")
         }
     }
-
-    const handleClose = () => {
-        setOpen(false)
-    }
-
     return (
         <Container className={classes.root} component="section">
             <Grid container>
@@ -96,11 +97,6 @@ const ProductCTA = (props) => {
                     </Hidden>
                 </Grid>
             </Grid>
-            <Snackbar
-                open={open}
-                onClose={handleClose}
-                message="We will send you our best offers, once a week."
-            />
         </Container>
     )
 }

@@ -23,7 +23,6 @@ const Contact = (props) => {
     const { classes } = props
     const { contact, setContact, about } = React.useContext(UserDataContext)
     const handleToggle = (e) => {
-        console.log(about)
         setContact({ phone: about.phone, email: about.email, address: contact.address || about.city })
     }
     return <>

@@ -46,7 +46,7 @@ const Project = (props) => {
                         InputLabelProps={{ shrink: true }}
                         placeholder="Title"
                         value={title || ''}
-                        onChange={(e) => { console.log(projects); console.log(e.target.value); setProjects(changeArray(projects, index, type, imageUrl, link, e.target.value, description)); console.log(title); }} />
+                        onChange={(e) => { setProjects(changeArray(projects, index, type, imageUrl, link, e.target.value, description)) }} />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <TextField

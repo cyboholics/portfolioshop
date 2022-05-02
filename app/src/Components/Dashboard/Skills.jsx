@@ -6,7 +6,6 @@ import { withStyles } from '@mui/styles'
 import { Stack, TextField, Button, Typography, IconButton, Slider } from '@mui/material'
 import CustomToolTip from './CustomToolTip'
 
-
 const styles = (theme) => ({
     stack: {
         marginTop: 20,

@@ -9,7 +9,7 @@ const Summary = (props) => {
   const { summary, setSummary } = React.useContext(UserDataContext)
   return (
     <TextField
-      sx={{ width: "100%" }}
+      sx={{ width: "100%", paddingBottom:1 }}
       label="Summary"
       size="medium"
       variant="standard"

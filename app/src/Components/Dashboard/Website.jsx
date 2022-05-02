@@ -35,7 +35,7 @@ const Website = (props) => {
                 <CustomToolTip placement='right' title="Fill up the website specific details">
                 </CustomToolTip>
             </Typography>
-            <Stack spacing={4}
+            <Stack spacing={3}
                 className={classes.stack}
                 direction={{ xs: 'column', md: 'row' }}>
                 <TextField
@@ -62,7 +62,6 @@ const Website = (props) => {
                             lg: '40%'
                         }
                     }}
-
                     size="medium"
                     label="Website Favicon Url"
                     variant="standard"

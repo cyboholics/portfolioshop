@@ -3,7 +3,6 @@ import axios from "axios"
 import { UserContext } from "./UserStateProvider"
 export const UserDataContext = React.createContext({})
 
-
 const UserDataStateProvider = ({ children }) => {
     const { userToken } = React.useContext(UserContext)
     const [userData, setUserData] = useState({})
@@ -16,7 +15,6 @@ const UserDataStateProvider = ({ children }) => {
     const [resume, setResume] = useState({})
     const [projects, setProjects] = useState([])
     const [contact, setContact] = useState({})
-    // Resume section components state
     const [summary, setSummary] = useState('')
     const [education, setEducation] = useState([])
     const [experience, setExperience] = useState([])
@@ -72,7 +70,6 @@ const UserDataStateProvider = ({ children }) => {
         }).then(res => {
             setUserData(res?.data?.doc?.templateData || {})
         }).catch((err) => {
-            console.log(err)
         })
     }, [userToken])
 

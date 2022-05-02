@@ -28,7 +28,6 @@ export default function UploadImage({ imageLink, onChange, width, height, circul
             onChange(url.data["uri"])
             setLoading(false)
         } catch (e) {
-            console.log(e)
         }
     }
     return (
