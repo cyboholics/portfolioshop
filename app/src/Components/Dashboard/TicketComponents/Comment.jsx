@@ -20,7 +20,6 @@ const Comment = () => {
             setMessage("Sent Request Successfully")
             setSeverity("success")
             setOpenToast(true)
-            console.log(value)
             setThread([...thread, { 'message': value, 'by': userEmail, 'timestamp': (new Date()).toJSON() }])
         } catch (error) {
             //TODO Backend Issue: Could Not Update value in 

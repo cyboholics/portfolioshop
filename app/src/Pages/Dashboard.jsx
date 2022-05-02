@@ -14,7 +14,6 @@ import TicketModal from '../Components/Dashboard/TicketModal'
 
 const Dashboard = () => {
     const { userEmail, userToken } = React.useContext(UserContext)
-    console.log(userEmail, userToken)
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)

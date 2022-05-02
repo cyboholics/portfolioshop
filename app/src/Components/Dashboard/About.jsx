@@ -28,7 +28,7 @@ const About = (props) => {
   const { classes } = props
   const { about, setAbout } = React.useContext(UserDataContext)
   const setProfilePic = (image) => {
-    setAbout({ ...about, image : image })
+    setAbout({ ...about, image: image })
   }
   return (
     <Paper>
@@ -59,7 +59,7 @@ const About = (props) => {
             InputLabelProps={{ shrink: true }}
             placeholder="Website Heading"
             value={about.heading || ''}
-            onChange={(event) => { setAbout({ ...about, heading: event.target.value }); console.log(about) }} />
+            onChange={(event) => { setAbout({ ...about, heading: event.target.value }) }} />
           <TextField
             sx={{
               width: {

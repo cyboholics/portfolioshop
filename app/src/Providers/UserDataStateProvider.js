@@ -70,7 +70,6 @@ const UserDataStateProvider = ({ children }) => {
         }).then(res => {
             setUserData(res?.data?.doc?.templateData || {})
         }).catch((err) => {
-            console.log(err)
         })
     }, [userToken])
 

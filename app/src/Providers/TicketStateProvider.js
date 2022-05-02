@@ -24,7 +24,6 @@ const TicketStateProvider = ({ children }) => {
         }
         try {
             const response = await axios(config)
-            console.log("Success" + JSON.stringify(response.data));
             return true
         } catch (error) {
             throw error
@@ -40,7 +39,6 @@ const TicketStateProvider = ({ children }) => {
         }).then((res) => {
             setUserTicket(res.data)
         }).catch((err => {
-            console.log(err)
         }))
     }, [userToken])
 
