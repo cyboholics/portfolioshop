@@ -3,7 +3,7 @@ import { TicketContext } from './../../Providers/TicketStateProvider'
 import Comment from './TicketComponents/Comment'
 import Message from './TicketComponents/Message'
 import Status from './TicketComponents/Status'
-import { Box, ListItem, Modal} from '@mui/material'
+import { Box, ListItem, Modal } from '@mui/material'
 import { withStyles } from '@mui/styles'
 import { FixedSizeList } from 'react-window'
 
@@ -24,13 +24,13 @@ const styles = (theme) => ({
 
 const TicketModal = (props) => {
     const { classes } = props
-    const { status, setStatus, thread, setThread } = React.useContext(TicketContext);
-    
+    const { status, setStatus, thread } = React.useContext(TicketContext);
+
     const renderRow = (props) => {
         const { index, style } = props;
         return (
             <ListItem style={style} key={index} component="div" disablePadding>
-               <Message key={index} message={thread[index]} />
+                <Message key={index} message={thread[index]} />
             </ListItem>
         );
     }
@@ -42,7 +42,7 @@ const TicketModal = (props) => {
                 aria-describedby="modal-modal-description"
             >
                 <Box className={classes.box}>
-                    <Status status={status} setStatus={setStatus}/>
+                    <Status status={status} setStatus={setStatus} />
                     {/* List of preious messages */}
                     <FixedSizeList
                         height={300}

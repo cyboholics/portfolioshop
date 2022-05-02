@@ -3,13 +3,13 @@ import { SnackbarContext } from './../../../Providers/SnackbarStateProvider'
 import { Button, Grid, TextField } from '@mui/material'
 import { TicketContext } from './../../../Providers/TicketStateProvider'
 
-const Comment = (props) => {
+const Comment = () => {
     const { thread, setThread, userEmail, setStatus, saveTicket } = React.useContext(TicketContext)
-    const { opneToast, setOpenToast, setMessage, setSeverity } = React.useContext(SnackbarContext)
+    const { setOpenToast, setMessage, setSeverity } = React.useContext(SnackbarContext)
     const [value, setValue] = React.useState("")
 
     const saveData = async () => {
-        if (value.trim().length == 0) {
+        if (value.trim().length === 0) {
             setValue("")
             return;
         }
@@ -32,10 +32,10 @@ const Comment = (props) => {
 
     const handleChange = (e) => setValue(e.target.value)
     const handleEnterKey = (e) => {
-        if (e.key == 'Enter') {
+        if (e.key === 'Enter') {
             saveData()
         }
-        if (e.key == ' ' && value != null && value[0] == " ") {
+        if (e.key === ' ' && value != null && value[0] === " ") {
             setValue("")
         }
     }
