@@ -3,7 +3,7 @@ import { TicketContext } from './../../Providers/TicketStateProvider'
 import Comment from './TicketComponents/Comment'
 import Message from './TicketComponents/Message'
 import Status from './TicketComponents/Status'
-import { Box, List, ListItem, Modal, Switch, Stack, Typography } from '@mui/material'
+import { Box, ListItem, Modal} from '@mui/material'
 import { withStyles } from '@mui/styles'
 import { FixedSizeList } from 'react-window'
 
@@ -54,7 +54,7 @@ const TicketModal = (props) => {
                         {renderRow}
                     </FixedSizeList>
                     {/* New Comment */}
-                    <Comment thread={thread} setThread={setThread}/>
+                    <Comment />
                 </Box>
             </Modal>
         </>
