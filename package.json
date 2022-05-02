@@ -1,7 +1,7 @@
 {
   "name": "portfolioshop",
   "version": "1.0.0",
-  "description": "This is a portfolio management system",
+  "description": "This is a open source portfolio management system, built on Azure function with Node and ReactJS",
   "main": "index.js",
   "scripts": {
     "dev-install": "npm install && cd app && npm install && cd ../ && cd api && npm install && cd ../",
