@@ -1,7 +1,7 @@
 import React from 'react'
 import { withStyles } from '@mui/styles'
 import { Container, Typography, TextField, Button, Hidden, Grid } from '@mui/material'
-import SnackbarContext from '../../context/SnackbarContext'
+import { SnackbarContext } from '../../Providers/SnackbarStateProvider'
 
 import axios from 'axios'
 
