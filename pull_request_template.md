@@ -13,10 +13,9 @@ Fixes # (issue)
 <!--- Include details of your testing environment, and the tests you ran to -->
 <!--- see how your change affects other areas of the code, etc. -->
 
-## Screenshots (if appropriate):
+## Screenshots (if appropriate)
 
-
-# Checklist:
+## Checklist
 
 - [ ] My code follows the style guidelines of this project
 - [ ] I have performed a self-review of my code
