@@ -44,8 +44,8 @@ const Aboutus = () => {
                         padding={5}>
                         <div 
                             style={{
-                                    position: relative, 
-                                    overflow: hidden, 
+                                    position: "relative", 
+                                    overflow: "hidden", 
                                     paddingTop: "56%"
                                    }}>
                             <iframe 
@@ -54,15 +54,15 @@ const Aboutus = () => {
                                 title="Portfolioshop - About us" 
                                 allow="encrypted-media; fullscreen;" 
                                 style={{
-                                       position: absolute, 
+                                       position: "absolute", 
                                        width: "100%", 
                                        height: "100%",
                                        top: 0,
                                        left: 0,
-                                       border: none,
+                                       border: "none",
                                        padding: 0,
                                        margin: 0,
-                                       overflow:hidden
+                                       overflow: "hidden"
                                       }}></iframe>
                         </div>
                     </Grid>
