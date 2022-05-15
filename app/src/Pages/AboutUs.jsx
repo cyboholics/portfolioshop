@@ -46,7 +46,7 @@ const Aboutus = () => {
                             style={{
                                     position: relative, 
                                     overflow: hidden, 
-                                    padding-top: "56%"
+                                    paddingTop: "56%"
                                    }}>
                             <iframe 
                                 src="https://share.synthesia.io/embeds/videos/749f45fe-b179-4a16-a1f9-33cf71d34035" 
