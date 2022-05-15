@@ -42,7 +42,29 @@ const Aboutus = () => {
                         md={9}
                         xs={9}
                         padding={5}>
-                        <video width="100%" controls src="https://portfolioshop.blob.core.windows.net/website-assets/about-us.mp4" />
+                        <div 
+                            style={{
+                                    position: "relative", 
+                                    overflow: "hidden", 
+                                    paddingTop: "56%"
+                                   }}>
+                            <iframe 
+                                src="https://share.synthesia.io/embeds/videos/749f45fe-b179-4a16-a1f9-33cf71d34035" 
+                                loading="lazy" 
+                                title="Portfolioshop - About us" 
+                                allow="encrypted-media; fullscreen;" 
+                                style={{
+                                       position: "absolute", 
+                                       width: "100%", 
+                                       height: "100%",
+                                       top: 0,
+                                       left: 0,
+                                       border: "none",
+                                       padding: 0,
+                                       margin: 0,
+                                       overflow: "hidden"
+                                      }}></iframe>
+                        </div>
                     </Grid>
                 </Grid>
             </Container>
