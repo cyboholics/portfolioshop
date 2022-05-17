@@ -30,6 +30,10 @@ In addition to all the utilities provided from our ideations, it has a super sim
 
 Also, in this project a diverse range of tech stack is being used, so, if you're a learner then this one is a great project to start with. You can learn a whole lot of things including microservices, databases, object storages, client-server model and many more.
 
+## Code of Conduct
+
+Follow the [Code of Conduct](https://github.com/Portfolio-Shop/portfolioshop/blob/master/CODE_OF_CONDUCT.md) and maintain the decorum. Violating the Code of Conduct will lead to ban the user from this organization.
+
 ## Contribution guidelines
 
 - Choose an issue to work on
