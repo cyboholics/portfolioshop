@@ -36,6 +36,8 @@ Follow the [Code of Conduct](https://github.com/Portfolio-Shop/portfolioshop/blo
 
 ## Contribution guidelines
 
+If you're a first time contributor or trying to learn about open source contributions and web technologies please head over to the [LEARN.mod](https://github.com/Portfolio-Shop/portfolioshop/blob/master/LEARN.md) file to get insights about the project.
+
 - Choose an issue to work on
 - Fork this repo
 - Work on the assigned issue
