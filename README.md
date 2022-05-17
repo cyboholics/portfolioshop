@@ -20,6 +20,16 @@
 [![Npm](https://badgen.net/badge/icon/npm?icon=npm&label)](https://https://npmjs.com/)
 [![Windows](https://badgen.net/badge/icon/windows?icon=windows&label)](https://microsoft.com/windows/)
 
+## What our project does?
+
+We are trying to build a website to make the process of building personal portfolios very smoother. Often we have seen students are struggling and wasting a lot of time on building their portfolio websites. To automate this process, this websites takes the data of the users, and renders them in their respective website. Visit https://www.portfolioshop.tech to try it yourself.
+
+## Why this project is useful?
+
+In addition to all the utilities provided from our ideations, it has a super simple UI that makes it even simpler to use. Most of the times, students face difficulties while building portfolio websites and end up paying a lot. If you're one of them, then we have built a free solution for you. 
+
+Also, in this project a diverse range of tech stack is being used, so, if you're a learner then this one is a great project to start with. You can learn a whole lot of things including microservices, databases, object storages, client-server model and many more.
+
 ## Contribution guidelines
 
 - Choose an issue to work on
