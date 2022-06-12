@@ -36,6 +36,7 @@ Follow the [Code of Conduct](https://github.com/Portfolio-Shop/portfolioshop/blo
 
 ## Contribution guidelines
 
+Check the [SETUP.md](./SETUP.md) file for initial setup.
 - Choose an issue to work on
 - Fork this repo
 - Work on the assigned issue
