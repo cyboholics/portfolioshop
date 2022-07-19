@@ -25,7 +25,7 @@
   "homepage": "https://github.com/Portfolio-Shop/portfolioshop#readme",
   "devDependencies": {
     "@azure/static-web-apps-cli": "^1.0.2",
-    "concurrently": "^7.2.2"
+    "concurrently": "^7.3.0"
   },
   "engines": {
     "node": "^14.19.1",
