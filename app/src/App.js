@@ -22,8 +22,8 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/team" element={<Team />} />
             <Route path="/about-us" element={<Aboutus />} />
-            <Route path="*" element={<Page404 />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="*" element={<Page404 />} />
           </Routes>
           <Snackbar />
         </SnackbarStateProvider>
