@@ -2,8 +2,28 @@ import React from 'react'
 import TeamCard from '../Components/Team/TeamCard'
 import {Container, Grid, Typography} from '@mui/material'
 import {Helmet} from 'react-helmet'
+import axios from 'axios'
 
 const Team = () => {
+    // List of contributors
+    const [contributors, setContributors] = React.useState()
+
+    React.useEffect(() => {
+        var config = {
+            method: "get",
+            url: "https://api.github.com/repos/Portfolio-Shop/portfolioshop/contributors"
+        }
+        axios(config)
+            .then((response) => {
+                const team = response.data
+                team.splice(0,2)
+                // Filtering out bots
+                setContributors(team.filter((contributor) => {
+                    return !contributor['login'].match("bot")
+                }))
+            })
+    },[])
+
     const leads = [{
         imageLink: "https://avatars.githubusercontent.com/u/74463091?v=4",
         name: "Sudip Mondal",
@@ -39,6 +59,9 @@ const Team = () => {
                 >                
                         {leads.map((lead) => {
                             return <Grid key={lead.github} item><TeamCard imageLink={lead.imageLink} name={lead.name} title={lead.title} description={lead.description} linkedin={lead.linkedin} github={lead.github} /></Grid>
+                        })}
+                        {contributors && contributors.map((contributor) => {
+                            return <Grid key={contributor['html_url']} item><TeamCard imageLink={contributor['avatar_url']} name={contributor['login']} title="Contributor" github={contributor['html_url']} /></Grid>
                         })}
                 </Grid>
             </Container>

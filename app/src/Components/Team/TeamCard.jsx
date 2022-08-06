@@ -12,7 +12,7 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 
 const TeamCard = (props) => {
     return (
-        <Card sx={{ maxWidth: 345, display:'inline-block'}}>
+        <Card sx={{ width: 345, display:'inline-block'}}>
             <CardHeader
                 avatar={
                     <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe" src={props.imageLink} />
@@ -20,17 +20,17 @@ const TeamCard = (props) => {
                 title={props.name}
                 subheader={props.title}
             />
-            <CardContent>
+            {props.description && <CardContent>
                 <Typography variant="body2" color="text.secondary" align='justify'>
                     {props.description}
                 </Typography>
-            </CardContent>
+            </CardContent>}
             <CardActions disableSpacing>
-                <a style={{ color: 'inherit', textDecoration: 'inherit' }} href={props.linkedin}>
+                {props.linkedin && <a style={{ color: 'inherit', textDecoration: 'inherit' }} href={props.linkedin}>
                     <IconButton aria-label="linkedIn">
                         <LinkedInIcon />
                     </IconButton>
-                </a>
+                </a>}
                 <a style={{ color: 'inherit', textDecoration: 'inherit' }} href={props.github}>
                     <IconButton aria-label="share">
                         <GitHubIcon />
