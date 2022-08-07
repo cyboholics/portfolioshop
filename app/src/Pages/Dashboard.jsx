@@ -1,7 +1,8 @@
 import React from 'react'
-import { Box, Container, Button } from '@mui/material'
+import { Box, Container, Button, Backdrop, CircularProgress } from '@mui/material'
 import GoogleLogoutComp from '../Components/ThirdPartyButtons/GoogleLogoutComp'
 import { UserContext } from '../Providers/UserStateProvider'
+import { UserDataContext } from '../Providers/UserDataStateProvider'
 import Website from '../Components/Dashboard/Website'
 import UserDisplayItems from '../Components/Dashboard/UserDisplayItems'
 import About from '../Components/Dashboard/About'
@@ -13,6 +14,7 @@ import Savebutton from '../Components/Dashboard/SaveButton'
 import TicketModal from '../Components/Dashboard/TicketModal'
 
 const Dashboard = () => {
+    const { loading } = React.useContext(UserDataContext)
     const { userEmail } = React.useContext(UserContext)
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true)
@@ -34,6 +36,13 @@ const Dashboard = () => {
                     </Button>
                     <TicketModal open={open} onClose={handleClose} />
                     <GoogleLogoutComp />
+                    {/* Loading screen while the user data is being fetched */}
+                    <Backdrop
+                        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                        open={loading}
+                    >
+                        <CircularProgress size={50} />
+                    </Backdrop>
                     <Website />
                     <UserDisplayItems />
                     <About />
