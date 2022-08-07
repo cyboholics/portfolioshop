@@ -22,6 +22,8 @@ const UserDataStateProvider = ({ children }) => {
     const [awards, setAwards] = useState([])
     const [publications, setPublications] = useState([])
     const [cocurricular, setCocurricular] = useState([])
+    // Loading state while fetching user data
+    const [loading, setLoading] = useState(false)
 
     const saveUserData = async () => {
         const data = JSON.stringify({
@@ -63,6 +65,7 @@ const UserDataStateProvider = ({ children }) => {
     }
 
     React.useEffect(() => {
+        setLoading(true)
         axios.get(`/api/userDataRead`,{
             headers:{
                 token: userToken
@@ -70,7 +73,7 @@ const UserDataStateProvider = ({ children }) => {
         }).then(res => {
             setUserData(res?.data?.doc?.templateData || {})
         }).catch((err) => {
-        })
+        }).finally(() => setLoading(false))
     }, [userToken])
 
     React.useEffect(() => {
@@ -115,6 +118,7 @@ const UserDataStateProvider = ({ children }) => {
             awards,
             publications,
             cocurricular,
+            loading,
             setWebsite,
             setName,
             setTagline,
