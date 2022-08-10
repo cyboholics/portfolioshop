@@ -48,7 +48,7 @@ const Team = () => {
             </Helmet>
 
             <Container sx={{marginY: 20}}>
-                <Typography variant="h1" sx={{color: "text.primary", margin: 5}} align="center">Portfolio Shop Team</Typography>
+                <Typography variant="h1" sx={{color: "text.primary", margin: "25px 0px" }} align="center">Portfolio Shop Team</Typography>
                 <Grid 
                 container
                 spacing={'5%'}
