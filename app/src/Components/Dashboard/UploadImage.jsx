@@ -8,15 +8,6 @@ import ReportGmailerrorredOutlinedIcon from '@mui/icons-material/ReportGmailerro
 import { Box } from '@mui/system'
 
 export default function UploadImage({ imageLink, onChange, width, height, circular }) {
-    // For testing on local server
-    // const [images, setImages] = React.useState([]);
-    // const onChanged = (imageList, addUpdateIndex) => {
-    //     console.log(imageList, addUpdateIndex);
-    //     setImages(imageList);
-    // };
-
-
-
     const { userToken } = React.useContext(UserContext)
     const [loading, setLoading] = React.useState(false)
     const [imageError, setImageError] = React.useState(false)
@@ -45,8 +36,8 @@ export default function UploadImage({ imageLink, onChange, width, height, circul
             <ImageUploading
                 imageList
                 multiple={false}
-                value={imageLink} //use value={images}
-                onChange={upload} //use onChange={onChanged}
+                value={imageLink} 
+                onChange={upload} 
                 dataURLKey="data_url"
             >
                 {({
@@ -102,21 +93,6 @@ export default function UploadImage({ imageLink, onChange, width, height, circul
                                     width: 30
                                 }}
                             /> : 
-                        // Earlier it was
-
-                        // imageLink && <img
-                        //     src={imageLink}
-                        //     alt="ico"
-                        //     style={{
-                        //         borderRadius: circular ? "50%" : 0
-                        //     }}
-                        //     onError={()=>{
-                        //         setImageError(true)
-                        //     }}
-                        //     width={width}
-                        //     height={height} />}
-
-                            // Updatad code below
                             <>
                             {imageList.map((image, index) => (
                             <Box marginTop={2} key={index}
@@ -129,7 +105,7 @@ export default function UploadImage({ imageLink, onChange, width, height, circul
                                 borderRadius:"4px"
                             }}>
                                 <img 
-                                src={imageLink} //use src={image['data_url]}
+                                src={imageLink} 
                                 alt="img" 
                                 width="150px" height="100px"
                                 />
