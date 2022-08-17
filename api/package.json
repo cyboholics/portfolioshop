@@ -12,7 +12,7 @@
     "axios": "^0.26.1",
     "ejs": "^3.1.7",
     "google-auth-library": "^7.14.1",
-    "mongoose": "^6.2.8",
+    "mongoose": "^6.5.2",
     "mongoose-findorcreate": "^3.0.0",
     "nodemailer": "^6.7.3",
     "nodemailer-smtp-transport": "^2.7.4",
