@@ -5,7 +5,7 @@ import {Helmet} from 'react-helmet'
 const Aboutus = () => {
     return (
         <>
-            <Helmet htmlAttributes>
+            <Helmet htmlAttributes={{}}>
                 <html lang="en" />
                 <title>About Us - Portfolio Shop: We build for you</title>
                 <meta name="description" content="We at Portfolio Shop are all about making an easy platform for students, job seekers and many others to create profile matching portfolios" />

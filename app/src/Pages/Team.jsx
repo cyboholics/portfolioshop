@@ -41,7 +41,7 @@ const Team = () => {
     }]
     return (
         <>
-            <Helmet htmlAttributes>
+            <Helmet htmlAttributes={{}}>
                 <html lang="en" />
                 <title>Team Leads - Portfolio Shop: We build for you</title>
                 <meta name="description" content="Meet the brains behind Portfolio Shop. Wouldn't it be nice to get to know more about them? Click to catch a glimpse on what they do. " />
