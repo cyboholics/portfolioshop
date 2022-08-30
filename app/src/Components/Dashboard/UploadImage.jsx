@@ -94,7 +94,7 @@ export default function UploadImage({ imageLink, onChange, width, height, circul
                                 }}
                             /> : 
                             <>
-                            {imageList.map((image, index) => (
+                            {imageList && imageList.length && imageList.map((image, index) => (
                             <Box marginTop={2} key={index}
                             sx={{
                                 display:"flex",
