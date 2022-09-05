@@ -1,15 +1,34 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "PortfolioShop",
+  "short_name": "PortfolioShop",
+  "description": "Build your portfolio management website using a free open source tool.",
+  "lang": "en",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#DDB500",
+  "background_color": "#f0f3f4",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon-256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "icon-384.png",
+      "type": "image/png",
+      "sizes": "384x384"
+    },	
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ]
 }
