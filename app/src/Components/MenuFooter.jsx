@@ -79,6 +79,9 @@ const Menufooter = (props) => {
                         <Typography variant={"body"}>
                             Ayush Tiwari : ayush@portfolioshop.tech
                         </Typography>
+                        <Typography variant={"body"}>
+                            Sundar Bhagavatula : sundar@portfolioshop.tech
+                        </Typography>
                     </Grid>
                 </Grid>
             </Container>
