@@ -48,6 +48,7 @@ const MenuAppBar = () => {
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
                             color="inherit"
+                            sx={{ padding: { xs: '0', sm: '8px' } }}
                         >
                             <MenuIcon />
                         </IconButton>
@@ -89,7 +90,7 @@ const MenuAppBar = () => {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "#ddb500" }}
+                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "#ddb500", fontSize: { xs: '16px', sm: '18px' } }}
                     >
                         PORTFOLIOSHOP
                     </Typography>
