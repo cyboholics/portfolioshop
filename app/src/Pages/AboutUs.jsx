@@ -30,7 +30,7 @@ const Aboutus = () => {
                             We have always seen that students and job seekers needs to waste a lot of
                             time on building their own portfolio website. But, it will now be a thing of past.
                             Introducing you to the best portfolio management system ever for your profile.
-                            Ayush Tiwari and Sudip Mondal, students of IIT Madras, started this as an open
+                            Ayush Tiwari, Sundar Bhagavatula and Sudip Mondal, students of IIT Madras, started this as an open
                             source project. It is lisenced under the GPL-3 and open to accept contributions.
                             If you want to try this, please try it, it's complete free to use. Feedbacks are
                             welcome, please raise an issue in our GitHub repository to do so.
