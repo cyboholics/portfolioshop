@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Container, Button, Backdrop, CircularProgress } from '@mui/material'
+import { Box, Container, Button, Backdrop, CircularProgress, Snackbar, Alert } from '@mui/material'
 import GoogleLogoutComp from '../Components/ThirdPartyButtons/GoogleLogoutComp'
 import { UserContext } from '../Providers/UserStateProvider'
 import { UserDataContext } from '../Providers/UserDataStateProvider'
@@ -14,11 +14,19 @@ import Savebutton from '../Components/Dashboard/SaveButton'
 import TicketModal from '../Components/Dashboard/TicketModal'
 
 const Dashboard = () => {
-    const { loading } = React.useContext(UserDataContext)
+    const { loading, saveStatus, setSaveStatus } = React.useContext(UserDataContext)
     const { userEmail } = React.useContext(UserContext)
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
+
+    const handleSnackBarClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setSaveStatus('');
+    };
+
     return (
         <>
             <Box sx={{ marginTop: 10 }}>
@@ -43,6 +51,11 @@ const Dashboard = () => {
                     >
                         <CircularProgress size={50} />
                     </Backdrop>
+                    <Snackbar open={saveStatus===''? false: true} autoHideDuration={6000} onClose={handleSnackBarClose}>
+                        <Alert severity={saveStatus} variant='filled' onClose={handleSnackBarClose} sx={{ width: '100%' }}>
+                            {saveStatus === 'success'? 'User data saved successfully': 'An error occurred'}
+                        </Alert>
+                    </Snackbar>
                     <Website />
                     <UserDisplayItems />
                     <About />
