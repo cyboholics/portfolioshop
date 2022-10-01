@@ -20,3 +20,13 @@ In order to help us triage and prioritize submissions, we recommend that vulnera
 ## Preferred Languages
 
 We prefer all communications to be mainly in English. 
+
+## Disclosure Policy
+
+The Portfolio Shop team takes all security vulnerabilities seriously. Thank you for improving the security of our open source project. We appreciate your efforts and responsible disclosure and will make every effort to acknowledge your contributions.
+
+When a security bug report is received, a primary handler will be assigned to it. This person will coordinate the fix, involving the following steps:
+
+- Confirm the problem and determine the affected source code.
+- Audit code to find any potential similar problems.
+- Prepare fixes for the assigned bug report.
