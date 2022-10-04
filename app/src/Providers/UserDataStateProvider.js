@@ -57,7 +57,7 @@ const UserDataStateProvider = ({ children }) => {
             data: data
         }
         try{
-            const res = await axios(config)
+            await axios(config)
             setSaveStatus('success')
             return true
         }catch(err){
