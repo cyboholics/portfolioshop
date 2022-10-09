@@ -114,7 +114,7 @@ const MenuAppBar = () => {
                             </a>
                         </Button>
                     </Box>
-                    <DonateButton buttonId={"appbar-button"}/>
+                    <DonateButton buttonId={"appbar-button"} />
                 </Toolbar>
             </Container>
         </AppBar>

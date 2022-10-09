@@ -50,17 +50,17 @@ const UserDataStateProvider = ({ children }) => {
         const config = {
             method: 'put',
             url: `/api/userDataUpdate`,
-            headers: { 
+            headers: {
                 'Content-Type': 'application/json',
                 'token': userToken
             },
             data: data
         }
-        try{
+        try {
             await axios(config)
             setSaveStatus('success')
             return true
-        }catch(err){
+        } catch (err) {
             setSaveStatus('error')
             return false
         }
@@ -68,8 +68,8 @@ const UserDataStateProvider = ({ children }) => {
 
     React.useEffect(() => {
         setLoading(true)
-        axios.get(`/api/userDataRead`,{
-            headers:{
+        axios.get(`/api/userDataRead`, {
+            headers: {
                 token: userToken
             }
         }).then(res => {

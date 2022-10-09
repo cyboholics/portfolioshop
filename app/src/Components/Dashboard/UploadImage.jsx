@@ -10,9 +10,9 @@ export default function UploadImage({ imageLink, onChange, width, height, circul
     const { userToken } = React.useContext(UserContext)
     const [loading, setLoading] = React.useState(false)
     const [imageError, setImageError] = React.useState(false)
-    React.useEffect(()=>{
+    React.useEffect(() => {
         setImageError(false)
-    },[imageLink])
+    }, [imageLink])
     const upload = async (link) => {
         const dataURI = link[0]["data_url"]
         try {
@@ -47,8 +47,8 @@ export default function UploadImage({ imageLink, onChange, width, height, circul
                     <Stack sx={{
                         marginTop: 1,
                     }}
-                    direction={"row"}
-                    spacing={2}
+                        direction={"row"}
+                        spacing={2}
                     >
                         <Button
                             variant="outlined"
@@ -61,9 +61,9 @@ export default function UploadImage({ imageLink, onChange, width, height, circul
                                 Upload
                             </Typography>
                         </Button>
-                        {loading ? <CircularProgress 
-                            size={Math.min(40,width,height)}
-                        />: imageError? <ReportGmailerrorredOutlinedIcon
+                        {loading ? <CircularProgress
+                            size={Math.min(40, width, height)}
+                        /> : imageError ? <ReportGmailerrorredOutlinedIcon
                             color="error"
                             sx={{
                                 height: 30,
@@ -75,7 +75,7 @@ export default function UploadImage({ imageLink, onChange, width, height, circul
                             style={{
                                 borderRadius: circular ? "50%" : 0
                             }}
-                            onError={()=>{
+                            onError={() => {
                                 setImageError(true)
                             }}
                             width={width}

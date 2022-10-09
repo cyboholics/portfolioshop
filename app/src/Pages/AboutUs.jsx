@@ -1,6 +1,6 @@
 import { Typography, Grid, Container } from '@mui/material'
 import React from 'react'
-import {Helmet} from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
 const Aboutus = () => {
     return (
@@ -10,7 +10,7 @@ const Aboutus = () => {
                 <title>About Us - Portfolio Shop: We build for you</title>
                 <meta name="description" content="We at Portfolio Shop are all about making an easy platform for students, job seekers and many others to create profile matching portfolios" />
             </Helmet>
-            <Container sx={{marginTop:20}}>
+            <Container sx={{ marginTop: 20 }}>
                 <Typography variant={"h4"} align="center" marginTop={5}>About Us</Typography>
                 <Grid
                     container
@@ -42,28 +42,28 @@ const Aboutus = () => {
                         md={9}
                         xs={9}
                         padding={5}>
-                        <div 
+                        <div
                             style={{
-                                    position: "relative", 
-                                    overflow: "hidden", 
-                                    paddingTop: "56%"
-                                   }}>
-                            <iframe 
-                                src="https://share.synthesia.io/embeds/videos/749f45fe-b179-4a16-a1f9-33cf71d34035" 
-                                loading="lazy" 
-                                title="Portfolioshop - About us" 
-                                allow="encrypted-media; fullscreen;" 
+                                position: "relative",
+                                overflow: "hidden",
+                                paddingTop: "56%"
+                            }}>
+                            <iframe
+                                src="https://share.synthesia.io/embeds/videos/749f45fe-b179-4a16-a1f9-33cf71d34035"
+                                loading="lazy"
+                                title="Portfolioshop - About us"
+                                allow="encrypted-media; fullscreen;"
                                 style={{
-                                       position: "absolute", 
-                                       width: "100%", 
-                                       height: "100%",
-                                       top: 0,
-                                       left: 0,
-                                       border: "none",
-                                       padding: 0,
-                                       margin: 0,
-                                       overflow: "hidden"
-                                      }}></iframe>
+                                    position: "absolute",
+                                    width: "100%",
+                                    height: "100%",
+                                    top: 0,
+                                    left: 0,
+                                    border: "none",
+                                    padding: 0,
+                                    margin: 0,
+                                    overflow: "hidden"
+                                }}></iframe>
                         </div>
                     </Grid>
                 </Grid>
