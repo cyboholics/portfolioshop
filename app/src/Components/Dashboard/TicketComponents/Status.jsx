@@ -7,22 +7,22 @@ const Status = (props) => {
     //TODO: Complete Status Switch UI
     return (
         <Stack>
-        <Typography>
-            Resolve Status
-        </Typography>
-        <Stack direction="row">
             <Typography>
-                Closed
+                Resolve Status
             </Typography>
-            <Switch
-                checked={status}
-                onChange={handleChange}
-                inputProps={{ 'aria-label': 'controlled' }}
-            />
-            <Typography sx={{ marginTop: 1 }}>
-                Open
-            </Typography>
-        </Stack>
+            <Stack direction="row">
+                <Typography>
+                    Closed
+                </Typography>
+                <Switch
+                    checked={status}
+                    onChange={handleChange}
+                    inputProps={{ 'aria-label': 'controlled' }}
+                />
+                <Typography sx={{ marginTop: 1 }}>
+                    Open
+                </Typography>
+            </Stack>
         </Stack >
     )
 }

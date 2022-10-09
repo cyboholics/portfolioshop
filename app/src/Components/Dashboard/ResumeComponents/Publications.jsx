@@ -91,7 +91,7 @@ const Publications = (props) => {
   const { classes } = props
   const { publications, setPublications } = React.useContext(UserDataContext)
   useEffect(() => {
-    if (publications.length === 0) setPublications([{ title: "", gist: "", period: ""}])
+    if (publications.length === 0) setPublications([{ title: "", gist: "", period: "" }])
   })
   return (
     <>

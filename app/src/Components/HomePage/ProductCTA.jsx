@@ -91,7 +91,7 @@ const ProductCTA = (props) => {
                             src="/productCTA.webp"
                             alt="call to action"
                             className={classes.image}
-                            width= {'100%'}
+                            width={'100%'}
                             height={'auto'}
                         />
                     </Hidden>

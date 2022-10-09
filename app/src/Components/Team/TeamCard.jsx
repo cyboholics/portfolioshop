@@ -8,11 +8,11 @@ import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import { red } from '@mui/material/colors'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
-import GitHubIcon from '@mui/icons-material/GitHub' 
+import GitHubIcon from '@mui/icons-material/GitHub'
 
 const TeamCard = (props) => {
     return (
-        <Card sx={{ width: 345, display:'inline-block'}}>
+        <Card sx={{ width: 345, display: 'inline-block' }}>
             <CardHeader
                 avatar={
                     <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe" src={props.imageLink} />
