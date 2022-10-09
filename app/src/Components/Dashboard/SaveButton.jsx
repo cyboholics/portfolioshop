@@ -6,20 +6,18 @@ import { UserDataContext } from '../../Providers/UserDataStateProvider'
 const Savebutton = () => {
     const { saveUserData } = React.useContext(UserDataContext)
     return (
-        <div style={{ textAlign: 'center' }}>
-            <Button variant="contained" 
-                onClick={saveUserData}
-                sx={{
-                    position: "fixed",
-                    bottom: 50,
-                    right: 50,
-                    backgroundColor: "#aaaaff"
-                }}
-                size="large"
-                startIcon={<SaveIcon />}>
-                Save
-            </Button>
-        </div>
+        <Button variant="contained" 
+            onClick={saveUserData}
+            sx={{
+                position: "fixed",
+                bottom: 50,
+                right: 50,
+                backgroundColor: "#aaaaff"
+            }}
+            size="large"
+            startIcon={<SaveIcon />}>
+            Save
+        </Button>
     );
 }
 
