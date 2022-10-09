@@ -9,9 +9,11 @@ const Savebutton = () => {
         <div style={{ textAlign: 'center' }}>
             <Button variant="contained" 
                 onClick={saveUserData}
-                color="info"
                 sx={{
-                    marginBottom: 5
+                    position: "fixed",
+                    bottom: 50,
+                    right: 50,
+                    backgroundColor: "#aaaaff"
                 }}
                 size="large"
                 startIcon={<SaveIcon />}>
