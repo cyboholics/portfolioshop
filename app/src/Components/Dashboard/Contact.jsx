@@ -42,7 +42,8 @@ const Contact = (props) => {
                     sx={{
                         marginTop: 1,
                         marginBottom: 1,
-                        flexDirection: 'row-reverse'
+                        flexDirection: 'row-reverse',
+                        fontSize: 11
                     }}
                     onClick={handleToggle}
                     variant="outlined"

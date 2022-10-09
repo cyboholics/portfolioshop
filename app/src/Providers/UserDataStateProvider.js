@@ -24,6 +24,8 @@ const UserDataStateProvider = ({ children }) => {
     const [cocurricular, setCocurricular] = useState([])
     // Loading state while fetching user data
     const [loading, setLoading] = useState(false)
+    // User data saving status, to display appropriate snackbar message
+    const [saveStatus, setSaveStatus] = useState('')
 
     const saveUserData = async () => {
         const data = JSON.stringify({
@@ -55,11 +57,11 @@ const UserDataStateProvider = ({ children }) => {
             data: data
         }
         try{
-            const res = await axios(config)
-            alert(JSON.stringify(res.data))
+            await axios(config)
+            setSaveStatus('success')
             return true
         }catch(err){
-            alert(err)
+            setSaveStatus('error')
             return false
         }
     }
@@ -119,6 +121,7 @@ const UserDataStateProvider = ({ children }) => {
             publications,
             cocurricular,
             loading,
+            saveStatus,
             setWebsite,
             setName,
             setTagline,
@@ -134,7 +137,8 @@ const UserDataStateProvider = ({ children }) => {
             setPor,
             setAwards,
             setPublications,
-            setCocurricular
+            setCocurricular,
+            setSaveStatus
         }}
         >
             {children}

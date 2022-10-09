@@ -38,6 +38,13 @@ const Team = () => {
         description: "Organization admin and backend engineer at portfolioshop. Experienced in enoromous domains of software including App dev, Machine Learning, Web Dev, DevOps etc.",
         linkedin: "https://www.linkedin.com/in/ayush-tiwari26/",
         github: "https://github.com/ayush-tiwari26"
+    },{
+        imageLink: "https://media-exp1.licdn.com/dms/image/C5603AQH143MPyxu56Q/profile-displayphoto-shrink_800_800/0/1594748295110?e=1668643200&v=beta&t=5tp0UAabveCsQzmn5yE8S_in32oDBrWM2OOI-DimOOE",
+        name: "Sundar Bhagavatula",
+        title: "Tech Lead",
+        description: "Organization admin and React engineer at portfolioshop. Interested in different software domains.",
+        linkedin: "https://www.linkedin.com/in/sundar-bhagavatula-b7b7ab1aa/",
+        github: "https://github.com/sundarbsb"
     }]
     return (
         <>
@@ -48,7 +55,7 @@ const Team = () => {
             </Helmet>
 
             <Container sx={{marginY: 20}}>
-                <Typography variant="h1" sx={{color: "text.primary", margin: 5}} align="center">Portfolio Shop Team</Typography>
+                <Typography variant="h1" sx={{color: "text.primary", margin: "25px 0px" }} align="center">Portfolio Shop Team</Typography>
                 <Grid 
                 container
                 spacing={'5%'}

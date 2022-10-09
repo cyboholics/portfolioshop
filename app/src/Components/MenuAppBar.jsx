@@ -48,6 +48,7 @@ const MenuAppBar = () => {
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
                             color="inherit"
+                            sx={{ padding: { xs: '0', sm: '8px' } }}
                         >
                             <MenuIcon />
                         </IconButton>
@@ -79,9 +80,9 @@ const MenuAppBar = () => {
                                 </MenuItem>
                             ))}
                             <MenuItem onClick={handleCloseNavMenu}>
-                                <Link style={{ color: 'inherit', textDecoration: 'inherit' }} to={"https://github.com/Portfolio-Shop/portfolioshop"}>
+                                <a style={{ color: 'inherit', textDecoration: 'inherit' }} href={"https://github.com/Portfolio-Shop/portfolioshop"} rel="noopener noreferrer" target="_blank">
                                     <Typography textAlign="center">SOURCE</Typography>
-                                </Link>
+                                </a>
                             </MenuItem>
                         </Menu>
                     </Box>
@@ -89,7 +90,7 @@ const MenuAppBar = () => {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "#ddb500" }}
+                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "#ddb500", fontSize: { xs: '16px', sm: '18px' } }}
                     >
                         PORTFOLIOSHOP
                     </Typography>
@@ -108,7 +109,7 @@ const MenuAppBar = () => {
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'white', display: 'block' }}
                         >
-                            <a style={{ color: 'white', textDecoration: 'inherit' }} href={"https://github.com/Portfolio-Shop/portfolioshop"}>
+                            <a style={{ color: 'white', textDecoration: 'inherit' }} href={"https://github.com/Portfolio-Shop/portfolioshop"} rel="noopener noreferrer" target="_blank">
                                 {"Source Code"}
                             </a>
                         </Button>
