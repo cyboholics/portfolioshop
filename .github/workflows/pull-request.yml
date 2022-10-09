@@ -1,0 +1,18 @@
+on: 
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  pr_comment:
+    runs-on: ubuntu-latest
+    name: PR welcome comment.
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v1
+        with:
+          message: "Hi 🙌. Thanks for your contribution. Please make sure you've followed the contribution guidelines."
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
