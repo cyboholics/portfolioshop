@@ -1,3 +1,5 @@
+name: PR Greeting
+
 on: 
   pull_request:
     branches:
@@ -6,6 +8,8 @@ on:
 jobs:
   pr_comment:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     name: PR welcome comment.
     steps:
       - name: Checkout
