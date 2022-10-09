@@ -1,4 +1,4 @@
-name: issue-checklist
+name: Issues Greeting
 
 on:
   issues:
@@ -7,7 +7,8 @@ on:
 jobs:
   issue_comment:
     runs-on: ubuntu-latest
-
+    permissions:
+      issues: write
     steps:
     - uses: ben-z/actions-comment-on-issue@1.0.2
       with:
