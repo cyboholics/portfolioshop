@@ -15,7 +15,9 @@ jobs:
            node-version: "14.x"
 
        - name: Install
-         run: npm ci && npm i -g http-server @lhci/cli
+         run: npm install
 
        - name: LighthouseCI
-         run: lhci autorun
+         run: |
+          npm install -g @lhci/cli@0.8.x
+          lhci autorun
