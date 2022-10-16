@@ -11,7 +11,7 @@ jobs:
       - name: install packages
         run: npm run dev-install
       - name: start server
-        run: npm start
+        run: npm run start-dev
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v9
         with:
