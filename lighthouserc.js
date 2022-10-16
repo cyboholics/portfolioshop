@@ -6,7 +6,17 @@ module.exports = {
       ],
       "startServerCommand": "npx swa start",
       "startServerReadyPattern": "webpack compiled successfully",
-      "numberOfRuns": 1
+      "numberOfRuns": 1,
+      "settings": {
+        "skipAudits": ['is-cralwable'],
+        "useThrottling": true,
+        "onlyCategories": [
+            'performance',
+            'accessibility',
+            'best-practices',
+            'seo'
+        ],
+      }
     },
     "passes": [{
       "passName": 'defaultPass', 
