@@ -13,9 +13,13 @@ jobs:
          uses: actions/setup-node@v1
          with:
            node-version: "14.x"
+       - name: Start MongoDB
+         uses: supercharge/mongodb-github-action@1.8.0
+         with:
+          mongodb-version: 4.0
 
-       - name: Install
-         run: npm run dev-install
+       - name: Setup
+         run: . setup.sh
 
        - name: LighthouseCI
          run: |
