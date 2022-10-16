@@ -4,18 +4,21 @@ on:
     branches: 
       - master
 jobs:
-  lighthouse:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: install packages
-        run: npm run dev-install
-      - name: start server
-        run: npm run start-dev
-      - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@v9
-        with:
-          urls: |
-            http://localhost:4280
-          uploadArtifacts: true # save results as an action artifacts
-          temporaryPublicStorage: true # upload lighthouse report to the temporary storage
+   lighthouse:
+     runs-on: ubuntu-latest
+     steps:
+       - uses: actions/checkout@v2
+
+       - name: Setup node
+         uses: actions/setup-node@v1
+         with:
+           node-version: "14.x"
+
+       - name: Install
+         run: npm ci && npm i -g http-server @lhci/cli
+
+       - name: Build
+         run: npm run build
+
+       - name: LighthouseCI
+         run: lhci autorun
