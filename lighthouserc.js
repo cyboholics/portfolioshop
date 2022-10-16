@@ -4,7 +4,7 @@ module.exports = {
       "url": [
         "http://127.0.0.1:4280"
       ],
-      "startServerCommand": "npm run start-swa",
+      "startServerCommand": "npm run start",
       "startServerReadyPattern": "webpack compiled with",
       "numberOfRuns": 1
     },
