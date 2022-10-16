@@ -17,13 +17,14 @@ jobs:
          uses: supercharge/mongodb-github-action@1.8.0
          with:
           mongodb-version: 4.0
-       - name: npm setup
-         run: |
-          npm install -g npm@latest
-          npm install -g @lhci/cli
-          npm install -g azure-functions-core-tools
-       - name: Setup
-         run: . setup.sh
 
+       - name: Setup
+         run:|
+          . setup.sh
+          npm install -g @lhci/cli
+
+       - name: 
+         run: npx swa build
+       
        - name: LighthouseCI
          run: lhci autorun
