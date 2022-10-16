@@ -8,7 +8,7 @@
     "start-api": "cd api && npm start",
     "start-app": "cd app && npm start",
     "start-dev": "concurrently \"npm:start-app\" \"npm:start-api\"",
-    "start-swa": "swa start http://localhost:3000 --api-location http://localhost:7071 --open",
+    "start-swa": "swa start http://localhost:3000 --api-location http://localhost:7071 --run \"npm run start-dev\"",
     "start": "swa start http://localhost:3000 --api-location http://localhost:7071 --open --run \"npm run start-dev\" --devserver-timeout=600000",
     "test": "jest"
   },
