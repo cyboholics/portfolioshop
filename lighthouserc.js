@@ -4,9 +4,19 @@ module.exports = {
       "url": [
         "http://127.0.0.1:4280"
       ],
-      "startServerCommand": "npm run start",
-      "startServerReadyPattern": "webpack compiled with",
-      "numberOfRuns": 1
+      "startServerCommand": "npx swa start",
+      "startServerReadyPattern": "webpack compiled successfully",
+      "numberOfRuns": 1,
+      "settings": {
+        "skipAudits": ['is-cralwable'],
+        "useThrottling": true,
+        "onlyCategories": [
+            'performance',
+            'accessibility',
+            'best-practices',
+            'seo'
+        ],
+      }
     },
     "passes": [{
       "passName": 'defaultPass', 
@@ -14,9 +24,6 @@ module.exports = {
     }],
     "upload": {
       "target": "temporary-public-storage"
-    },
-    "assert": {
-      "preset": "lighthouse:recommended",
     }
   }
 }
