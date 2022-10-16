@@ -1,0 +1,29 @@
+name: Lighthouse CI
+on: 
+  pull_request:
+    branches: 
+      - master
+jobs:
+   lighthouse:
+     runs-on: ubuntu-latest
+     steps:
+       - uses: actions/checkout@v2
+
+       - name: Setup node
+         uses: actions/setup-node@v1
+         with:
+           node-version: "14.x"
+       - name: Start MongoDB
+         uses: supercharge/mongodb-github-action@1.8.0
+         with:
+          mongodb-version: 4.0
+       - name: npm setup
+         run: |
+          npm install -g npm@latest
+          npm install -g @lhci/cli
+          npm install -g azure-functions-core-tools
+       - name: Setup
+         run: . setup.sh
+
+       - name: LighthouseCI
+         run: lhci autorun
