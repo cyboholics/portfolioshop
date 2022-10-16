@@ -29,3 +29,9 @@ jobs:
        
        - name: LighthouseCI
          run: lhci autorun
+      
+       - name: upload results as artifacts
+         uses: actions/upload-artifact@v3
+         with:
+          name: lighthouse-results
+          path: .lighthouseci
