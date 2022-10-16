@@ -1,5 +1,4 @@
-npm i npm@6.14.16
-npm i -g node@14.19.1
+npm i npm@latest
 npm run dev-install 
 cd api && rm -f local.settings.json && touch local.settings.json 
 echo '{'>>local.settings.json 
