@@ -20,5 +20,5 @@ jobs:
        - name: LighthouseCI
          run: |
           npm install -g @lhci/cli@0.8.x
-          npm install -g @azure-functions-core-tools
+          npm install -g azure-functions-core-tools
           lhci autorun
