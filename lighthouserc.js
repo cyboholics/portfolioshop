@@ -8,6 +8,10 @@ module.exports = {
       "startServerReadyPattern": "webpack compiled with",
       "numberOfRuns": 1
     },
+    "passes": [{
+      "passName": 'defaultPass', 
+      "pauseAfterLoadMs": 10000
+    }],
     "upload": {
       "target": "temporary-public-storage"
     },
