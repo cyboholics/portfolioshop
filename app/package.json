@@ -51,6 +51,6 @@
     "react-scripts/eslint-webpack-plugin": "2.4.1"
   },
   "overrides": {
-    "nth-check": "^2.0.1" 
+    "nth-check": "^2.0.1"
   }
 }
