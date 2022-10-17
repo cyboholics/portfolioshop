@@ -23,14 +23,7 @@
     "type": "git",
     "url": "https://github.com/sudip-mondal-2002/portfolioshopMicros.git"
   },
-  "engines": {
-    "node": "^14.19.1",
-    "npm": "^8.19.2"
-  },
   "devDependencies": {
     "azure-functions-core-tools": "^3.0.4484"
-  },
-  "overrides": {
-    "underscore": "^1.12.1"
   }
 }

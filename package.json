@@ -4,7 +4,7 @@
   "description": "This is a open source portfolio management system, built on Azure function with Node and ReactJS",
   "main": "index.js",
   "scripts": {
-    "dev-install": "npm install && cd app && npm install --force && cd ../ && cd api && npm install && cd ../",
+    "dev-install": "npm install && cd app && npm install && cd ../ && cd api && npm install && cd ../",
     "start-api": "cd api && npm start",
     "start-app": "cd app && npm start",
     "start-dev": "concurrently \"npm:start-app\" \"npm:start-api\"",
@@ -25,16 +25,5 @@
   "devDependencies": {
     "@azure/static-web-apps-cli": "^1.0.3",
     "concurrently": "^7.3.0"
-  },
-  "engines": {
-    "node": "^14.19.1",
-    "npm": "^8.19.2"
-  },
-  "dependencies": {
-    "@lhci/cli": "^0.9.0",
-    "npm": "^8.19.2"
-  },
-  "overrides": {
-    "got": "^12.1.0"
   }
 }
