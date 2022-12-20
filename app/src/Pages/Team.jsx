@@ -24,15 +24,7 @@ const Team = () => {
             })
     }, [])
 
-    const leads = [
-         {
-        imageLink: "https://media-exp1.licdn.com/dms/image/C5603AQH143MPyxu56Q/profile-displayphoto-shrink_800_800/0/1594748295110?e=1668643200&v=beta&t=5tp0UAabveCsQzmn5yE8S_in32oDBrWM2OOI-DimOOE",
-        name: "Sundar Bhagavatula",
-        title: "Tech Lead",
-        description: "Organization admin and React engineer at portfolioshop. Interested in different software domains.",
-        linkedin: "https://www.linkedin.com/in/sundar-bhagavatula-b7b7ab1aa/",
-        github: "https://github.com/sundarbsb"
-    },{
+    const leads = [{
         imageLink: "https://avatars.githubusercontent.com/u/74463091?v=4",
         name: "Sudip Mondal",
         title: "Tech Lead",
