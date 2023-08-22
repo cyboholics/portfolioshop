@@ -97,15 +97,13 @@ const Menufooter = (props) => {
                     </Grid>
                     <Grid item lg={4} md={4} sm={12}>
                         <Typography variant={'h5'}>Contacts</Typography>
+                        <br />
                         <Typography variant={'body'}>
                             Sudip Mondal : sudip@portfolioshop.tech
                         </Typography>
                         <br />
                         <Typography variant={'body'}>
                             Ayush Tiwari : ayush@portfolioshop.tech
-                        </Typography>
-                        <Typography variant={'body'}>
-                            Sundar Bhagavatula : sundar@portfolioshop.tech
                         </Typography>
                     </Grid>
                 </Grid>
