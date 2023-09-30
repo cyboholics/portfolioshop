@@ -23,8 +23,7 @@
 
 ## What our project does?
 
-We are trying to build a website to make the process of building personal portfolios easier. Often we have seen students struggle and waste their time building their portfolio websites. To automate this process, our website collects data from a user and renders a portfolio for their website. Visit https://www.portfolioshop.tech to try it yourself.
-
+We are trying to build a website to make the process of building personal portfolios easier. Often we have seen students struggle and waste their time building their portfolio websites. To automate this process, our website collects data from a user and renders a portfolio for their website.
 ## Why this project is useful?
 
 In addition to all the utilities provided from our ideations, it has a super simple UI that makes it even simpler to use. Most of the times, students face difficulties while building portfolio websites and end up paying a lot. If you're one of them, then we have built a free solution for you. 
